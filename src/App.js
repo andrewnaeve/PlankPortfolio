@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import logo from './logo.svg';
 import Title from './components/Title';
 import Navbar from './components/Navbar';
+import Portfolio from './components/Portfolio';
 
 const Body = styled.div`
-	position: relative;
+	margin: 10px 10px 10px 10px;
 	height: 100%;
-	background-color: #f9f9f9;
 `;
+
+// background-color: #f9f9f9;
 
 class App extends Component {
 	render() {
@@ -16,6 +18,7 @@ class App extends Component {
 			<Body>
 				<Title />
 				<Navbar />
+				<Portfolio />
 			</Body>
 		);
 	}

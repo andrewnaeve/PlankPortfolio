@@ -27,13 +27,13 @@ const Navbar = () =>
 	<NavContainer>
 		<NavList>
 			<Item>
-				<StyledLink to="/Selected-Works">SELECT WORKS</StyledLink>
+				<StyledLink to="/Selected-Works">Selected Works</StyledLink>
 			</Item>
 			<Item>
-				<StyledLink to="/Biography">BIOGRAPHY</StyledLink>
+				<StyledLink to="/Biography">Biography</StyledLink>
 			</Item>
 			<Item>
-				<StyledLink to="/Dates">DATES</StyledLink>
+				<StyledLink to="/Curriculum-Vitae">CV</StyledLink>
 			</Item>
 		</NavList>
 	</NavContainer>;
