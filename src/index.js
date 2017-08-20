@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import './index.css';
 import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
-
 import registerServiceWorker from './registerServiceWorker';
 
 render(

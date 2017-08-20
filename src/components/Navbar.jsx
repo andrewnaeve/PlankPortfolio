@@ -1,2 +1,41 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-dom';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+const NavContainer = styled.nav`
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+`;
+const NavList = styled.ul`display: flex;`;
+
+const Item = styled.li`
+	display: flex;
+	margin-top: 10px;
+	margin-bottom: 10px;
+`;
+
+const StyledLink = styled(Link)`
+	font-family: 'Abel', sans-serif;	
+	font-size: 20px;
+	margin: 0px 15px 0px 15px;
+	color: #A9A9A9;
+	text-decoration: none;
+`;
+
+const Navbar = () =>
+	<NavContainer>
+		<NavList>
+			<Item>
+				<StyledLink to="/Selected-Works">SELECT WORKS</StyledLink>
+			</Item>
+			<Item>
+				<StyledLink to="/Biography">BIOGRAPHY</StyledLink>
+			</Item>
+			<Item>
+				<StyledLink to="/Dates">DATES</StyledLink>
+			</Item>
+		</NavList>
+	</NavContainer>;
+
+export default Navbar;
