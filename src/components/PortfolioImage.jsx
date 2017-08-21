@@ -15,7 +15,7 @@ const AnimatedDiv = styled(Animated.div)`
 const Image = styled.img`
 	display: flex;
 	justify-content: center;
-	max-height: 1100px;
+	max-height: 900px;
 	max-width: 100%;
 	height: auto;
 	width: auto;
@@ -34,10 +34,20 @@ class PortfolioImage extends Component {
 		ImageProperties.forEach(value => {
 			this.animatedEntry[value] = new Animated.Value(0);
 		});
+		this.state = {
+			image1: false,
+			image2: false,
+			done: false
+		};
 	}
 
-	componentDidMount() {
-		this.animate();
+	componentDidUpdate() {
+		if (this.state.image1 && this.state.image2 && !this.state.done) {
+			this.animate();
+			this.setState({
+				done: true
+			});
+		}
 	}
 
 	animate() {
@@ -57,6 +67,23 @@ class PortfolioImage extends Component {
 		Animated.sequence(animations).start();
 	}
 
+	imageDone(i) {
+		switch (i) {
+			case 0:
+				this.setState({
+					image1: true
+				});
+				break;
+			case 1:
+				this.setState({
+					image2: true
+				});
+				break;
+			default:
+				return;
+		}
+	}
+
 	render() {
 		const Animation = ImageProperties.map((x, i) => {
 			return (
@@ -68,7 +95,10 @@ class PortfolioImage extends Component {
 							.animatedEntry[x]}px)`
 					}}
 				>
-					<Image src={ImageProperties[i]} />
+					<Image
+						src={ImageProperties[i]}
+						onLoad={() => this.imageDone(i)}
+					/>
 				</AnimatedDiv>
 			);
 		});

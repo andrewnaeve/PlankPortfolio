@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavContainer = styled.nav`
 	display: flex;
@@ -15,25 +15,38 @@ const Item = styled.li`
 	margin-bottom: 10px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(NavLink)`
 	font-family: 'Abel', sans-serif;	
 	font-size: 20px;
 	margin: 0px 15px 0px 15px;
 	color: #A9A9A9;
 	text-decoration: none;
+	&:hover{
+		color: #747D7D
+	}
+
 `;
 
 const Navbar = () =>
 	<NavContainer>
 		<NavList>
 			<Item>
-				<StyledLink to="/Selected-Works">Selected Works</StyledLink>
+				<StyledLink to="/Selected-Works" activeStyle={{ color: 'red' }}>
+					Selected Works
+				</StyledLink>
 			</Item>
 			<Item>
-				<StyledLink to="/Biography">Biography</StyledLink>
+				<StyledLink to="/Biography" activeStyle={{ color: 'red' }}>
+					Biography
+				</StyledLink>
 			</Item>
 			<Item>
-				<StyledLink to="/Curriculum-Vitae">CV</StyledLink>
+				<StyledLink
+					to="/Curriculum-Vitae"
+					activeStyle={{ color: 'red' }}
+				>
+					CV
+				</StyledLink>
 			</Item>
 		</NavList>
 	</NavContainer>;
