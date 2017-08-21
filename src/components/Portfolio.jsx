@@ -12,7 +12,9 @@ const OuterContainer = styled.div`
 
 const Portfolio = () =>
 	<OuterContainer>
-		<PortfolioImage />,
+		{ImageProperties.map((x, i) =>
+			<PortfolioImage key={i} url={ImageProperties[i]} />
+		)}
 	</OuterContainer>;
 
 export default Portfolio;

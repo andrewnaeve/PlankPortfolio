@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Animated from 'animated/lib/targets/react-dom';
 import Easing from 'animated/lib/Easing';
-import ImageProperties from './ImageProperties';
 
 const AnimatedDiv = styled(Animated.div)`
 	display: flex;
+	border-radius: 2px;
 	justify-content: center;
 	width: 100%;
 	margin-top: 50px;
 `;
+
+// const Wrapper = styled.div`
+// 	display: flex;
+// 	justify-content: center;
+// `;
 
 const Image = styled.img`
 	display: flex;
@@ -20,93 +25,53 @@ const Image = styled.img`
 	height: auto;
 	width: auto;
 	border: 1px solid #f0f0f0;
-	border-radius: 5px;
+	border-radius: 3px;
 `;
 
 class PortfolioImage extends Component {
 	constructor(props) {
 		super(props);
-		this.animatedOpacity = [];
-		ImageProperties.forEach(value => {
-			this.animatedOpacity[value] = new Animated.Value(0);
-		});
-		this.animatedEntry = [];
-		ImageProperties.forEach(value => {
-			this.animatedEntry[value] = new Animated.Value(0);
-		});
-		this.state = {
-			image1: false,
-			image2: false,
-			done: false
-		};
+
+		this.opaqueAnimation = new Animated.Value(0);
+		this.slideAnimation = new Animated.Value(0);
 	}
 
-	componentDidUpdate() {
-		if (this.state.image1 && this.state.image2 && !this.state.done) {
-			this.animate();
-			this.setState({
-				done: true
-			});
-		}
-	}
-
-	animate() {
-		const animations = ImageProperties.map(item => {
-			return Animated.parallel([
-				Animated.timing(this.animatedOpacity[item], {
-					toValue: 1,
-					duration: 1000
-				}),
-				Animated.timing(this.animatedEntry[item], {
-					toValue: -15,
-					duration: 1000,
-					easing: Easing.elastic(1)
-				})
-			]);
-		});
-		Animated.sequence(animations).start();
-	}
-
-	imageDone(i) {
-		switch (i) {
-			case 0:
-				this.setState({
-					image1: true
-				});
-				break;
-			case 1:
-				this.setState({
-					image2: true
-				});
-				break;
-			default:
-				return;
-		}
-	}
+	animate = () => {
+		this.opaqueAnimation.setValue(0);
+		this.slideAnimation.setValue(0);
+		Animated.parallel([
+			Animated.timing(this.opaqueAnimation, {
+				toValue: 1,
+				duration: 1000,
+				easing: Easing.ease
+			}),
+			Animated.timing(this.slideAnimation, {
+				toValue: -10,
+				duration: 900,
+				easing: Easing.elastic(1)
+			})
+		]).start();
+	};
 
 	render() {
-		const Animation = ImageProperties.map((x, i) => {
-			return (
-				<AnimatedDiv
-					key={ImageProperties[i]}
-					style={{
-						opacity: this.animatedOpacity[x],
-						transform: Animated.template`translateY(${this
-							.animatedEntry[x]}px)`
-					}}
-				>
-					<Image
-						src={ImageProperties[i]}
-						onLoad={() => this.imageDone(i)}
-					/>
-				</AnimatedDiv>
-			);
+		const op = this.opaqueAnimation.interpolate({
+			inputRange: [0, 1],
+			outputRange: [0, 1]
+		});
+		const sl = this.slideAnimation.interpolate({
+			inputRange: [0, 1],
+			outputRange: [0, 1]
 		});
 
 		return (
-			<div>
-				{Animation}
-			</div>
+			<AnimatedDiv
+				style={{
+					transform: Animated.template`translateY(${sl}px)`,
+					opacity: op
+				}}
+			>
+				<Image src={this.props.url} onLoad={this.animate} />
+			</AnimatedDiv>
 		);
 	}
 }
