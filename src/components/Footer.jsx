@@ -25,7 +25,7 @@ const Copyright = styled.div`
 	justify-content: center;
 `;
 
-const Instagram = styled(Link)`
+const Instagram = styled.a`
 	flex: 1;
 	display: flex;
 	padding-right: 30px;
@@ -39,7 +39,7 @@ const Footer = () => {
 			<Copyright>
 				Copyright 2017, Nancy Plank. All Rights Reserved.
 			</Copyright>
-			<Instagram to={'https://www.instagram.com/nplank/?hl=en'}>
+			<Instagram href={'https://www.instagram.com/nplank/?hl=en'}>
 				Instagram
 			</Instagram>
 		</FooterContainer>
