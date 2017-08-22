@@ -39,14 +39,6 @@ const Navbar = () =>
 					Biography
 				</StyledLink>
 			</Item>
-			<Item>
-				<StyledLink
-					to="/Curriculum-Vitae"
-					activeStyle={{ color: 'red' }}
-				>
-					CV
-				</StyledLink>
-			</Item>
 		</NavList>
 	</NavContainer>;
 

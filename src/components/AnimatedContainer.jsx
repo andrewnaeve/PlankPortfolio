@@ -17,11 +17,10 @@ class AnimatedContainer extends Component {
 		super(props);
 		this.opaqueAnimation = new Animated.Value(0);
 		this.slideAnimation = new Animated.Value(0);
-		// this.animate = this.animate.bind(this);
+		this.animate = this.animate.bind(this);
 	}
 
-	animate = () => {
-		console.log('called me');
+	animate() {
 		this.opaqueAnimation.setValue(0);
 		this.slideAnimation.setValue(0);
 		Animated.parallel([
@@ -36,7 +35,7 @@ class AnimatedContainer extends Component {
 				easing: Easing.elastic(1)
 			})
 		]).start();
-	};
+	}
 
 	render() {
 		const op = this.opaqueAnimation.interpolate({

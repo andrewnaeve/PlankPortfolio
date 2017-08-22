@@ -6,10 +6,16 @@ import Title from './components/Title';
 import Navbar from './components/Navbar';
 import Portfolio from './components/Portfolio';
 import Landing from './components/Landing';
+import Footer from './components/Footer';
 
 const Body = styled.div`
-	margin: 10px 10px 10px 10px;
+	margin: 10px;
 	height: 100%;
+	flex-direction: column;
+`;
+
+const Content = styled(Switch)`
+	flex: 1;
 `;
 
 // background-color: #f9f9f9;
@@ -20,12 +26,11 @@ class App extends Component {
 			<Body>
 				<Title />
 				<Navbar />
-				<Switch>
+				<Content>
 					<Route exact path="/" component={Landing} />
 					<Route path="/Selected-Works" component={Portfolio} />
-					<Route path="/Biography" component={Portfolio} />
-					<Route path="/Curriculum-Vitae" component={Portfolio} />
-				</Switch>
+				</Content>
+				<Footer />
 			</Body>
 		);
 	}
