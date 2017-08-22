@@ -34,9 +34,13 @@ class PortfolioImage extends Component {
 
 		this.opaqueAnimation = new Animated.Value(0);
 		this.slideAnimation = new Animated.Value(0);
+		this.state = {
+			loaded: false
+		};
+		this.animate = this.animate.bind(this);
 	}
 
-	animate = () => {
+	animate() {
 		this.opaqueAnimation.setValue(0);
 		this.slideAnimation.setValue(0);
 		Animated.parallel([
@@ -47,11 +51,11 @@ class PortfolioImage extends Component {
 			}),
 			Animated.timing(this.slideAnimation, {
 				toValue: -10,
-				duration: 900,
+				duration: 1000,
 				easing: Easing.elastic(1)
 			})
 		]).start();
-	};
+	}
 
 	render() {
 		const op = this.opaqueAnimation.interpolate({
