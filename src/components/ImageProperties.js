@@ -8,6 +8,6 @@ import Lavendar from '../img/Lavendar.jpg';
 
 const ImageProperties = [Holly, Arden, Vase, Flowers, Lavendar];
 
-export default ImageProperties;
+export const LavendarLanding = Lavendar;
 
-//
+export default ImageProperties;

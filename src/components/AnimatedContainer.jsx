@@ -12,35 +12,16 @@ const AnimatedDiv = styled(Animated.div)`
 	margin-top: 50px;
 `;
 
-// const Wrapper = styled.div`
-// 	display: flex;
-// 	justify-content: center;
-// `;
-
-const Image = styled.img`
-	display: flex;
-	justify-content: center;
-	max-height: 900px;
-	max-width: 100%;
-	height: auto;
-	width: auto;
-	border: 1px solid #f0f0f0;
-	border-radius: 3px;
-`;
-
-class PortfolioImage extends Component {
+class AnimatedContainer extends Component {
 	constructor(props) {
 		super(props);
-
 		this.opaqueAnimation = new Animated.Value(0);
 		this.slideAnimation = new Animated.Value(0);
-		this.state = {
-			loaded: false
-		};
-		this.animate = this.animate.bind(this);
+		// this.animate = this.animate.bind(this);
 	}
 
-	animate() {
+	animate = () => {
+		console.log('called me');
 		this.opaqueAnimation.setValue(0);
 		this.slideAnimation.setValue(0);
 		Animated.parallel([
@@ -55,7 +36,7 @@ class PortfolioImage extends Component {
 				easing: Easing.elastic(1)
 			})
 		]).start();
-	}
+	};
 
 	render() {
 		const op = this.opaqueAnimation.interpolate({
@@ -66,6 +47,9 @@ class PortfolioImage extends Component {
 			inputRange: [0, 1],
 			outputRange: [0, 1]
 		});
+		const children = React.cloneElement(this.props.children, {
+			animate: this.animate
+		});
 
 		return (
 			<AnimatedDiv
@@ -74,10 +58,10 @@ class PortfolioImage extends Component {
 					opacity: op
 				}}
 			>
-				<Image src={this.props.url} onLoad={this.animate} />
+				{children}
 			</AnimatedDiv>
 		);
 	}
 }
 
-export default PortfolioImage;
+export default AnimatedContainer;

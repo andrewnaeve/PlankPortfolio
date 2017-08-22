@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import PortfolioImage from './PortfolioImage';
+import AnimatedContainer from './AnimatedContainer';
 import ImageProperties from './ImageProperties';
+import ImageCard from './ImageCard';
 
 const OuterContainer = styled.div`
 	display: flex;
@@ -13,7 +14,9 @@ const OuterContainer = styled.div`
 const Portfolio = () =>
 	<OuterContainer>
 		{ImageProperties.map((x, i) =>
-			<PortfolioImage key={i} url={ImageProperties[i]} />
+			<AnimatedContainer key={ImageProperties[i]}>
+				<ImageCard url={ImageProperties[i]} />
+			</AnimatedContainer>
 		)}
 	</OuterContainer>;
 

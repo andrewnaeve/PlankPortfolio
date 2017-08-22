@@ -12,7 +12,6 @@ const NavList = styled.ul`display: flex;`;
 const Item = styled.li`
 	display: flex;
 	margin-top: 10px;
-	margin-bottom: 10px;
 `;
 
 const StyledLink = styled(NavLink)`
