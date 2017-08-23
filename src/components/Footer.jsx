@@ -6,10 +6,7 @@ const FooterContainer = styled.div`
 	display: flex;
 	font-family: 'Abel', sans-serif;
 	font-size: 16px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	width: 100%
-	height: 100px;
+	width: 100%;
 `;
 
 const Name = styled.div`

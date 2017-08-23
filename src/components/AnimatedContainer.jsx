@@ -10,6 +10,7 @@ const AnimatedDiv = styled(Animated.div)`
 	justify-content: center;
 	width: 100%;
 	margin-top: 50px;
+	height: 100%;
 `;
 
 class AnimatedContainer extends Component {

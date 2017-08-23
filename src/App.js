@@ -9,16 +9,16 @@ import Landing from './components/Landing';
 import Footer from './components/Footer';
 
 const Body = styled.div`
-	margin: 10px;
-	height: 100%;
+	display: flex;
+	min-height: 100vh;
 	flex-direction: column;
+	margin: 0 10px 0 10px;
 `;
 
 const Content = styled(Switch)`
+	display: flex;	
 	flex: 1;
 `;
-
-// background-color: #f9f9f9;
 
 class App extends Component {
 	render() {
