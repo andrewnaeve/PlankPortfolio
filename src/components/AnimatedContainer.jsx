@@ -9,7 +9,6 @@ const AnimatedDiv = styled(Animated.div)`
 	border-radius: 2px;
 	justify-content: center;
 	width: 100%;
-	margin-top: 50px;
 	height: 100%;
 `;
 
