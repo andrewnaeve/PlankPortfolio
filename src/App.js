@@ -8,7 +8,7 @@ import Portfolio from './components/Portfolio';
 import Landing from './components/Landing';
 import Footer from './components/Footer';
 
-const Body = styled.div`
+const Wrapper = styled.div`
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
@@ -23,7 +23,7 @@ const Content = styled(Switch)`
 class App extends Component {
 	render() {
 		return (
-			<Body>
+			<Wrapper>
 				<Title />
 				<Navbar />
 				<Content>
@@ -31,7 +31,7 @@ class App extends Component {
 					<Route path="/Selected-Works" component={Portfolio} />
 				</Content>
 				<Footer />
-			</Body>
+			</Wrapper>
 		);
 	}
 }

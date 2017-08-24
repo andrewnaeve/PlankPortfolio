@@ -21,7 +21,7 @@ const Navbar = () =>
 const NavContainer = styled.nav`
 	display: flex;
 	justify-content: center;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 `;
 const NavList = styled.ul`display: flex;`;
 

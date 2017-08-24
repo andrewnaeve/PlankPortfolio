@@ -9,6 +9,7 @@ const OuterContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	min-height: 1500px;
 `;
 
 const Portfolio = () =>
