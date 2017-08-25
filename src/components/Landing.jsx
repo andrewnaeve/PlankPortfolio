@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LavendarLanding } from './ImageProperties';
+import { LavendarLanding } from '../ImageProperties';
 import AnimatedContainer from './AnimatedContainer';
 
 const LandingImage = styled.img`
