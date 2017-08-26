@@ -6,9 +6,7 @@ import AnimatedContainer from './AnimatedContainer';
 
 const LandingImage = styled.img`
 	display: flex;
-	justify-content: center;
 	align-self: center;
-	max-height: 700px;
 	max-height: 700px;
 	max-width: 90%;
 	width: auto;
@@ -24,8 +22,16 @@ const Landing = props =>
 	<LandingImage src={props.url} onLoad={props.animate} />;
 
 const AnimatedLanding = () =>
-	<AnimatedContainer>
-		<Landing url={LavendarLanding} />
-	</AnimatedContainer>;
+	<Wrapper>
+		<AnimatedContainer>
+			<Landing url={LavendarLanding} />
+		</AnimatedContainer>
+	</Wrapper>;
+
+const Wrapper = styled.div`
+	display: flex;
+	justify-content: center;
+	align-self: center;
+`;
 
 export default AnimatedLanding;
