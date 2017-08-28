@@ -22,7 +22,11 @@ const Navbar = () =>
 const NavContainer = styled.nav`
 	display: flex;
 	justify-content: center;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
+	${media.smallPhones`
+		display: none;`};
+	${media.laptop`
+		display: flex;`};
 `;
 const NavList = styled.ul`display: flex;`;
 
@@ -37,10 +41,6 @@ const StyledLink = styled(NavLink)`
 	&:hover{
 		color: #747D7D
 	}
-	${media.smallPhones`
-	display: none;`};
-	${media.laptop`
-	display: flex;`};
     @media only screen and (min-width : 320px) {
 		font-size: 18px;
     }

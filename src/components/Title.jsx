@@ -18,15 +18,16 @@ const Nancy = styled(Link)`
 	font-family: 'Abel', sans-serif;
 	font-weight: 500;
 	margin-top: 10px;
-	margin-bottom: 20px;
 	${media.smallPhones`
 		font-size: 4rem`}
 	${media.largePhones`
 		font-size: 5rem`}
 	${media.tablets`
 		font-size: 6rem`}
+	${media.laptop`
+		margin-bottom: 20px;`};
 	${media.desktop`
-		font-size: 7rem`}
+		font-size: 6rem`}
 	${media.fourKay`
 		font-size: 12rem`}
 `;

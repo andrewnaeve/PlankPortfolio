@@ -25,18 +25,20 @@ const FooterContainer = styled.div`
 	width: 100%;
 	min-height: auto;
 	margin-top: 10px;
-	margin-bottom: 20px;
 `;
 
 const Copyright = styled.div`
 	display: flex;
 	text-align: center;
 	${media.smallPhones`
-		font-size: .8rem`};
+		font-size: .8rem;
+		margin-bottom: 20%;
+		`};
 	${media.largePhones`
 		font-size: .9rem`};
 	${media.laptop`
-		font-size: 1rem`};
+		margin-bottom: 20px;
+		font-size: 1rem;`};
 	${media.desktop`
 		font-size: 1.3rem`};
 	${media.fourKay`
