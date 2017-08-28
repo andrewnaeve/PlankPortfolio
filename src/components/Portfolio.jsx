@@ -8,6 +8,7 @@ import ImageCard from './ImageCard';
 const OuterContainer = styled.div`
 	min-height: 1500px;
 	max-width: 90%;
+	margin-top: 40px;
 `;
 
 const Portfolio = () =>
