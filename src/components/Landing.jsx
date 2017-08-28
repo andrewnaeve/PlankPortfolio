@@ -13,7 +13,7 @@ const LandingImage = styled.img`
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
 	${media.tablets`
-	max-height: 500px;`};
+	max-height: 600px;`};
 	${media.fourKay`
 	max-height: 1500px;`};
 `;
