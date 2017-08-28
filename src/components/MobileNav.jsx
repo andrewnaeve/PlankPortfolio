@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { media } from '../style-utils';
 import { Motion, spring, presets } from 'react-motion';
-
+import Animated from 'animated/lib/targets/react-dom';
+import Easing from 'animated/lib/Easing';
 import { TiHomeOutline, TiMail, TiSocialInstagram } from 'react-icons/lib/ti';
 import { MdHome, MdImage, MdMail, MdPersonOutline } from 'react-icons/lib/md';
 
@@ -13,41 +14,65 @@ class MobileNav extends Component {
 		this.state = {
 			open: false
 		};
+		this.openAnimation = new Animated.Value(-40);
+		this.closeAnimation = new Animated.Value(-5);
+		this.handleOpen = this.handleOpen.bind(this);
+		this.handleClose = this.handleClose.bind(this);
 	}
 
 	handleClick = () => {
-		this.setState({
-			open: !this.state.open
-		});
+		this.setState(
+			{
+				open: !this.state.open
+			},
+			() => {
+				this.state.open ? this.handleOpen() : this.handleClose();
+			}
+		);
 	};
 
+	handleOpen() {
+		console.log('alled');
+		this.openAnimation.setValue(-40);
+		Animated.spring(this.openAnimation, {
+			toValue: -5,
+			friction: 7
+		}).start();
+	}
+
+	handleClose() {
+		this.openAnimation.setValue(-5);
+		Animated.spring(this.openAnimation, {
+			toValue: -40,
+			friction: 7
+		}).start();
+	}
+
 	render() {
-		const open = {
-			x: spring(-1, presets.stiff)
-		};
-		const closed = {
-			x: spring(-40, presets.stiff)
-		};
-		const dynamicStyle = this.state.open ? open : closed;
+		const open = this.openAnimation.interpolate({
+			inputRange: [0, 1],
+			outputRange: [0, 1]
+		});
+		const close = this.closeAnimation.interpolate({
+			inputRange: [0, 1],
+			outputRange: [0, 1]
+		});
 
 		return (
-			<Motion defaultStyle={{ x: -40 }} style={dynamicStyle}>
-				{interpolatingStyle =>
-					<NavWrapper style={{ bottom: `${interpolatingStyle.x}%` }}>
-						<Hamburger onClick={this.handleClick}>
-							<Patty />
-							<Patty />
-							<Patty />
-						</Hamburger>
-					</NavWrapper>}
-			</Motion>
+			<NavWrapper style={{ bottom: Animated.template`${open}%` }}>
+				<Hamburger onClick={this.handleClick}>
+					<Patty />
+					<Patty />
+					<Patty />
+				</Hamburger>
+			</NavWrapper>
 		);
 	}
 }
 
 export default MobileNav;
 
-const NavWrapper = styled.div`
+const NavWrapper = styled(Animated.div)`
 	display: flex;
 	position: fixed;
 	bottom: -40%;
@@ -58,7 +83,6 @@ const NavWrapper = styled.div`
 	border-top: 1px solid #cdcdcd;
 	margin-bottom: -1px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	background-color: blue;
 	${media.laptop`
 	display: none;`};
 `;
