@@ -53,7 +53,7 @@ class AnimatedContainer extends Component {
 		return (
 			<AnimatedDiv
 				style={{
-					transform: Animated.template`translateY(${sl}px)`,
+					transform: Animated.template`translate3d(0, ${sl}px, 0)`,
 					opacity: op
 				}}
 			>

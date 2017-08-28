@@ -34,10 +34,6 @@ class App extends Component {
 	}
 }
 
-const Content = styled(Switch)`
-	display: flex;	
-	flex: 1;
-`;
 const BodyContainer = styled.div`
 	display: flex;
 	justify-content: center;

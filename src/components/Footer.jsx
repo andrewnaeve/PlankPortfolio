@@ -6,9 +6,6 @@ import { media } from '../style-utils';
 const Footer = () => {
 	return (
 		<FooterContainer className="footer">
-			<Instagram href={'https://www.instagram.com/nplank/?hl=en'}>
-				Instagram
-			</Instagram>
 			<Copyright className="footer">
 				&copy;2017, Nancy Plank. All rights reserved.
 			</Copyright>
@@ -16,6 +13,9 @@ const Footer = () => {
 	);
 };
 
+// <Instagram href={'https://www.instagram.com/nplank/?hl=en'}>
+// 	Instagram
+// </Instagram>
 const FooterContainer = styled.div`
 	display: flex;
 	flex-direction: column;
