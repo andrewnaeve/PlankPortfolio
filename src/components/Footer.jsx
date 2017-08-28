@@ -25,9 +25,7 @@ const FooterContainer = styled.div`
 	width: 100%;
 	min-height: auto;
 	margin-top: 10px;
-	margin-bottom: 24%;
-	${media.tablets`
-		margin-bottom: 2%;`};
+	margin-bottom: 20px;
 `;
 
 const Copyright = styled.div`

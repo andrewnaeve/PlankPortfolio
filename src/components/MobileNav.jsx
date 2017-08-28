@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { media } from '../style-utils';
-import { Motion, spring, presets } from 'react-motion';
 import Animated from 'animated/lib/targets/react-dom';
 import Easing from 'animated/lib/Easing';
 import { TiHomeOutline, TiMail, TiSocialInstagram } from 'react-icons/lib/ti';
@@ -32,11 +31,10 @@ class MobileNav extends Component {
 	};
 
 	handleOpen() {
-		console.log('alled');
 		this.openAnimation.setValue(-40);
 		Animated.spring(this.openAnimation, {
 			toValue: -5,
-			friction: 7
+			friction: 6.5
 		}).start();
 	}
 
@@ -44,7 +42,7 @@ class MobileNav extends Component {
 		this.openAnimation.setValue(-5);
 		Animated.spring(this.openAnimation, {
 			toValue: -40,
-			friction: 7
+			friction: 6.5
 		}).start();
 	}
 
@@ -65,6 +63,17 @@ class MobileNav extends Component {
 					<Patty />
 					<Patty />
 				</Hamburger>
+				<LinkWrapper>
+					<QuickLink to="/" onClick={this.handleClick}>
+						Home
+					</QuickLink>
+					<QuickLink to="/Selected-Works" onClick={this.handleClick}>
+						Selected Works
+					</QuickLink>
+					<QuickLink to="/Biography" onClick={this.handleClick}>
+						Biography
+					</QuickLink>
+				</LinkWrapper>
 			</NavWrapper>
 		);
 	}
@@ -106,4 +115,18 @@ const Patty = styled.span`
 	background: #cdcdcd;
 	z-index: 1;
 	border-radius: 3px;
+`;
+
+const LinkWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+`;
+const QuickLink = styled(Link)`
+	font-size: 2rem;
+	font-family: 'Abel', sans-serif;
+	margin-bottom: 15px;
+	color: black
 `;

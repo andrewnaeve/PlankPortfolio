@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { media } from '../style-utils';
 
 const Navbar = () =>
 	<NavContainer>
@@ -36,6 +37,10 @@ const StyledLink = styled(NavLink)`
 	&:hover{
 		color: #747D7D
 	}
+	${media.smallPhones`
+	display: none;`};
+	${media.laptop`
+	display: flex;`};
     @media only screen and (min-width : 320px) {
 		font-size: 18px;
     }
