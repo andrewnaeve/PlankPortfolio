@@ -9,7 +9,6 @@ const AnimatedDiv = styled(Animated.div)`
 	border-radius: 2px;
 	justify-content: center;
 	width: 100%;
-	height: 100%;
 `;
 
 class AnimatedContainer extends Component {
