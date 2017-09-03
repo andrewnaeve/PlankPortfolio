@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media } from '../style-utils';
-import Animated from 'animated/lib/targets/react-dom';
-import Easing from 'animated/lib/Easing';
+import { Motion, spring, presets } from 'react-motion';
 import { TiHomeOutline, TiMail, TiSocialInstagram } from 'react-icons/lib/ti';
 import { MdHome, MdImage, MdMail, MdPersonOutline } from 'react-icons/lib/md';
 
@@ -13,68 +12,56 @@ class MobileNav extends Component {
 		this.state = {
 			open: false
 		};
-		this.openAnimation = new Animated.Value(-40);
-		this.closeAnimation = new Animated.Value(-5);
-		this.handleOpen = this.handleOpen.bind(this);
-		this.handleClose = this.handleClose.bind(this);
 	}
 
 	handleClick = () => {
-		this.setState(
-			{
-				open: !this.state.open
-			},
-			() => {
-				this.state.open ? this.handleOpen() : this.handleClose();
-			}
-		);
+		this.setState({
+			open: !this.state.open
+		});
 	};
 
-	handleOpen() {
-		this.openAnimation.setValue(-40);
-		Animated.spring(this.openAnimation, {
-			toValue: -5,
-			friction: 6.5
-		}).start();
-	}
-
-	handleClose() {
-		this.openAnimation.setValue(-5);
-		Animated.spring(this.openAnimation, {
-			toValue: -40,
-			friction: 6.5
-		}).start();
+	componentDidUpdate() {
+		console.log('shalom');
 	}
 
 	render() {
-		const open = this.openAnimation.interpolate({
-			inputRange: [0, 1],
-			outputRange: [0, 1]
-		});
-		const close = this.closeAnimation.interpolate({
-			inputRange: [0, 1],
-			outputRange: [0, 1]
-		});
+		const open = {
+			x: spring(-1, presets.stiff)
+		};
+		const closed = {
+			x: spring(-40, presets.stiff)
+		};
+		const dynamicStyle = this.state.open ? open : closed;
 
 		return (
-			<NavWrapper style={{ bottom: Animated.template`${open}%` }}>
-				<Hamburger onClick={this.handleClick}>
-					<Patty />
-					<Patty />
-					<Patty />
-				</Hamburger>
-				<LinkWrapper>
-					<QuickLink to="/" onClick={this.handleClick}>
-						Home
-					</QuickLink>
-					<QuickLink to="/Selected-Works" onClick={this.handleClick}>
-						Selected Works
-					</QuickLink>
-					<QuickLink to="/Biography" onClick={this.handleClick}>
-						Biography
-					</QuickLink>
-				</LinkWrapper>
-			</NavWrapper>
+			<Motion defaultStyle={{ x: -40 }} style={dynamicStyle}>
+				{interpolatingStyle => (
+					<NavWrapper style={{ bottom: `${interpolatingStyle.x}%` }}>
+						<Hamburger onClick={this.handleClick}>
+							<Patty />
+							<Patty />
+							<Patty />
+						</Hamburger>
+						<LinkWrapper>
+							<QuickLink to="/" onClick={this.handleClick}>
+								Home
+							</QuickLink>
+							<QuickLink
+								to="/Selected-Works"
+								onClick={this.handleClick}
+							>
+								Selected Works
+							</QuickLink>
+							<QuickLink
+								to="/Biography"
+								onClick={this.handleClick}
+							>
+								Biography
+							</QuickLink>
+						</LinkWrapper>
+					</NavWrapper>
+				)}
+			</Motion>
 		);
 	}
 }
@@ -128,5 +115,5 @@ const QuickLink = styled(Link)`
 	font-size: 2rem;
 	font-family: 'Abel', sans-serif;
 	margin-bottom: 15px;
-	color: black
+	color: black;
 `;
