@@ -2,64 +2,60 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Animated from 'animated/lib/targets/react-dom';
+import { Motion, spring, presets } from 'react-motion';
 import Easing from 'animated/lib/Easing';
-
-const AnimatedDiv = styled(Animated.div)`
-	display: flex;
-	border-radius: 2px;
-	justify-content: center;
-	width: 100%;
-`;
 
 class AnimatedContainer extends Component {
 	constructor(props) {
 		super(props);
-		this.opaqueAnimation = new Animated.Value(0);
-		this.slideAnimation = new Animated.Value(0);
+		this.state = {
+			loaded: false
+		};
 		this.animate = this.animate.bind(this);
 	}
 
 	animate() {
-		this.opaqueAnimation.setValue(0);
-		this.slideAnimation.setValue(0);
-		Animated.parallel([
-			Animated.timing(this.opaqueAnimation, {
-				toValue: 1,
-				duration: 1000,
-				easing: Easing.ease
-			}),
-			Animated.timing(this.slideAnimation, {
-				toValue: -10,
-				duration: 1000,
-				easing: Easing.elastic(1)
-			})
-		]).start();
+		this.setState({
+			loaded: true
+		});
 	}
 
 	render() {
-		const op = this.opaqueAnimation.interpolate({
-			inputRange: [0, 1],
-			outputRange: [0, 1]
-		});
-		const sl = this.slideAnimation.interpolate({
-			inputRange: [0, 1],
-			outputRange: [0, 1]
-		});
+		let { loaded } = this.state;
+		const dynamicStyle = {
+			opacity: spring(loaded ? 1.0 : 0.0, {
+				stiffness: 30,
+				damping: 10
+			}),
+			position: spring(loaded ? -10 : 0, { stiffness: 75, damping: 10 })
+		};
 		const children = React.cloneElement(this.props.children, {
 			animate: this.animate
 		});
 
 		return (
-			<AnimatedDiv
-				style={{
-					transform: Animated.template`translate3d(0, ${sl}px, 0)`,
-					opacity: op
-				}}
-			>
-				{children}
-			</AnimatedDiv>
+			<Motion style={dynamicStyle}>
+				{interpolatingStyle => (
+					<AnimatedDiv
+						style={{
+							transform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
+							WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
+							opacity: `${interpolatingStyle.opacity}`
+						}}
+					>
+						{children}
+					</AnimatedDiv>
+				)}
+			</Motion>
 		);
 	}
 }
 
 export default AnimatedContainer;
+
+const AnimatedDiv = styled.div`
+	display: flex;
+	border-radius: 2px;
+	justify-content: center;
+	width: 100%;
+`;

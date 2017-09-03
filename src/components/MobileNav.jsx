@@ -20,23 +20,27 @@ class MobileNav extends Component {
 		});
 	};
 
-	componentDidUpdate() {
-		console.log('shalom');
-	}
-
 	render() {
-		const open = {
-			x: spring(-1, presets.stiff)
+		let { open } = this.state;
+
+		const isOpen = {
+			x: spring(10, presets.stiff)
 		};
-		const closed = {
-			x: spring(-40, presets.stiff)
+		const isClosed = {
+			x: spring(80, presets.stiff)
 		};
-		const dynamicStyle = this.state.open ? open : closed;
+
+		const dynamicStyle = open ? isOpen : isClosed;
 
 		return (
-			<Motion defaultStyle={{ x: -40 }} style={dynamicStyle}>
+			<Motion style={dynamicStyle}>
 				{interpolatingStyle => (
-					<NavWrapper style={{ bottom: `${interpolatingStyle.x}%` }}>
+					<NavWrapper
+						style={{
+							transform: `translate3d(0, ${interpolatingStyle.x}%, 0)`,
+							WebkitTransform: `translate3d(0, ${interpolatingStyle.x}%, 0)`
+						}}
+					>
 						<Hamburger onClick={this.handleClick}>
 							<Patty />
 							<Patty />
@@ -68,10 +72,10 @@ class MobileNav extends Component {
 
 export default MobileNav;
 
-const NavWrapper = styled(Animated.div)`
+const NavWrapper = styled.div`
 	display: flex;
 	position: fixed;
-	bottom: -40%;
+	bottom: 0;
 	left: 0;
 	width: 100%;
 	height: 50%;
