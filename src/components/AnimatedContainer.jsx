@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Motion, spring, presets } from 'react-motion';
+import { Motion, spring } from 'react-motion';
 
 class AnimatedContainer extends Component {
 	constructor(props) {

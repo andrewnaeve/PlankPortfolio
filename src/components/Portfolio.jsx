@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import AnimatedContainer from './AnimatedContainer';
 import ImageProperties from '../ImageProperties';
 import ImageCard from './ImageCard';

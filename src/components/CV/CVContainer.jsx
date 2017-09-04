@@ -74,16 +74,3 @@ const Column = styled.div`
 	margin-right: 10px;
 	width: calc(100% /2);
 `;
-
-const Headline = styled.h1`
-	font-weight: 600;
-	font-size: 2rem;
-`;
-
-const P = styled.p`
-	font-weight: 500;
-	font-size: 1.2rem;
-`;
-
-const Bold = styled.span`font-weight: 600;`;
-const Italic = styled.span`font-style: italic;`;

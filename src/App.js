@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 import styled from 'styled-components';
-import logo from './logo.svg';
 import Title from './components/Title';
 import Navbar from './components/Navbar';
 import Portfolio from './components/Portfolio';

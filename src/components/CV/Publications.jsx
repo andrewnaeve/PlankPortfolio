@@ -38,7 +38,6 @@ const Publications = () => (
 
 export default Publications;
 
-const Wrapper = styled.div`margin-top: 20px;`;
 const Headline = styled.h1`
 	font-weight: 600;
 	font-size: 2rem;
@@ -50,4 +49,3 @@ const P = styled.p`
 `;
 
 const Bold = styled.span`font-weight: 600;`;
-const Italic = styled.span`font-style: italic;`;

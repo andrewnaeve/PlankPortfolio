@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from './AnimatedContainer';
 
@@ -12,6 +12,7 @@ const Frame = props => (
 	<OuterWrapper>
 		<MediaWrapper>
 			<iframe
+				title="Nancy Plank"
 				style={iframeStyle}
 				width="560"
 				height="315"

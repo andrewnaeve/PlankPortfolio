@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Holly from './img/Holly.jpg';
 import Arden from './img/Arden.jpg';
 import Vase from './img/Vase.jpg';
