@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media } from '../style-utils';
 import { Motion, spring, presets } from 'react-motion';
-import { TiHomeOutline, TiMail, TiSocialInstagram } from 'react-icons/lib/ti';
-import { MdHome, MdImage, MdMail, MdPersonOutline } from 'react-icons/lib/md';
+// import { TiHomeOutline, TiMail, TiSocialInstagram } from 'react-icons/lib/ti';
+// import { MdHome, MdImage, MdMail, MdPersonOutline } from 'react-icons/lib/md';
 
 class MobileNav extends Component {
 	constructor(props) {
