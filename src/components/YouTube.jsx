@@ -3,9 +3,19 @@ import styled from 'styled-components';
 import AnimatedContainer from './AnimatedContainer';
 // import './iframe.css';
 
-const YouTube = () => {
-	return <Frame />;
-};
+const YouTube = () => (
+	<AnimatedContainer>
+		<Frame />
+	</AnimatedContainer>
+);
+
+const Description = styled.div`
+	margin-top: 20px;
+	font-size: 1.6rem;
+	font-family: 'Abel', sans-serif;
+	justify-content: center;
+	margin-bottom: 20px;
+`;
 
 const Frame = props => (
 	<OuterWrapper>
@@ -17,8 +27,24 @@ const Frame = props => (
 				src="https://www.youtube.com/embed/B5nF1Mmte0M?rel=0"
 				frameBorder="0"
 				allowFullScreen
+				onLoad={props.animate}
 			/>
 		</MediaWrapper>
+		<Description>
+			<p>
+				"My goal in painting is to put down what I see, feel, and
+				experience as beautiful in an object, person, or place. Ideally,
+				it is sensitive, strong, and honest. It’s my joy and passion to
+				paint."
+			</p>
+			<p>- Nancy Plank</p>
+			<br />
+			<p>
+				Nancy Plank is a realism painter specializing in florals and
+				portraits. She is available for commission work. Her studio is
+				located at Kettner Arts in Little Italy.
+			</p>
+		</Description>
 	</OuterWrapper>
 );
 
@@ -26,10 +52,12 @@ export default YouTube;
 
 const OuterWrapper = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+	align-items: flex-start;
 	padding-top: 10px;
-	background-color: red;
-	width: 75%;
+	flex-direction: column;
+	height: 100%;
+	width: 100%;
 `;
 
 const MediaWrapper = styled.div`
@@ -37,8 +65,9 @@ const MediaWrapper = styled.div`
 	padding-bottom: 56.25%;
 	padding-top: 35px;
 	height: 0;
-	overflow: hidden;
 	width: 100%;
+	overflow: hidden;
+	height: 100%;
 `;
 
 const iframeStyle = {

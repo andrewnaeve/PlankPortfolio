@@ -33,16 +33,8 @@ export default Biography;
 // </AnimatedContainer>
 const Container = styled.div`
 	display: flex;
-	flex: 1;
+
 	margin-top: 20px;
 	justify-content: center;
-`;
-
-const ProfilePic = styled.img`
-	padding-top: 10px;
-	align-self: flex-start;
-	max-height: 300px;
-	max-width: 50%;
-	width: auto;
-	border-radius: 3px;
+	max-width: 60%;
 `;
