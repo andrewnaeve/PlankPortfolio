@@ -23,22 +23,30 @@ const LandingImage = styled.img`
 	max-height: 1500px;`};
 `;
 
-const Landing = props =>
-	<LandingImage src={props.url} onLoad={props.animate} />;
-
-const AnimatedLanding = () =>
+const Landing = props => (
 	<Wrapper>
+		<LandingImage src={props.url} onLoad={props.animate} />
+	</Wrapper>
+);
+
+const AnimatedLanding = () => (
+	<Container>
 		<AnimatedContainer>
 			<Landing url={LavendarLanding} />
 		</AnimatedContainer>
-	</Wrapper>;
+	</Container>
+);
 
-const Wrapper = styled.div`
+const Container = styled.div`
 	display: flex;
 	justify-content: center;
-	align-self: flex-start;
+	align-self: center;
 	align-items: center;
 	padding-top: 10px;
 `;
 
+const Wrapper = styled.div`
+	display: flex;
+	justify-content: center;
+`;
 export default AnimatedLanding;

@@ -6,18 +6,20 @@ import ImageProperties from '../ImageProperties';
 import ImageCard from './ImageCard';
 
 const OuterContainer = styled.div`
-	min-height: 1500px;
+	flex: 1;
 	max-width: 90%;
 	margin-top: 30px;
+	justify-content: center;
 `;
 
-const Portfolio = () =>
+const Portfolio = () => (
 	<OuterContainer>
-		{ImageProperties.map((x, i) =>
+		{ImageProperties.map((x, i) => (
 			<AnimatedContainer key={ImageProperties[i]}>
 				<ImageCard url={ImageProperties[i]} />
 			</AnimatedContainer>
-		)}
-	</OuterContainer>;
+		))}
+	</OuterContainer>
+);
 
 export default Portfolio;

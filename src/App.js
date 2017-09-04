@@ -8,6 +8,7 @@ import Portfolio from './components/Portfolio';
 import Landing from './components/Landing';
 import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';
+import Biography from './components/Biography';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -25,6 +26,7 @@ class App extends Component {
 					<Switch>
 						<Route exact path="/" component={Landing} />
 						<Route path="/Selected-Works" component={Portfolio} />
+						<Route path="/Biography" component={Biography} />
 					</Switch>
 				</BodyContainer>
 				<Footer />
