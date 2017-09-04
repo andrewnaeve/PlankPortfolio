@@ -39,7 +39,6 @@ class App extends Component {
 const BodyContainer = styled.div`
 	display: flex;
 	flex: 1;
-	width: 100%;
 	justify-content: center;
 `;
 

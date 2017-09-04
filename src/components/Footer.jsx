@@ -13,9 +13,6 @@ const Footer = () => {
 	);
 };
 
-// <Instagram href={'https://www.instagram.com/nplank/?hl=en'}>
-// 	Instagram
-// </Instagram>
 const FooterContainer = styled.div`
 	display: flex;
 	flex-direction: column;

@@ -13,6 +13,12 @@ class AnimatedContainer extends Component {
 		};
 		this.animate = this.animate.bind(this);
 	}
+	shouldComponentUpdate(nextProps, nextState) {
+		if (this.state.loaded !== nextState.loaded) {
+			return true;
+		}
+		return false;
+	}
 
 	animate() {
 		this.setState({

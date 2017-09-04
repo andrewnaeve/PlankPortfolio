@@ -11,7 +11,7 @@ const YouTube = () => (
 
 const Description = styled.div`
 	margin-top: 20px;
-	font-size: 1.6rem;
+	font-size: 1.5rem;
 	font-family: 'Abel', sans-serif;
 	justify-content: center;
 	margin-bottom: 20px;
@@ -42,7 +42,7 @@ const Frame = props => (
 			<p>
 				Nancy Plank is a realism painter specializing in florals and
 				portraits. She is available for commission work. Her studio is
-				located at Kettner Arts in Little Italy.
+				located in San Diego.
 			</p>
 		</Description>
 	</OuterWrapper>
