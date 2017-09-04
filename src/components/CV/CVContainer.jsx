@@ -39,9 +39,11 @@ const NP = props => <ProfilePic src={NancyPlank} onLoad={props.animate} />;
 const HeaderRow = styled.div`
 	display: flex;
 	flex-direction: row;
-	justify-content: start;
+	justify-content: center;
 	margin-top: 20px;
 	margin-bottom: 40px;
+	${media.laptop`
+	justify-content: start;`};
 `;
 const ProfilePic = styled.img`
 	display: flex;

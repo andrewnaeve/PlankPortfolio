@@ -10,16 +10,20 @@ import BlackRoses from './img/Roses with Black Backround.jpg';
 import Mennonites from './img/Mennonites.jpg';
 import BlueFloral from './img/Blue Floral.jpg';
 import TaupeFlowers from './img/Taupe.jpg';
+import ElBirdo from './img/El Birdo.jpg';
+import Blueberries from './img/Blueberries.jpg';
 
 const ImageProperties = [
 	Holly,
 	Lavendar,
 	PinkSpray,
+	ElBirdo,
 	BlackRoses,
 	Mennonites,
 	Vase,
 	Arden,
 	BlueFloral,
+	Blueberries,
 	OrangeFlowers,
 	TaupeFlowers
 ];
