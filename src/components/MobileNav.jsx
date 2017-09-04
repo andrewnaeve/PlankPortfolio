@@ -81,7 +81,7 @@ const NavWrapper = styled.div`
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 50%;
+	height: 60%;
 	background-color: white;
 	border-top: 1px solid #cdcdcd;
 	margin-bottom: -1px;
@@ -99,8 +99,7 @@ const Hamburger = styled.div`
 	align-items: center;
 	flex-direction: column;
 	width: 40px;
-	height: 32px;
-	padding-top: 5px;
+	height: 40px;
 `;
 const Patty = styled.span`
 	width: 33px;

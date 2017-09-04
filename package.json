@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"express": "^4.15.4",
 		"react": "next",
 		"react-dom": "next",
 		"react-fontawesome": "^1.6.1",

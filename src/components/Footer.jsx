@@ -22,15 +22,16 @@ const FooterContainer = styled.div`
 	width: 100%;
 	min-height: auto;
 	margin-top: 10px;
+	margin-bottom: 10%;
+	${media.laptop`
+		margin-bottom: 0px;`};
 `;
 
 const Copyright = styled.div`
 	display: flex;
 	text-align: center;
 	${media.smallPhones`
-		font-size: .8rem;
-		margin-bottom: 20%;
-		`};
+		font-size: .8rem;`};
 	${media.largePhones`
 		font-size: .9rem`};
 	${media.laptop`
