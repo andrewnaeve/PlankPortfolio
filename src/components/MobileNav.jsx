@@ -62,6 +62,9 @@ class MobileNav extends Component {
 							>
 								Biography
 							</QuickLink>
+							<QuickLink to="/CV" onClick={this.handleClick}>
+								CV
+							</QuickLink>
 						</LinkWrapper>
 					</NavWrapper>
 				)}

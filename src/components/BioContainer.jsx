@@ -4,19 +4,11 @@ import { Link } from 'react-router-dom';
 import YouTube from './YouTube';
 import { media } from '../style-utils';
 
-class Biography extends Component {
-	constructor(props) {
-		super();
-	}
-
-	render() {
-		return (
-			<Container>
-				<YouTube />
-			</Container>
-		);
-	}
-}
+const Biography = () => (
+	<Container>
+		<YouTube />
+	</Container>
+);
 
 export default Biography;
 

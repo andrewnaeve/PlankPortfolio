@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from './AnimatedContainer';
-// import './iframe.css';
 
 const YouTube = () => (
 	<AnimatedContainer>
 		<Frame />
 	</AnimatedContainer>
 );
-
-const Description = styled.div`
-	margin-top: 20px;
-	font-size: 1.5rem;
-	font-family: 'Abel', sans-serif;
-	justify-content: center;
-	margin-bottom: 20px;
-`;
 
 const Frame = props => (
 	<OuterWrapper>
@@ -49,6 +40,14 @@ const Frame = props => (
 );
 
 export default YouTube;
+
+const Description = styled.div`
+	margin-top: 20px;
+	font-size: 1.5rem;
+	font-family: 'Abel', sans-serif;
+	justify-content: center;
+	margin-bottom: 20px;
+`;
 
 const OuterWrapper = styled.div`
 	display: flex;

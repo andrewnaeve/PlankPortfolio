@@ -8,13 +8,8 @@ import Portfolio from './components/Portfolio';
 import Landing from './components/Landing';
 import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';
-import Biography from './components/Biography';
-
-const Wrapper = styled.div`
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
-`;
+import Biography from './components/BioContainer';
+import CVWrapper from './components/CV/CVContainer';
 
 class App extends Component {
 	render() {
@@ -27,6 +22,7 @@ class App extends Component {
 						<Route exact path="/" component={Landing} />
 						<Route path="/Selected-Works" component={Portfolio} />
 						<Route path="/Biography" component={Biography} />
+						<Route path="/CV" component={CVWrapper} />
 					</Switch>
 				</BodyContainer>
 				<Footer />
@@ -35,6 +31,12 @@ class App extends Component {
 		);
 	}
 }
+
+const Wrapper = styled.div`
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+`;
 
 const BodyContainer = styled.div`
 	display: flex;
