@@ -4,7 +4,7 @@ import Vase from './img/Vase.jpg';
 import OrangeFlowers from './img/Flowers.jpg';
 import Lavendar from './img/Lavendar.jpg';
 import PinkSpray from './img/Pink Spray.jpg';
-import BlackRoses from './img/Roses with Black Backround.jpg';
+import BlackRoses from './img/Roses with Black Background.jpg';
 import Mennonites from './img/Mennonites.jpg';
 import BlueFloral from './img/Blue Floral.jpg';
 import TaupeFlowers from './img/Taupe.jpg';
