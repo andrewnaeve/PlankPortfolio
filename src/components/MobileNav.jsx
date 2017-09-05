@@ -99,12 +99,13 @@ const Hamburger = styled.div`
 	align-items: center;
 	flex-direction: column;
 	width: 40px;
-	height: 40px;
+	height: 32px;
+	padding-top: 4px;
 `;
 const Patty = styled.span`
-	width: 33px;
+	width: 35px;
 	height: 4px;
-	margin-bottom: 5px;
+	margin-bottom: 4px;
 	background: #cdcdcd;
 	z-index: 1;
 	border-radius: 3px;

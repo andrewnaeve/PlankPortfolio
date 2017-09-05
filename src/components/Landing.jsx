@@ -6,7 +6,7 @@ import AnimatedContainer from './AnimatedContainer';
 
 const LandingImage = styled.img`
 	display: flex;
-	align-self: start;
+	align-self: flex-start;
 	max-height: 600px;
 	max-width: 90%;
 	width: auto;

@@ -21,7 +21,7 @@ const FooterContainer = styled.div`
 	width: 100%;
 	min-height: auto;
 	margin-top: 10px;
-	margin-bottom: 10%;
+	margin-bottom: calc(100vh * 0.13);
 	${media.laptop`
 		margin-bottom: 0px;`};
 `;
