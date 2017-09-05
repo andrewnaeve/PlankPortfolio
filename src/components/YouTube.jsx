@@ -3,9 +3,26 @@ import styled from 'styled-components';
 import AnimatedContainer from './AnimatedContainer';
 
 const YouTube = () => (
-	<AnimatedContainer>
-		<Frame />
-	</AnimatedContainer>
+	<div>
+		<AnimatedContainer>
+			<Frame />
+		</AnimatedContainer>
+		<Description>
+			<p>
+				"My goal in painting is to put down what I see, feel, and
+				experience as beautiful in an object, person, or place. Ideally,
+				it is sensitive, strong, and honest. It’s my joy and passion to
+				paint."
+			</p>
+			<p>- Nancy Plank</p>
+			<br />
+			<p>
+				Nancy Plank is a realism painter specializing in florals and
+				portraits. She is available for commission work. Her studio is
+				located in San Diego.
+			</p>
+		</Description>
+	</div>
 );
 
 const Frame = props => (
@@ -22,21 +39,6 @@ const Frame = props => (
 				onLoad={props.animate}
 			/>
 		</MediaWrapper>
-		<Description>
-			<p>
-				"My goal in painting is to put down what I see, feel, and
-				experience as beautiful in an object, person, or place. Ideally,
-				it is sensitive, strong, and honest. It’s my joy and passion to
-				paint."
-			</p>
-			<p>- Nancy Plank</p>
-			<br />
-			<p>
-				Nancy Plank is a realism painter specializing in florals and
-				portraits. She is available for commission work. Her studio is
-				located in San Diego.
-			</p>
-		</Description>
 	</OuterWrapper>
 );
 
