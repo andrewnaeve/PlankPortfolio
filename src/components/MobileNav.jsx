@@ -24,10 +24,12 @@ class MobileNav extends Component {
 		let { open } = this.state;
 
 		const isOpen = {
-			x: spring(10, presets.stiff)
+			x: spring(10, presets.stiff),
+			y: spring(1)
 		};
 		const isClosed = {
-			x: spring(80, presets.stiff)
+			x: spring(80, presets.stiff),
+			y: spring(0)
 		};
 
 		const dynamicStyle = open ? isOpen : isClosed;
@@ -46,7 +48,11 @@ class MobileNav extends Component {
 							<Patty />
 							<Patty />
 						</Hamburger>
-						<LinkWrapper>
+						<LinkWrapper
+							style={{
+								opacity: interpolatingStyle.y
+							}}
+						>
 							<QuickLink to="/" onClick={this.handleClick}>
 								Home
 							</QuickLink>

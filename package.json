@@ -4,13 +4,11 @@
 	"private": true,
 	"dependencies": {
 		"express": "^4.15.4",
+		"font-awesome": "^4.7.0",
 		"react": "next",
 		"react-dom": "next",
-		"react-fontawesome": "^1.6.1",
-		"react-icons": "^2.2.5",
 		"react-motion": "^0.5.1",
 		"react-router-dom": "^4.1.2",
-		"react-spinners": "^0.0.30",
 		"styled-components": "^2.1.2"
 	},
 	"devDependencies": {
@@ -19,7 +17,8 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"deploy": "npm run build --env=prod && firebase deploy --project nancy-plank",
+		"deploy":
+			"npm run build --env=prod && firebase deploy --project nancy-plank",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject"
 	}

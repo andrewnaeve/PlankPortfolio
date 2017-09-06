@@ -7,8 +7,9 @@ import Portfolio from './components/Portfolio';
 import Landing from './components/Landing';
 import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';
-import Biography from './components/BioContainer';
+import Biography from './components/Bio/BioContainer';
 import CVWrapper from './components/CV/CVContainer';
+import Contact from './components/Contact/Contact';
 
 class App extends Component {
 	render() {
@@ -22,6 +23,7 @@ class App extends Component {
 						<Route path="/Selected-Works" component={Portfolio} />
 						<Route path="/Biography" component={Biography} />
 						<Route path="/CV" component={CVWrapper} />
+						<Route path="/Contact" component={Contact} />
 					</Switch>
 				</BodyContainer>
 				<Footer />
