@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media } from '../style-utils';
 
-const Title = () =>
+const Title = () => (
 	<Nancy to="/" className="title">
 		Nancy Plank
-	</Nancy>;
+	</Nancy>
+);
 
 export default Title;
 
@@ -19,15 +20,14 @@ const Nancy = styled(Link)`
 	font-weight: 500;
 	margin-top: 10px;
 	${media.smallPhones`
-		font-size: 4rem`}
+		font-size: 4rem`};
 	${media.largePhones`
-		font-size: 5rem`}
+		font-size: 5rem`};
 	${media.tablets`
-		font-size: 6rem`}
-	${media.laptop`
+		font-size: 6rem;
 		margin-bottom: 20px;`};
 	${media.desktop`
-		font-size: 6rem`}
+		font-size: 6rem`};
 	${media.fourKay`
-		font-size: 12rem`}
+		font-size: 12rem`};
 `;

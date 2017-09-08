@@ -18,6 +18,9 @@ const Navbar = () => (
 				<StyledLink to="/CV" activeStyle={{ color: 'red' }}>
 					CV
 				</StyledLink>
+				<StyledLink to="/Contact" activeStyle={{ color: 'red' }}>
+					Contact
+				</StyledLink>
 			</Item>
 		</NavList>
 	</NavContainer>
@@ -29,7 +32,7 @@ const NavContainer = styled.nav`
 	margin-bottom: 20px;
 	${media.smallPhones`
 		display: none;`};
-	${media.laptop`
+	${media.tablets`
 		display: flex;`};
 `;
 const NavList = styled.ul`display: flex;`;
@@ -45,27 +48,18 @@ const StyledLink = styled(NavLink)`
 	&:hover {
 		color: #747d7d;
 	}
-	@media only screen and (min-width: 320px) {
-		font-size: 18px;
-	}
-
-	@media only screen and (min-width: 414px) {
-		font-size: 20px;
-	}
-
-	@media only screen and (min-width: 768px) {
-		font-size: 25px;
-	}
-
-	@media only screen and (min-width: 992px) {
-	}
-
-	@media only screen and (min-width: 1200px) {
-	}
-
-	@media only screen and (min-width: 2000px) {
-		font-size: 45px;
-	}
+	${media.smallPhones`
+	font-size: 18px;
+	`};
+	${media.largePhones`
+	font-size: 20px;
+	`};
+	${media.tablets`
+	font-size: 25px;
+	`};
+	${media.fourKay`
+	font-size: 45px;
+	`};
 `;
 
 export default Navbar;

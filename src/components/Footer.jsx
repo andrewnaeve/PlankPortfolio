@@ -22,7 +22,7 @@ const FooterContainer = styled.div`
 	min-height: auto;
 	margin-top: 10px;
 	margin-bottom: calc(100vh * 0.13);
-	${media.laptop`
+	${media.tablets`
 		margin-bottom: 0px;`};
 `;
 
@@ -33,11 +33,9 @@ const Copyright = styled.div`
 		font-size: .8rem;`};
 	${media.largePhones`
 		font-size: .9rem`};
-	${media.laptop`
+	${media.tablets`
 		margin-bottom: 20px;
 		font-size: 1rem;`};
-	${media.desktop`
-		font-size: 1.3rem`};
 	${media.fourKay`
 		font-size: 2.5rem`};
 `;

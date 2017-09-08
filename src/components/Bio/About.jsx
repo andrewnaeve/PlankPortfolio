@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from '../AnimatedContainer';
-import { media } from '../../style-utils';
 
 class Description extends Component {
 	componentDidMount() {

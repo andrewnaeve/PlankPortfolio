@@ -10,6 +10,7 @@ import MobileNav from './components/MobileNav';
 import Biography from './components/Bio/BioContainer';
 import CVWrapper from './components/CV/CVContainer';
 import Contact from './components/Contact/Contact';
+// import 'font-awesome/css/font-awesome.min.css';
 
 class App extends Component {
 	render() {

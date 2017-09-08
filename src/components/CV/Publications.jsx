@@ -10,28 +10,22 @@ const Publications = () => (
 		</P>
 		<P>National Publication</P>
 		<P>The Studio Door</P>
-		<P>
-			<P>San Diego, CA</P>
-		</P>
-
+		<P>San Diego, CA</P>
 		<br />
+
 		<P>
 			<Bold>50 to Watch</Bold>, 2015
 		</P>
 		<P>National Publication</P>
 		<P>The Studio Door</P>
-		<P>
-			<P>San Diego, CA</P>
-		</P>
+		<P>San Diego, CA</P>
 		<br />
 
 		<P>
 			<Bold>Ray Street Artists</Bold>, 2013
 		</P>
 		<P>San Diego Art Department</P>
-		<P>
-			<P>San Diego, CA</P>
-		</P>
+		<P>San Diego, CA</P>
 		<br />
 	</div>
 );

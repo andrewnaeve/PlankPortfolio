@@ -3,8 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
-		"express": "^4.15.4",
-		"font-awesome": "^4.7.0",
 		"react": "next",
 		"react-dom": "next",
 		"react-motion": "^0.5.1",
@@ -17,8 +15,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
-		"deploy":
-			"npm run build --env=prod && firebase deploy --project nancy-plank",
+		"deploy": "npm run build && firebase deploy --project nancyplank-ff678",
 		"test": "react-scripts test --env=jsdom",
 		"eject": "react-scripts eject"
 	}

@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { media } from '../style-utils';
 import { Motion, spring, presets } from 'react-motion';
-// import { TiHomeOutline, TiMail, TiSocialInstagram } from 'react-icons/lib/ti';
-// import { MdHome, MdImage, MdMail, MdPersonOutline } from 'react-icons/lib/md';
 
 class MobileNav extends Component {
 	constructor(props) {
@@ -53,23 +51,41 @@ class MobileNav extends Component {
 								opacity: interpolatingStyle.y
 							}}
 						>
-							<QuickLink to="/" onClick={this.handleClick}>
+							<QuickLink
+								to="/"
+								exact
+								onClick={this.handleClick}
+								activeStyle={{ color: 'red' }}
+							>
 								Home
 							</QuickLink>
 							<QuickLink
 								to="/Selected-Works"
 								onClick={this.handleClick}
+								activeStyle={{ color: 'red' }}
 							>
 								Selected Works
 							</QuickLink>
 							<QuickLink
 								to="/Biography"
 								onClick={this.handleClick}
+								activeStyle={{ color: 'red' }}
 							>
 								Biography
 							</QuickLink>
-							<QuickLink to="/CV" onClick={this.handleClick}>
+							<QuickLink
+								to="/CV"
+								onClick={this.handleClick}
+								activeStyle={{ color: 'red' }}
+							>
 								CV
+							</QuickLink>
+							<QuickLink
+								to="/Contact"
+								onClick={this.handleClick}
+								activeStyle={{ color: 'red' }}
+							>
+								Contact
 							</QuickLink>
 						</LinkWrapper>
 					</NavWrapper>
@@ -92,7 +108,7 @@ const NavWrapper = styled.div`
 	border-top: 1px solid #cdcdcd;
 	margin-bottom: -1px;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-	${media.laptop`
+	${media.tablets`
 	display: none;`};
 `;
 
@@ -124,7 +140,7 @@ const LinkWrapper = styled.div`
 	justify-content: center;
 	flex: 1;
 `;
-const QuickLink = styled(Link)`
+const QuickLink = styled(NavLink)`
 	font-size: 2rem;
 	font-family: 'Abel', sans-serif;
 	margin-bottom: 15px;

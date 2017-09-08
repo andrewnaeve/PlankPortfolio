@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from '../../style-utils';
 import Shows from './Shows';
@@ -8,17 +8,28 @@ import NancyPlank from '../../img/NancyPlank.jpg';
 import AnimatedContainer from '../AnimatedContainer';
 
 const CVWrapper = () => (
-	<AnimatedContainer>
-		<CV />
-	</AnimatedContainer>
+	<Container>
+		<AnimatedContainer>
+			<Profile />
+		</AnimatedContainer>
+		<AnimatedContainer>
+			<CV />
+		</AnimatedContainer>
+	</Container>
 );
 
-const CV = props => {
-	return (
-		<Container>
-			<HeaderRow>
-				<NP animate={props.animate} />
-			</HeaderRow>
+const Profile = props => (
+	<HeaderRow>
+		<NP animate={props.animate} />
+	</HeaderRow>
+);
+
+class CV extends Component {
+	componentDidMount() {
+		this.props.animate();
+	}
+	render() {
+		return (
 			<Row>
 				<Column>
 					<Publications />
@@ -28,9 +39,9 @@ const CV = props => {
 					<Education />
 				</Column>
 			</Row>
-		</Container>
-	);
-};
+		);
+	}
+}
 
 export default CVWrapper;
 
@@ -42,7 +53,7 @@ const HeaderRow = styled.div`
 	justify-content: center;
 	margin-top: 20px;
 	margin-bottom: 40px;
-	${media.laptop`
+	${media.tablets`
 	justify-content: start;`};
 `;
 const ProfilePic = styled.img`

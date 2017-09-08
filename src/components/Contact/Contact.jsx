@@ -1,20 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from '../../style-utils';
-import { Link } from 'react-router-dom';
-import 'font-awesome/css/font-awesome.min.css';
+import AnimatedContainer from '../AnimatedContainer';
+
+class ContactLinks extends Component {
+	componentDidMount() {
+		this.props.animate();
+	}
+	render() {
+		return (
+			<Container>
+				<Row>
+					<SocialLink href="mailto:nplank@me.com">
+						NPlank@me.com
+						<Icons
+							style={{ fontSize: '5rem' }}
+							className="fa fa-envelope-o"
+						/>
+					</SocialLink>
+				</Row>
+				<Row>
+					<SocialLink
+						href="https://www.instagram.com/nplank/?hl=en"
+						target="_blank"
+					>
+						Instagram
+						<Icons
+							style={{ fontSize: '5rem' }}
+							className="fa fa-instagram"
+						/>
+					</SocialLink>
+				</Row>
+			</Container>
+		);
+	}
+}
 
 const Contact = () => (
-	<Container>
-		<Row>
-			NPlank@me.com
-			<Icons className="fa fa-envelope-o" />
-		</Row>
-		<Row>
-			Instagram
-			<Icons className="fa fa-instagram" />
-		</Row>
-	</Container>
+	<AnimatedContainer>
+		<ContactLinks />
+	</AnimatedContainer>
 );
 
 export default Contact;
@@ -31,12 +55,20 @@ const Container = styled.div`
 const Row = styled.div`
 	display: flex;
 	font-family: 'Abel', sans-serif;
-	font-size: 2rem;
 	background-color: white;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	text-align: center;
+`;
+
+const SocialLink = styled.a`
+	display: flex;
+	font-size: 2rem;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: #747d7d;
 `;
 
 const Icons = styled.i`
