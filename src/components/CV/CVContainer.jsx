@@ -53,6 +53,7 @@ const HeaderRow = styled.div`
 	justify-content: center;
 	margin-top: 20px;
 	margin-bottom: 40px;
+	min-height: 250px;
 	${media.tablets`
 	justify-content: start;`};
 `;
