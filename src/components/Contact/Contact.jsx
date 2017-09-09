@@ -55,7 +55,7 @@ const Container = styled.div`
 const Row = styled.div`
 	display: flex;
 	font-family: 'Abel', sans-serif;
-	background-color: white;
+	background-color: transparent;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
