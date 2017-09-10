@@ -56,6 +56,7 @@ const HeaderRow = styled.div`
 	min-height: 250px;
 	${media.tablets`
 	justify-content: start;`};
+	width: 100%;
 `;
 const ProfilePic = styled.img`
 	display: flex;
