@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ImageCard = props => (
 	<Wrapper>
-		<Image src={props.url} />
+		<Image src={props.url} onLoad={this.animate} />
 	</Wrapper>
 );
 
