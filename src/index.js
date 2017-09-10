@@ -5,11 +5,14 @@ import './index.css';
 import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
-
+import { Provider } from 'react-redux';
+import store from './store';
 render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>,
+	<Provider store={store}>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
+	</Provider>,
 	document.getElementById('root')
 );
 registerServiceWorker();

@@ -14,7 +14,10 @@ const OuterContainer = styled.div`
 const Portfolio = () => (
 	<OuterContainer>
 		{ImageProperties.map((x, i) => (
-			<AnimatedContainer key={ImageProperties[i]}>
+			<AnimatedContainer
+				key={ImageProperties[i]}
+				url={ImageProperties[i]}
+			>
 				<ImageCard url={ImageProperties[i]} />
 			</AnimatedContainer>
 		))}

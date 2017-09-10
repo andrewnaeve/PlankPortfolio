@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Title from './components/Title';
 import Navbar from './components/Navbar';
 import Portfolio from './components/Portfolio';
-import Landing from './components/Landing';
+import Landing from './components/Landing/LandingContainer';
 import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';
 import Biography from './components/Bio/BioContainer';

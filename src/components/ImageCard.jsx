@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { imageReady } from '../actions/imageReady';
 
 const ImageCard = props => (
 	<Wrapper>
-		<Image src={props.url} onLoad={props.animate} />
+		<Image src={props.url} onLoad={props.imageReady(props.url)} />
 	</Wrapper>
 );
 
-export default ImageCard;
+const mapDispatchToProps = dispatch => {
+	return {
+		imageReady(url) {
+			dispatch(imageReady(url));
+		}
+	};
+};
+
+export default connect(null, mapDispatchToProps)(ImageCard);
 
 const Image = styled.img`
 	display: flex;
