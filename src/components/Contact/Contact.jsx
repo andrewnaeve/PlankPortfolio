@@ -1,47 +1,54 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from '../AnimatedContainer';
+import { connect } from 'react-redux';
+import { imagesReady } from '../../actions/imagesReady';
 
-class ContactLinks extends Component {
+class Contact extends Component {
 	componentDidMount() {
-		this.props.animate();
+		const { url, imagesReady } = this.props;
+		imagesReady(url);
 	}
 	render() {
 		return (
-			<Container>
-				<Row>
-					<SocialLink href="mailto:nplank@me.com">
-						NPlank@me.com
-						<Icons
-							style={{ fontSize: '5rem' }}
-							className="fa fa-envelope-o"
-						/>
-					</SocialLink>
-				</Row>
-				<Row>
-					<SocialLink
-						href="https://www.instagram.com/nplank/?hl=en"
-						target="_blank"
-					>
-						Instagram
-						<Icons
-							style={{ fontSize: '5rem' }}
-							className="fa fa-instagram"
-						/>
-					</SocialLink>
-				</Row>
-			</Container>
+			<AnimatedContainer>
+				<Container>
+					<Row>
+						<SocialLink href="mailto:nplank@me.com">
+							NPlank@me.com
+							<Icons
+								style={{ fontSize: '5rem' }}
+								className="fa fa-envelope-o"
+							/>
+						</SocialLink>
+					</Row>
+					<Row>
+						<SocialLink
+							href="https://www.instagram.com/nplank/?hl=en"
+							target="_blank"
+						>
+							Instagram
+							<Icons
+								style={{ fontSize: '5rem' }}
+								className="fa fa-instagram"
+							/>
+						</SocialLink>
+					</Row>
+				</Container>
+			</AnimatedContainer>
 		);
 	}
 }
 
-const Contact = () => (
-	<AnimatedContainer>
-		<ContactLinks />
-	</AnimatedContainer>
-);
+const mapDispatchToProps = dispatch => {
+	return {
+		imagesReady(url) {
+			dispatch(imagesReady(url));
+		}
+	};
+};
 
-export default Contact;
+export default connect(null, mapDispatchToProps)(Contact);
 
 const Container = styled.div`
 	display: flex;

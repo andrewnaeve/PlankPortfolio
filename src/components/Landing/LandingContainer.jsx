@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../style-utils';
 import { LavendarLanding } from '../../ImageProperties';
 import AnimatedContainer from '../AnimatedContainer';
 import Landing from './Landing';

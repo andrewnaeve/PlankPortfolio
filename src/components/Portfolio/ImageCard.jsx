@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { imageReady } from '../actions/imageReady';
+import { imagesReady } from '../../actions/imagesReady';
 
-const ImageCard = props => (
-	<Wrapper>
-		<Image src={props.url} onLoad={props.imageReady(props.url)} />
-	</Wrapper>
-);
+class ImageCard extends Component {
+	handleLoad = () => {
+		this.props.imagesReady(this.props.url);
+	};
+	render() {
+		return (
+			<Wrapper>
+				<Image src={this.props.url} onLoad={this.handleLoad} />
+			</Wrapper>
+		);
+	}
+}
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imageReady(url) {
-			dispatch(imageReady(url));
+		imagesReady(url) {
+			dispatch(imagesReady(url));
 		}
 	};
 };

@@ -1,31 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import AnimatedContainer from '../AnimatedContainer';
+import { connect } from 'react-redux';
+import { imagesReady } from '../../actions/imagesReady';
 
-const YouTube = () => (
-	<AnimatedContainer>
-		<Frame />
-	</AnimatedContainer>
-);
+class YouTube extends Component {
+	handleLoad = () => {
+		const { imagesReady, url } = this.props;
+		imagesReady(url);
+	};
+	render() {
+		return (
+			<OuterWrapper>
+				<MediaWrapper>
+					<iframe
+						title="Nancy Plank"
+						style={iframeStyle}
+						width="560"
+						height="315"
+						src="https://www.youtube.com/embed/B5nF1Mmte0M?rel=0"
+						frameBorder="0"
+						allowFullScreen
+						onLoad={this.handleLoad}
+					/>
+				</MediaWrapper>
+			</OuterWrapper>
+		);
+	}
+}
 
-const Frame = props => (
-	<OuterWrapper>
-		<MediaWrapper>
-			<iframe
-				title="Nancy Plank"
-				style={iframeStyle}
-				width="560"
-				height="315"
-				src="https://www.youtube.com/embed/B5nF1Mmte0M?rel=0"
-				frameBorder="0"
-				allowFullScreen
-				onLoad={props.animate}
-			/>
-		</MediaWrapper>
-	</OuterWrapper>
-);
+const mapDispatchToProps = dispatch => {
+	return {
+		imagesReady(url) {
+			dispatch(imagesReady(url));
+		}
+	};
+};
 
-export default YouTube;
+export default connect(null, mapDispatchToProps)(YouTube);
 
 const OuterWrapper = styled.div`
 	display: flex;

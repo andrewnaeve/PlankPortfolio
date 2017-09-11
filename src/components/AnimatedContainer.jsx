@@ -2,25 +2,40 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import { connect } from 'react-redux';
-import { imageLoading } from '../actions/imageLoading';
+import { imagesLoading } from '../actions/imagesLoading';
 
 class AnimatedContainer extends Component {
+	constructor(props) {
+		super();
+		this.state = {
+			loaded: false
+		};
+	}
+
 	shouldComponentUpdate(nextProps, nextState) {
-		const { url, imagesReady } = this.props;
-		if (imagesReady[url] !== nextProps.imagesReady[url]) {
+		const { url, imagesLoaded } = this.props;
+		if (imagesLoaded[url] !== nextProps.imagesLoaded[url]) {
 			return true;
 		}
 		return false;
 	}
-	componentWillUnmount() {
-		imageLoading(this.props.url);
-	}
-
-	render() {
+	componentWillReceiveProps(nextProps) {
 		const { url } = this.props;
-		const { imagesReady } = this.props;
-		const loaded = imagesReady[url];
 
+		nextProps.imagesLoaded[url] === true
+			? this.setState({
+					loaded: true
+				})
+			: this.setState({
+					loaded: false
+				});
+	}
+	componentWillUnmount() {
+		const { imagesLoading } = this.props;
+		imagesLoading(this.props.url);
+	}
+	render() {
+		const { loaded } = this.state;
 		const dynamicStyle = {
 			opacity: spring(loaded ? 1.0 : 0.0, {
 				stiffness: 30,
@@ -47,14 +62,14 @@ class AnimatedContainer extends Component {
 	}
 }
 
-const mapStateToProps = ({ imagesReady }) => {
-	return { imagesReady };
+const mapStateToProps = ({ imagesLoaded }) => {
+	return { imagesLoaded };
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imageLoading(url) {
-			dispatch(imageLoading(url));
+		imagesLoading(url) {
+			dispatch(imagesLoading(url));
 		}
 	};
 };

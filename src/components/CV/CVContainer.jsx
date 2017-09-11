@@ -1,72 +1,50 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from '../../style-utils';
 import Shows from './Shows';
 import Publications from './Publications';
 import Education from './Education';
-import NancyPlank from '../../img/NancyPlank.jpg';
+import ProfilePic from './ProfilePic';
 import AnimatedContainer from '../AnimatedContainer';
+import NancyPlank from '../../img/NancyPlank.jpg';
+import { imagesReady } from '../../actions/imagesReady';
+import { connect } from 'react-redux';
 
-const CVWrapper = () => (
-	<Container>
-		<AnimatedContainer>
-			<Profile />
-		</AnimatedContainer>
-		<AnimatedContainer>
-			<CV />
-		</AnimatedContainer>
-	</Container>
-);
-
-const Profile = props => (
-	<HeaderRow>
-		<NP animate={props.animate} />
-	</HeaderRow>
-);
-
-class CV extends Component {
+class CVWrapper extends Component {
 	componentDidMount() {
-		this.props.animate();
+		const { imagesReady } = this.props;
+		imagesReady('CVContent');
 	}
 	render() {
 		return (
-			<Row>
-				<Column>
-					<Publications />
-					<Shows />
-				</Column>
-				<Column>
-					<Education />
-				</Column>
-			</Row>
+			<Container>
+				<AnimatedContainer url={NancyPlank}>
+					<ProfilePic url={NancyPlank} />
+				</AnimatedContainer>
+				<AnimatedContainer url={'CVContent'}>
+					<Row>
+						<Column>
+							<Publications />
+							<Shows />
+						</Column>
+						<Column>
+							<Education />
+						</Column>
+					</Row>
+				</AnimatedContainer>
+			</Container>
 		);
 	}
 }
 
-export default CVWrapper;
+const mapDispatchToProps = dispatch => {
+	return {
+		imagesReady(url) {
+			dispatch(imagesReady(url));
+		}
+	};
+};
 
-const NP = props => <ProfilePic src={NancyPlank} onLoad={props.animate} />;
-
-const HeaderRow = styled.div`
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	margin-top: 20px;
-	margin-bottom: 40px;
-	min-height: 250px;
-	${media.tablets`
-	justify-content: start;`};
-	width: 100%;
-`;
-const ProfilePic = styled.img`
-	display: flex;
-	border-radius: 3px;
-	max-height: 250px;
-	max-width: 100%;
-	width: auto;
-	align-self: center;
-	justify-content: center;
-`;
+export default connect(null, mapDispatchToProps)(CVWrapper);
 
 const Container = styled.div`
 	display: flex;

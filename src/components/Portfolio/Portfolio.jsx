@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import AnimatedContainer from './AnimatedContainer';
-import ImageProperties from '../ImageProperties';
+import AnimatedContainer from '../AnimatedContainer';
+import ImageProperties from '../../ImageProperties';
 import ImageCard from './ImageCard';
 
 const OuterContainer = styled.div`

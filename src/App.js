@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router';
 import styled from 'styled-components';
 import Title from './components/Title';
 import Navbar from './components/Navbar';
-import Portfolio from './components/Portfolio';
+import Portfolio from './components/Portfolio/Portfolio';
 import Landing from './components/Landing/LandingContainer';
 import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';

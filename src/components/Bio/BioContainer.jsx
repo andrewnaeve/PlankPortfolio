@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import YouTube from './YouTube';
 import About from './About';
 import { media } from '../../style-utils';
+import AnimatedContainer from '../AnimatedContainer';
 
 const Biography = () => (
 	<Container>
-		<YouTube />
-		<About />
+		<AnimatedContainer url={'YouTubeFrame'}>
+			<YouTube url={'YouTubeFrame'} />
+		</AnimatedContainer>
+		<AnimatedContainer url={'AboutContainer'}>
+			<About url={'AboutContainer'} />
+		</AnimatedContainer>
 	</Container>
 );
 

@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from '../../style-utils';
-import { LavendarLanding } from '../../ImageProperties';
-import AnimatedContainer from '../AnimatedContainer';
 import { connect } from 'react-redux';
-import { imageReady } from '../../actions/imageReady';
+import { imagesReady } from '../../actions/imagesReady';
 
-const Landing = props => (
-	<Wrapper>
-		<LandingImage src={props.url} onLoad={props.imageReady(props.url)} />
-	</Wrapper>
-);
+class Landing extends Component {
+	handleLoad = () => {
+		const { imagesReady, url } = this.props;
+		imagesReady(url);
+	};
+	render() {
+		return (
+			<Wrapper>
+				<LandingImage src={this.props.url} onLoad={this.handleLoad} />
+			</Wrapper>
+		);
+	}
+}
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imageReady(url) {
-			dispatch(imageReady(url));
+		imagesReady(url) {
+			dispatch(imagesReady(url));
 		}
 	};
 };

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import AnimatedContainer from '../AnimatedContainer';
+import { connect } from 'react-redux';
+import { imagesReady } from '../../actions/imagesReady';
 
-class Description extends Component {
+class About extends Component {
 	componentDidMount() {
-		this.props.animate();
+		const { url, imagesReady } = this.props;
+		imagesReady(url);
 	}
 	render() {
 		return (
@@ -27,13 +29,15 @@ class Description extends Component {
 	}
 }
 
-const About = () => (
-	<AnimatedContainer>
-		<Description />
-	</AnimatedContainer>
-);
+const mapDispatchToProps = dispatch => {
+	return {
+		imagesReady(url) {
+			dispatch(imagesReady(url));
+		}
+	};
+};
 
-export default About;
+export default connect(null, mapDispatchToProps)(About);
 
 const Text = styled.div`
 	margin-top: 20px;
