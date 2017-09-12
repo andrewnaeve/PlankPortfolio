@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 import styled from 'styled-components';
-import Title from './components/Title';
-import Navbar from './components/Navbar';
+import Title from './components/Navigation/Title';
+import Navbar from './components/Navigation/Navbar';
+import MobileNav from './components/Navigation/MobileNav';
 import Portfolio from './components/Portfolio/Portfolio';
 import Landing from './components/Landing/LandingContainer';
 import Footer from './components/Footer';
-import MobileNav from './components/MobileNav';
 import Biography from './components/Bio/BioContainer';
 import CVWrapper from './components/CV/CVContainer';
 import Contact from './components/Contact/Contact';

@@ -19,17 +19,20 @@ class AnimatedContainer extends Component {
 		}
 		return false;
 	}
-	componentWillReceiveProps(nextProps) {
-		const { url } = this.props;
 
-		nextProps.imagesLoaded[url] === true
-			? this.setState({
-					loaded: true
-				})
-			: this.setState({
-					loaded: false
-				});
+	componentWillReceiveProps(nextProps) {
+		const { url, imagesLoaded } = this.props;
+		if (imagesLoaded[url] !== nextProps.imagesLoaded[url]) {
+			nextProps.imagesLoaded[url] === true
+				? this.setState({
+						loaded: true
+					})
+				: this.setState({
+						loaded: false
+					});
+		}
 	}
+
 	componentWillUnmount() {
 		const { imagesLoading } = this.props;
 		imagesLoading(this.props.url);

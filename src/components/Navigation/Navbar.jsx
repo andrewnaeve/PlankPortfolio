@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { media } from '../style-utils';
+import { media } from '../../style-utils';
 
 const Navbar = () => (
 	<NavContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import YouTube from './YouTube';
+import YouTubePlayer from './YouTubePlayer';
 import About from './About';
 import { media } from '../../style-utils';
 import AnimatedContainer from '../AnimatedContainer';
@@ -8,7 +8,7 @@ import AnimatedContainer from '../AnimatedContainer';
 const Biography = () => (
 	<Container>
 		<AnimatedContainer url={'YouTubeFrame'}>
-			<YouTube url={'YouTubeFrame'} />
+			<YouTubePlayer url={'YouTubeFrame'} />
 		</AnimatedContainer>
 		<AnimatedContainer url={'AboutContainer'}>
 			<About url={'AboutContainer'} />
@@ -25,6 +25,6 @@ const Container = styled.div`
 	flex-direction: column;
 	max-width: 90%;
 	${media.laptop`
-	max-width: 60%;
+	max-width: 70%;
 	`};
 `;
