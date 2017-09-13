@@ -31,6 +31,7 @@ class AnimatedContainer extends PureComponent {
 	}
 	render() {
 		const { loaded } = this.state;
+		const { children } = this.props;
 		const dynamicStyle = {
 			opacity: spring(loaded ? 1.0 : 0.0, {
 				stiffness: 30,
@@ -38,24 +39,25 @@ class AnimatedContainer extends PureComponent {
 			}),
 			position: spring(loaded ? -10 : 0, { stiffness: 75, damping: 10 })
 		};
-
-		return (
-			<Motion style={dynamicStyle}>
-				{interpolatingStyle => (
-					<AnimatedDiv
-						style={{
-							transform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
-							WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
-							opacity: `${interpolatingStyle.opacity}`
-						}}
-					>
-						{this.props.children}
-					</AnimatedDiv>
-				)}
-			</Motion>
-		);
+		return Animation(dynamicStyle, children);
 	}
 }
+
+const Animation = (dynamicStyle, children) => (
+	<Motion style={dynamicStyle}>
+		{interpolatingStyle => (
+			<AnimatedDiv
+				style={{
+					transform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
+					WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
+					opacity: `${interpolatingStyle.opacity}`
+				}}
+			>
+				{children}
+			</AnimatedDiv>
+		)}
+	</Motion>
+);
 
 const mapStateToProps = ({ loaded }) => {
 	return { loaded };

@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 
 class Landing extends Component {
+	shouldComponentUpdate() {
+		return false;
+	}
 	handleLoad = () => {
 		const { ready, name } = this.props;
 		ready(name);

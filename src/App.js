@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router';
 import styled from 'styled-components';
 import Title from './components/Navigation/Title';
@@ -11,27 +11,25 @@ import Biography from './components/Bio/BioContainer';
 import CVWrapper from './components/CV/CVContainer';
 import Contact from './components/Contact/Contact';
 
-class App extends Component {
-	render() {
-		return (
-			<Wrapper>
-				<Title />
-				<Navbar />
-				<BodyContainer>
-					<Switch>
-						<Route exact path="/" component={Landing} />
-						<Route path="/Selected-Works" component={Portfolio} />
-						<Route path="/Biography" component={Biography} />
-						<Route path="/CV" component={CVWrapper} />
-						<Route path="/Contact" component={Contact} />
-					</Switch>
-				</BodyContainer>
-				<Footer />
-				<MobileNav />
-			</Wrapper>
-		);
-	}
-}
+const App = () => (
+	<Wrapper>
+		<Title />
+		<Navbar />
+		<BodyContainer>
+			<Switch>
+				<Route exact path="/" component={Landing} />
+				<Route path="/Selected-Works" component={Portfolio} />
+				<Route path="/Biography" component={Biography} />
+				<Route path="/CV" component={CVWrapper} />
+				<Route path="/Contact" component={Contact} />
+			</Switch>
+		</BodyContainer>
+		<Footer />
+		<MobileNav />
+	</Wrapper>
+);
+
+export default App;
 
 const Wrapper = styled.div`
 	display: flex;
@@ -44,5 +42,3 @@ const BodyContainer = styled.div`
 	flex: 1;
 	justify-content: center;
 `;
-
-export default App;

@@ -1,12 +1,11 @@
 {
 	"name": "nancyplank",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"private": true,
 	"dependencies": {
 		"react": "next",
 		"react-dom": "next",
 		"react-motion": "^0.5.1",
-		"react-player": "^0.24.2",
 		"react-redux": "^5.0.6",
 		"react-router-dom": "^4.1.2",
 		"redux": "^3.7.2",

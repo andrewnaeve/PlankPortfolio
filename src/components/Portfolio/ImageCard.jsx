@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 
 class ImageCard extends Component {
+	shouldComponentUpdate() {
+		return false;
+	}
 	handleLoad = () => {
 		this.props.ready(this.props.name);
 	};
