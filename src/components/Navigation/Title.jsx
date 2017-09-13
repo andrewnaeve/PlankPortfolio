@@ -28,6 +28,7 @@ const Nancy = styled(Link)`
 	font-family: 'Abel', sans-serif;
 	font-weight: 500;
 	margin-top: 10px;
+	text-align: center;
 	${media.smallPhones`
 		font-size: 4rem`};
 	${media.largePhones`

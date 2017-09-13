@@ -7,11 +7,11 @@ import AnimatedContainer from '../AnimatedContainer';
 
 const Biography = () => (
 	<Container>
-		<AnimatedContainer url={'YouTubeFrame'}>
-			<YouTubePlayer url={'YouTubeFrame'} />
+		<AnimatedContainer name={'YouTubeFrame'}>
+			<YouTubePlayer />
 		</AnimatedContainer>
-		<AnimatedContainer url={'AboutContainer'}>
-			<About url={'AboutContainer'} />
+		<AnimatedContainer name={'AboutContainer'}>
+			<About name={'AboutContainer'} />
 		</AnimatedContainer>
 	</Container>
 );

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { imagesReady } from '../../actions/imagesReady';
+import { ready } from '../../actions/ready';
 
 class YouTubePlayer extends Component {
 	handleLoad = () => {
-		const { imagesReady, url } = this.props;
-		imagesReady(url);
+		const { ready, name } = this.props;
+		ready(name);
 	};
 
 	render() {
@@ -31,8 +31,8 @@ class YouTubePlayer extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesReady(url) {
-			dispatch(imagesReady(url));
+		ready(name) {
+			dispatch(ready(name));
 		}
 	};
 };

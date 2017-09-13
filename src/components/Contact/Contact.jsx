@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from '../AnimatedContainer';
 import { connect } from 'react-redux';
-import { imagesReady } from '../../actions/imagesReady';
+import { ready } from '../../actions/ready';
 
 class Contact extends Component {
 	componentDidMount() {
-		const { url, imagesReady } = this.props;
-		imagesReady(url);
+		const { name, ready } = this.props;
+		ready(name);
 	}
 	render() {
 		return (
@@ -42,8 +42,8 @@ class Contact extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesReady(url) {
-			dispatch(imagesReady(url));
+		ready(name) {
+			dispatch(ready(name));
 		}
 	};
 };

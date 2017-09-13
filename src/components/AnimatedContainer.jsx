@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import { connect } from 'react-redux';
-import { imagesLoading } from '../actions/imagesLoading';
+import { loading } from '../actions/loading';
 
 class AnimatedContainer extends Component {
 	constructor(props) {
@@ -12,18 +12,10 @@ class AnimatedContainer extends Component {
 		};
 	}
 
-	shouldComponentUpdate(nextProps, nextState) {
-		const { url, imagesLoaded } = this.props;
-		if (imagesLoaded[url] !== nextProps.imagesLoaded[url]) {
-			return true;
-		}
-		return false;
-	}
-
 	componentWillReceiveProps(nextProps) {
-		const { url, imagesLoaded } = this.props;
-		if (imagesLoaded[url] !== nextProps.imagesLoaded[url]) {
-			nextProps.imagesLoaded[url] === true
+		const { name, loaded } = this.props;
+		if (loaded[name] !== nextProps.loaded[name]) {
+			nextProps.loaded[name] === true
 				? this.setState({
 						loaded: true
 					})
@@ -34,8 +26,8 @@ class AnimatedContainer extends Component {
 	}
 
 	componentWillUnmount() {
-		const { imagesLoading } = this.props;
-		imagesLoading(this.props.url);
+		const { loading } = this.props;
+		loading(this.props.name);
 	}
 	render() {
 		const { loaded } = this.state;
@@ -65,14 +57,14 @@ class AnimatedContainer extends Component {
 	}
 }
 
-const mapStateToProps = ({ imagesLoaded }) => {
-	return { imagesLoaded };
+const mapStateToProps = ({ loaded }) => {
+	return { loaded };
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesLoading(url) {
-			dispatch(imagesLoading(url));
+		loading(name) {
+			dispatch(loading(name));
 		}
 	};
 };

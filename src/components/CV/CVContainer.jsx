@@ -6,21 +6,21 @@ import Education from './Education';
 import ProfilePic from './ProfilePic';
 import AnimatedContainer from '../AnimatedContainer';
 import NancyPlank from '../../img/NancyPlank.jpg';
-import { imagesReady } from '../../actions/imagesReady';
+import { ready } from '../../actions/ready';
 import { connect } from 'react-redux';
 
 class CVWrapper extends Component {
 	componentDidMount() {
-		const { imagesReady } = this.props;
-		imagesReady('CVContent');
+		const { ready } = this.props;
+		ready('CVContent');
 	}
 	render() {
 		return (
 			<Container>
-				<AnimatedContainer url={NancyPlank}>
-					<ProfilePic url={NancyPlank} />
+				<AnimatedContainer name={NancyPlank}>
+					<ProfilePic name={NancyPlank} />
 				</AnimatedContainer>
-				<AnimatedContainer url={'CVContent'}>
+				<AnimatedContainer name={'CVContent'}>
 					<Row>
 						<Column>
 							<Publications />
@@ -38,8 +38,8 @@ class CVWrapper extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesReady(url) {
-			dispatch(imagesReady(url));
+		ready(name) {
+			dispatch(ready(name));
 		}
 	};
 };

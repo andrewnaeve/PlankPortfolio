@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from '../../style-utils';
 import { connect } from 'react-redux';
-import { imagesReady } from '../../actions/imagesReady';
+import { ready } from '../../actions/ready';
 
 class Landing extends Component {
 	handleLoad = () => {
-		const { imagesReady, url } = this.props;
-		imagesReady(url);
+		const { ready, name } = this.props;
+		ready(name);
 	};
 	render() {
 		return (
 			<Wrapper>
-				<LandingImage src={this.props.url} onLoad={this.handleLoad} />
+				<LandingImage src={this.props.name} onLoad={this.handleLoad} />
 			</Wrapper>
 		);
 	}
@@ -20,8 +20,8 @@ class Landing extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesReady(url) {
-			dispatch(imagesReady(url));
+		ready(name) {
+			dispatch(ready(name));
 		}
 	};
 };

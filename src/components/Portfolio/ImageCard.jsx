@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { imagesReady } from '../../actions/imagesReady';
+import { ready } from '../../actions/ready';
 
 class ImageCard extends Component {
 	handleLoad = () => {
-		this.props.imagesReady(this.props.url);
+		this.props.ready(this.props.name);
 	};
 	render() {
 		return (
 			<Wrapper>
-				<Image src={this.props.url} onLoad={this.handleLoad} />
+				<Image src={this.props.name} onLoad={this.handleLoad} />
 			</Wrapper>
 		);
 	}
@@ -18,8 +18,8 @@ class ImageCard extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesReady(url) {
-			dispatch(imagesReady(url));
+		ready(name) {
+			dispatch(ready(name));
 		}
 	};
 };

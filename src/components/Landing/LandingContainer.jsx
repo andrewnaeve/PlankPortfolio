@@ -6,8 +6,8 @@ import Landing from './Landing';
 
 const LandingContainer = () => (
 	<Container>
-		<AnimatedContainer url={LavendarLanding}>
-			<Landing url={LavendarLanding} />
+		<AnimatedContainer name={LavendarLanding}>
+			<Landing name={LavendarLanding} />
 		</AnimatedContainer>
 	</Container>
 );

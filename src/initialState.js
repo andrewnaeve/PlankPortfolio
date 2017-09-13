@@ -1,5 +1,5 @@
 const initialState = {
-	imagesLoaded: {}
+	loaded: {}
 };
 
 export default initialState;

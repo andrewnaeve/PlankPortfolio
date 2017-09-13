@@ -16,9 +16,9 @@ const Portfolio = () => (
 		{ImageProperties.map((x, i) => (
 			<AnimatedContainer
 				key={ImageProperties[i]}
-				url={ImageProperties[i]}
+				name={ImageProperties[i]}
 			>
-				<ImageCard url={ImageProperties[i]} />
+				<ImageCard name={ImageProperties[i]} />
 			</AnimatedContainer>
 		))}
 	</OuterContainer>

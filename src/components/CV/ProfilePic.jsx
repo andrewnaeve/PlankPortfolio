@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { imagesReady } from '../../actions/imagesReady';
+import { ready } from '../../actions/ready';
 import { connect } from 'react-redux';
 import { media } from '../../style-utils';
 
 class ProfilePic extends Component {
 	handleLoad = () => {
-		const { url, imagesReady } = this.props;
-		imagesReady(url);
+		const { name, ready } = this.props;
+		ready(name);
 	};
 	render() {
-		const { url } = this.props;
+		const { name } = this.props;
 		return (
 			<HeaderRow>
-				<Pic src={url} onLoad={this.handleLoad} />
+				<Pic src={name} onLoad={this.handleLoad} />
 			</HeaderRow>
 		);
 	}
@@ -21,8 +21,8 @@ class ProfilePic extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		imagesReady(url) {
-			dispatch(imagesReady(url));
+		ready(name) {
+			dispatch(ready(name));
 		}
 	};
 };
