@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
+import { Switch, Route, Redirect } from 'react-router';
 import styled from 'styled-components';
 import Title from './components/Navigation/Title';
 import Navbar from './components/Navigation/Navbar';
@@ -22,6 +22,7 @@ const App = () => (
 				<Route path="/Biography" component={Biography} />
 				<Route path="/CV" component={CVWrapper} />
 				<Route path="/Contact" component={Contact} />
+				<Redirect from="**" to="/" />
 			</Switch>
 		</BodyContainer>
 		<Footer />
