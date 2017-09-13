@@ -7,18 +7,21 @@ const Navbar = () => (
 	<NavContainer>
 		<NavList>
 			<Item>
-				<StyledLink to="/Selected-Works" activeStyle={{ color: 'red' }}>
+				<StyledLink
+					to="/Selected-Works"
+					activeStyle={{ color: '#78D5E3' }}
+				>
 					Selected Works
 				</StyledLink>
 			</Item>
 			<Item>
-				<StyledLink to="/Biography" activeStyle={{ color: 'red' }}>
+				<StyledLink to="/Biography" activeStyle={{ color: '#78D5E3' }}>
 					Biography
 				</StyledLink>
-				<StyledLink to="/CV" activeStyle={{ color: 'red' }}>
+				<StyledLink to="/CV" activeStyle={{ color: '#78D5E3' }}>
 					CV
 				</StyledLink>
-				<StyledLink to="/Contact" activeStyle={{ color: 'red' }}>
+				<StyledLink to="/Contact" activeStyle={{ color: '#78D5E3' }}>
 					Contact
 				</StyledLink>
 			</Item>

@@ -63,35 +63,35 @@ const Menu = (dynamicStyle, handleClick) => (
 						to="/"
 						exact
 						onClick={handleClick}
-						activeStyle={{ color: 'red' }}
+						activeStyle={{ color: '#78D5E3' }}
 					>
 						Home
 					</QuickLink>
 					<QuickLink
 						to="/Selected-Works"
 						onClick={handleClick}
-						activeStyle={{ color: 'red' }}
+						activeStyle={{ color: '#78D5E3' }}
 					>
 						Selected Works
 					</QuickLink>
 					<QuickLink
 						to="/Biography"
 						onClick={handleClick}
-						activeStyle={{ color: 'red' }}
+						activeStyle={{ color: '#78D5E3' }}
 					>
 						Biography
 					</QuickLink>
 					<QuickLink
 						to="/CV"
 						onClick={handleClick}
-						activeStyle={{ color: 'red' }}
+						activeStyle={{ color: '#78D5E3' }}
 					>
 						CV
 					</QuickLink>
 					<QuickLink
 						to="/Contact"
 						onClick={handleClick}
-						activeStyle={{ color: 'red' }}
+						activeStyle={{ color: '#78D5E3' }}
 					>
 						Contact
 					</QuickLink>
