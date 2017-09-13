@@ -54,7 +54,7 @@ const Container = styled.div`
 	display: flex;
 	flex: 1;
 	flex-direction: row;
-	max-width: 50%;
+	max-width: 60%;
 	justify-content: space-around;
 	flex-wrap: wrap;
 `;
@@ -76,6 +76,8 @@ const SocialLink = styled.a`
 	align-items: center;
 	text-decoration: none;
 	color: #747d7d;
+	margin-left: 10px;
+	margin-right: 10px;
 `;
 
 const Icons = styled.i`
