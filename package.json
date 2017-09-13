@@ -1,6 +1,6 @@
 {
 	"name": "nancyplank",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"private": true,
 	"dependencies": {
 		"react": "next",
@@ -10,7 +10,8 @@
 		"react-router-dom": "^4.1.2",
 		"redux": "^3.7.2",
 		"redux-thunk": "^2.2.0",
-		"styled-components": "^2.1.2"
+		"styled-components": "^2.1.2",
+		"sweetalert2": "^6.7.0"
 	},
 	"devDependencies": {
 		"react-scripts": "1.0.11"
