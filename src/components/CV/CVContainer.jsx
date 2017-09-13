@@ -4,7 +4,7 @@ import Shows from './Shows';
 import Publications from './Publications';
 import Education from './Education';
 import ProfilePic from './ProfilePic';
-import AnimatedContainer from '../AnimatedContainer';
+import AnimatedContainer from '../Animation/AnimatedContainer';
 import NancyPlank from '../../img/NancyPlank.jpg';
 import { ready } from '../../actions/ready';
 import { connect } from 'react-redux';

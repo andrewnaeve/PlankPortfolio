@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { LavendarLanding } from '../../ImageProperties';
-import AnimatedContainer from '../AnimatedContainer';
+import AnimatedContainer from '../Animation/AnimatedContainer';
 import Landing from './Landing';
 
 const LandingContainer = () => (

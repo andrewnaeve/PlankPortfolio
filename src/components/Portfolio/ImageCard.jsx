@@ -35,7 +35,6 @@ const Image = styled.img`
 	width: auto;
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
-	margin-bottom: 30px;
 `;
 
 const Wrapper = styled.div`

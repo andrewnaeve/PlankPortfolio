@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 import { connect } from 'react-redux';
-import { loading } from '../actions/loading';
+import { loading } from '../../actions/loading';
 
-class AnimatedContainer extends Component {
+class AnimatedContainer extends PureComponent {
 	constructor(props) {
 		super();
 		this.state = {
@@ -76,4 +76,5 @@ const AnimatedDiv = styled.div`
 	border-radius: 2px;
 	width: 100%;
 	justify-content: center;
+	flex-direction: column;
 `;

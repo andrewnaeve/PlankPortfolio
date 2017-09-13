@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import AnimatedContainer from '../AnimatedContainer';
+import AnimatedContainer from '../Animation/AnimatedContainer';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 

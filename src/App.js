@@ -6,11 +6,10 @@ import Navbar from './components/Navigation/Navbar';
 import MobileNav from './components/Navigation/MobileNav';
 import Portfolio from './components/Portfolio/Portfolio';
 import Landing from './components/Landing/LandingContainer';
-import Footer from './components/Footer';
+import Footer from './components/Navigation/Footer';
 import Biography from './components/Bio/BioContainer';
 import CVWrapper from './components/CV/CVContainer';
 import Contact from './components/Contact/Contact';
-// import 'font-awesome/css/font-awesome.min.css';
 
 class App extends Component {
 	render() {

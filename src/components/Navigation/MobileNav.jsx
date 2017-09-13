@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { media } from '../../style-utils';
 import { Motion, spring, presets } from 'react-motion';
 
-class MobileNav extends Component {
+class MobileNav extends PureComponent {
 	constructor(props) {
 		super();
 		this.state = {
@@ -26,7 +26,7 @@ class MobileNav extends Component {
 			y: spring(1)
 		};
 		const isClosed = {
-			x: spring(80, presets.stiff),
+			x: spring(82, presets.stiff),
 			y: spring(0)
 		};
 
@@ -115,7 +115,7 @@ const NavWrapper = styled.div`
 const Hamburger = styled.div`
 	display: flex;
 	position: absolute;
-	top: 5%;
+	top: 4%;
 	left: 5%;
 	justify-content: center;
 	align-items: center;
