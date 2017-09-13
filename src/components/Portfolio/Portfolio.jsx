@@ -12,11 +12,15 @@ const Portfolio = () => (
 				key={ImageProperties[i].title}
 				name={ImageProperties[i].url}
 			>
-				<ImageCard name={ImageProperties[i].url} />
-				<TextContainer>
-					<Title>{ImageProperties[i].title}</Title>
-					<Description>{ImageProperties[i].description}</Description>
-				</TextContainer>
+				<Column>
+					<ImageCard name={ImageProperties[i].url} />
+					<TextContainer>
+						<Title>{ImageProperties[i].title}</Title>
+						<Description>
+							{ImageProperties[i].description}
+						</Description>
+					</TextContainer>
+				</Column>
 			</AnimatedContainer>
 		))}
 	</OuterContainer>
@@ -27,6 +31,12 @@ const OuterContainer = styled.div`
 	max-width: 90%;
 	margin-top: 30px;
 	justify-content: center;
+`;
+
+const Column = styled.div`
+	display: flex;
+	flex: 1;
+	flex-direction: column;
 `;
 
 const TextContainer = styled.div`

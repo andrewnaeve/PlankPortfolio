@@ -76,5 +76,4 @@ const AnimatedDiv = styled.div`
 	border-radius: 2px;
 	width: 100%;
 	justify-content: center;
-	flex-direction: column;
 `;

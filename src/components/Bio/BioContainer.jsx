@@ -24,7 +24,7 @@ const Container = styled.div`
 	justify-content: center;
 	flex-direction: column;
 	max-width: 90%;
-	${media.laptop`
+	${media.tablets`
 	max-width: 70%;
 	`};
 `;
