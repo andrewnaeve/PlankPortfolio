@@ -17,28 +17,36 @@ const ImageProperties = [
 		url: Holly,
 		description: '24" x 20," oil on canvas'
 	},
-	{ title: 'Carmel', url: Lavendar, description: '60" x 70," oil on canvas' },
+	{
+		title: 'Sentinels of Carmel',
+		url: Lavendar,
+		description: '60" x 70," oil on canvas'
+	},
 	{
 		title: 'Pink Spray',
 		url: PinkSpray,
 		description: '60" x 70," oil on canvas'
 	},
 	{
-		title: 'Presents',
+		title: 'What, Me Worry?',
 		url: ElBirdo,
 		description: '60" x 70," oil on canvas'
 	},
 	{
-		title: 'First Bloom',
+		title: 'Roses in the Spotlight',
 		url: BlackRoses,
 		description: '36" x 48," oil on canvas'
 	},
 	{
-		title: "Mennonite Girls on Pike's Peak",
+		title: "Mennonite Tourists at Pike's Peak",
 		url: Mennonites,
 		description: '48" x 36," oil on canvas'
 	},
-	{ title: 'Lush', url: Vase, description: '36" x 48," oil on canvas' },
+	{
+		title: 'Tasteful Opulence',
+		url: Vase,
+		description: '36" x 48," oil on canvas'
+	},
 	{
 		title: 'Arden in Rome',
 		url: Arden,
@@ -50,17 +58,17 @@ const ImageProperties = [
 		description: '36" x 36," oil on canvas'
 	},
 	{
-		title: 'Blueberries',
+		title: 'Berries at the Huntington',
 		url: Blueberries,
 		description: '60" x 70," oil on canvas'
 	},
 	{
-		title: 'Autumn Floral',
+		title: "Zorro's Bouquet",
 		url: OrangeFlowers,
 		description: '36" x 36," oil on canvas'
 	},
 	{
-		title: "Joann's Bouquet",
+		title: "Jo Anne's Bouquet",
 		url: TaupeFlowers,
 		description: '36" x 36," oil on canvas'
 	}
