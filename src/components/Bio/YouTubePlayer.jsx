@@ -2,26 +2,28 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
+import YouTube from 'react-youtube';
+import './YouTubePlayer.css';
 
 class YouTubePlayer extends Component {
-	handleLoad = () => {
+	handleLoad = event => {
 		const { ready, name } = this.props;
 		ready(name);
 	};
 
 	render() {
+		const opts = {
+			width: '560',
+			height: '315'
+		};
 		return (
 			<OuterWrapper>
 				<MediaWrapper>
-					<iframe
-						title="Nancy Plank"
-						style={iframeStyle}
-						width="560"
-						height="315"
-						src="https://www.youtube.com/embed/B5nF1Mmte0M?rel=0"
-						frameBorder="0"
-						allowFullScreen
-						onLoad={this.handleLoad}
+					<YouTube
+						videoId="B5nF1Mmte0M"
+						opts={opts}
+						className="iframeStyle"
+						onReady={this.handleLoad}
 					/>
 				</MediaWrapper>
 			</OuterWrapper>

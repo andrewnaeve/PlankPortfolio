@@ -18,7 +18,6 @@ class About extends Component {
 					and passion to paint."
 				</p>
 				<p>- Nancy Plank</p>
-				<br />
 				<p>
 					Nancy Plank is a realism painter specializing in florals and
 					portraits. She is available for commission work. Her studio

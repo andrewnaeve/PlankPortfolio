@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { unregister } from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
+
 render(
 	<Provider store={store}>
 		<BrowserRouter>

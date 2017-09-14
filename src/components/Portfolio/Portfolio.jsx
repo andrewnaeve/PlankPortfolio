@@ -44,26 +44,30 @@ const TextContainer = styled.div`
 	font-family: 'Abel', sans-serif;
 	width: 100%;
 	justify-content: center;
-	font-size: 1.5rem;
 	color: black;
 	flex-direction: column;
 	margin-bottom: 20px;
 	margin-top: 20px;
-	${media.tablets`
-		font-size: 2rem`};
 `;
 
 const Title = styled.div`
+	font-size: 1.5rem;
 	display: flex;
 	text-align: center;
 	width: 100%;
 	justify-content: center;
+	font-style: italic;
+	${media.tablets`
+	font-size: 2rem`};
 `;
 const Description = styled.div`
+	font-size: 1.2rem;
 	display: flex;
 	text-align: center;
 	width: 100%;
 	justify-content: center;
+	${media.tablets`
+	font-size: 1.5rem`};
 `;
 
 export default Portfolio;
