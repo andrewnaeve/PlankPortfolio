@@ -42,29 +42,18 @@ const mapDispatchToProps = dispatch => {
 export default connect(null, mapDispatchToProps)(YouTubePlayer);
 
 const OuterWrapper = styled.div`
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	padding-top: 10px;
-	flex-direction: column;
-	height: 100%;
 	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
 `;
 
 const MediaWrapper = styled.div`
 	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 35px;
-	height: 0;
-	width: 100%;
-	overflow: hidden;
-	height: 100%;
+	::after {
+		content: '';
+		display: block;
+		padding-bottom: 56.25%;
+		height: 0;
+	}
 `;
-
-const iframeStyle = {
-	position: 'absolute',
-	top: '0',
-	left: '0',
-	width: '100%',
-	height: '100%'
-};

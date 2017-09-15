@@ -20,11 +20,12 @@ export default Biography;
 
 const Container = styled.div`
 	display: flex;
-	margin-top: 20px;
 	justify-content: center;
 	flex-direction: column;
 	max-width: 90%;
+	margin-top: 30px;
 	${media.tablets`
-	max-width: 70%;
+		max-width: 70%;
+		margin-top: 20px;
 	`};
 `;
