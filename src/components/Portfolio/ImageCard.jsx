@@ -8,12 +8,12 @@ class ImageCard extends Component {
 		return false;
 	}
 	handleLoad = () => {
-		this.props.ready(this.props.name);
+		this.props.ready(this.props.title);
 	};
 	render() {
 		return (
 			<Wrapper>
-				<Image src={this.props.name} onLoad={this.handleLoad} />
+				<Image src={this.props.url} onLoad={this.handleLoad} />
 			</Wrapper>
 		);
 	}
@@ -21,8 +21,8 @@ class ImageCard extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		ready(name) {
-			dispatch(ready(name));
+		ready(title) {
+			dispatch(ready(title));
 		}
 	};
 };

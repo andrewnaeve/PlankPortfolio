@@ -4,17 +4,17 @@ import { LOADING } from '../actions/loading';
 import initialState from '../initialState';
 
 export const loaded = (state = initialState, action) => {
-	const name = action.payload;
+	const title = action.payload;
 	switch (action.type) {
 		case READY:
 			return {
 				...state,
-				[name]: true
+				[title]: true
 			};
 		case LOADING:
 			return {
 				...state,
-				[name]: false
+				[title]: false
 			};
 		default:
 			return state;

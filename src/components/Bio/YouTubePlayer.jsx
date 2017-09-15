@@ -7,8 +7,8 @@ import './YouTubePlayer.css';
 
 class YouTubePlayer extends Component {
 	handleLoad = event => {
-		const { ready, name } = this.props;
-		ready(name);
+		const { ready, title } = this.props;
+		ready(title);
 	};
 
 	render() {
@@ -33,8 +33,8 @@ class YouTubePlayer extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		ready(name) {
-			dispatch(ready(name));
+		ready(title) {
+			dispatch(ready(title));
 		}
 	};
 };

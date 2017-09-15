@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
-import { media } from '../../style-utils';
+import { media } from '../Utilities/style-utils';
 
 class About extends Component {
 	componentDidMount() {
-		const { name, ready } = this.props;
-		ready(name);
+		const { title, ready } = this.props;
+		ready(title);
 	}
 	render() {
 		return (
@@ -32,8 +32,8 @@ class About extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		ready(name) {
-			dispatch(ready(name));
+		ready(title) {
+			dispatch(ready(title));
 		}
 	};
 };

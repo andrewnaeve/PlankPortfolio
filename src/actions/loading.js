@@ -1,7 +1,7 @@
 export const LOADING = 'LOADING';
 
-export const loading = name => {
+export const loading = title => {
 	return dispatch => {
-		dispatch({ type: LOADING, payload: name });
+		dispatch({ type: LOADING, payload: title });
 	};
 };

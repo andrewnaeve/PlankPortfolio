@@ -3,17 +3,26 @@ import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import ImageProperties from '../../ImageProperties';
 import ImageCard from './ImageCard';
-import { media } from '../../style-utils';
+import { media } from '../Utilities/style-utils';
 
 const Portfolio = () => (
 	<OuterContainer>
+		<ImageGenerator />
+	</OuterContainer>
+);
+
+const ImageGenerator = () => (
+	<div>
 		{ImageProperties.map((x, i) => (
 			<AnimatedContainer
-				key={ImageProperties[i].title}
-				name={ImageProperties[i].url}
+				key={ImageProperties[i].url}
+				title={ImageProperties[i].title}
 			>
 				<Column>
-					<ImageCard name={ImageProperties[i].url} />
+					<ImageCard
+						url={ImageProperties[i].url}
+						title={ImageProperties[i].title}
+					/>
 					<TextContainer>
 						<Title>{ImageProperties[i].title}</Title>
 						<Description>
@@ -23,7 +32,7 @@ const Portfolio = () => (
 				</Column>
 			</AnimatedContainer>
 		))}
-	</OuterContainer>
+	</div>
 );
 
 const OuterContainer = styled.div`

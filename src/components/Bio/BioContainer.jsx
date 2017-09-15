@@ -2,16 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import YouTubePlayer from './YouTubePlayer';
 import About from './About';
-import { media } from '../../style-utils';
+import { media } from '../Utilities/style-utils';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 
 const Biography = () => (
 	<Container>
-		<AnimatedContainer name={'YouTubeFrame'}>
-			<YouTubePlayer name={'YouTubeFrame'} />
+		<AnimatedContainer title={'YouTubeFrame'}>
+			<YouTubePlayer title={'YouTubeFrame'} />
 		</AnimatedContainer>
-		<AnimatedContainer name={'AboutContainer'}>
-			<About name={'AboutContainer'} />
+		<AnimatedContainer title={'AboutContainer'}>
+			<About title={'AboutContainer'} />
 		</AnimatedContainer>
 	</Container>
 );

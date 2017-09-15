@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from '../../style-utils';
+import { media } from '../Utilities/style-utils';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 
@@ -9,13 +9,13 @@ class Landing extends Component {
 		return false;
 	}
 	handleLoad = () => {
-		const { ready, name } = this.props;
-		ready(name);
+		const { ready, title } = this.props;
+		ready(title);
 	};
 	render() {
 		return (
 			<Wrapper>
-				<LandingImage src={this.props.name} onLoad={this.handleLoad} />
+				<LandingImage src={this.props.url} onLoad={this.handleLoad} />
 			</Wrapper>
 		);
 	}
@@ -23,8 +23,8 @@ class Landing extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		ready(name) {
-			dispatch(ready(name));
+		ready(title) {
+			dispatch(ready(title));
 		}
 	};
 };

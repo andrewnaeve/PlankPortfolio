@@ -1,7 +1,7 @@
 export const READY = 'READY';
 
-export const ready = name => {
+export const ready = title => {
 	return dispatch => {
-		dispatch({ type: READY, payload: name });
+		dispatch({ type: READY, payload: title });
 	};
 };

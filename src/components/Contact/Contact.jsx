@@ -6,8 +6,8 @@ import { ready } from '../../actions/ready';
 
 class Contact extends Component {
 	componentDidMount() {
-		const { name, ready } = this.props;
-		ready(name);
+		const { title, ready } = this.props;
+		ready(title);
 	}
 	render() {
 		return (
@@ -42,8 +42,8 @@ class Contact extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		ready(name) {
-			dispatch(ready(name));
+		ready(title) {
+			dispatch(ready(title));
 		}
 	};
 };

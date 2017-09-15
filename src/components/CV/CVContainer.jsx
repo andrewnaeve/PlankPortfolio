@@ -17,10 +17,10 @@ class CVWrapper extends Component {
 	render() {
 		return (
 			<Container>
-				<AnimatedContainer name={NancyPlank}>
-					<ProfilePic name={NancyPlank} />
+				<AnimatedContainer title={NancyPlank}>
+					<ProfilePic title={NancyPlank} />
 				</AnimatedContainer>
-				<AnimatedContainer name={'CVContent'}>
+				<AnimatedContainer title={'CVContent'}>
 					<Row>
 						<Column>
 							<Publications />
@@ -38,8 +38,8 @@ class CVWrapper extends Component {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		ready(name) {
-			dispatch(ready(name));
+		ready(title) {
+			dispatch(ready(title));
 		}
 	};
 };
