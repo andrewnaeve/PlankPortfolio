@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 import YouTube from 'react-youtube';
-import './YouTubePlayer.css';
 
 class YouTubePlayer extends Component {
 	handleLoad = event => {

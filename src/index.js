@@ -7,6 +7,7 @@ import { unregister } from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
 import ScrollToTop from './components/Utilities/ScrollToTop';
+import './globalStyles';
 
 render(
 	<Provider store={store}>

@@ -44,6 +44,7 @@ const LandingImage = styled.img`
 	width: auto;
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
+	margin-top: -10px;
 	${media.smallPhones`
 margin-top: 40px;`};
 	${media.tablets`
