@@ -7,12 +7,6 @@ import { media } from '../Utilities/style-utils';
 
 const Portfolio = () => (
 	<OuterContainer>
-		<ImageGenerator />
-	</OuterContainer>
-);
-
-const ImageGenerator = () => (
-	<div>
 		{ImageProperties.map((x, i) => (
 			<AnimatedContainer
 				key={ImageProperties[i].url}
@@ -32,7 +26,7 @@ const ImageGenerator = () => (
 				</Column>
 			</AnimatedContainer>
 		))}
-	</div>
+	</OuterContainer>
 );
 
 const OuterContainer = styled.div`

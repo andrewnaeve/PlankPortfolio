@@ -44,14 +44,13 @@ const LandingImage = styled.img`
 	width: auto;
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
-	margin-top: -10px;
 	${media.smallPhones`
-margin-top: 40px;`};
+		margin-top: 40px;`};
 	${media.tablets`
-max-height: 600px;`};
+		max-height: 600px;
+		margin-top: 30px;`};
 	${media.laptop`
-margin-top: 20px;
-max-height: 600px;`};
+		max-height: 600px;`};
 	${media.fourKay`
-max-height: 1500px;`};
+		max-height: 1500px;`};
 `;
