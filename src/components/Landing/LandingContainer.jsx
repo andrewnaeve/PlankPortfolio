@@ -21,5 +21,4 @@ const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-self: start;
-	padding-top: 10px;
 `;
