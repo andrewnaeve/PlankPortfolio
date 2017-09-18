@@ -34,7 +34,7 @@ const Copyright = styled.div`
 	${media.largePhones`
 		font-size: .9rem`};
 	${media.tablets`
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 		font-size: 1rem;`};
 	${media.fourKay`
 		font-size: 2.5rem`};
