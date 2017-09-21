@@ -24,6 +24,9 @@ class AnimatedContainer extends PureComponent {
 					});
 		}
 	}
+	sayHello = () => {
+		console.log('hello');
+	};
 
 	componentWillUnmount() {
 		const { loading, title } = this.props;
@@ -39,25 +42,27 @@ class AnimatedContainer extends PureComponent {
 			}),
 			position: spring(loaded ? -10 : 0, { stiffness: 75, damping: 10 })
 		};
-		return Animation(dynamicStyle, children);
+		return (
+			<Motion style={dynamicStyle}>
+				{interpolatingStyle => (
+					<AnimatedDiv
+						style={{
+							transform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
+							WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
+							opacity: `${interpolatingStyle.opacity}`
+						}}
+						sayHello={this.sayHello}
+					>
+						{this.props.children}
+					</AnimatedDiv>
+				)}
+			</Motion>
+		);
 	}
 }
 
-const Animation = (dynamicStyle, children) => (
-	<Motion style={dynamicStyle}>
-		{interpolatingStyle => (
-			<AnimatedDiv
-				style={{
-					transform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
-					WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
-					opacity: `${interpolatingStyle.opacity}`
-				}}
-			>
-				{children}
-			</AnimatedDiv>
-		)}
-	</Motion>
-);
+// const Animation = (dynamicStyle, children) => (
+// );
 
 const mapStateToProps = ({ loaded }) => {
 	return { loaded };

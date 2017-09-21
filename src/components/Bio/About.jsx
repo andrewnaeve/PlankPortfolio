@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
-import { media } from '../Utilities/style-utils';
+import { media } from '../../Utilities/style-utils';
 
 class About extends Component {
 	componentDidMount() {

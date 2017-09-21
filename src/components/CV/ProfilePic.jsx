@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { ready } from '../../actions/ready';
 import { connect } from 'react-redux';
-import { media } from '../Utilities/style-utils';
+import { media } from '../../Utilities/style-utils';
 
 class ProfilePic extends Component {
 	handleLoad = () => {

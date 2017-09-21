@@ -3,28 +3,28 @@ import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import ImageProperties from '../../ImageProperties';
 import ImageCard from './ImageCard';
-import { media } from '../Utilities/style-utils';
+import { media } from '../../Utilities/style-utils';
+import LazyLoad from '../../Utilities/LazyLoad';
 
 const Portfolio = () => (
 	<OuterContainer>
 		{ImageProperties.map((x, i) => (
-			<AnimatedContainer
-				key={ImageProperties[i].url}
-				title={ImageProperties[i].title}
-			>
-				<Column>
-					<ImageCard
-						url={ImageProperties[i].url}
-						title={ImageProperties[i].title}
-					/>
-					<TextContainer>
-						<Title>{ImageProperties[i].title}</Title>
-						<Description>
-							{ImageProperties[i].description}
-						</Description>
-					</TextContainer>
-				</Column>
-			</AnimatedContainer>
+			<LazyLoad key={ImageProperties[i].url}>
+				<AnimatedContainer title={ImageProperties[i].title}>
+					<Column>
+						<ImageCard
+							url={ImageProperties[i].url}
+							title={ImageProperties[i].title}
+						/>
+						<TextContainer>
+							<Title>{ImageProperties[i].title}</Title>
+							<Description>
+								{ImageProperties[i].description}
+							</Description>
+						</TextContainer>
+					</Column>
+				</AnimatedContainer>
+			</LazyLoad>
 		))}
 	</OuterContainer>
 );

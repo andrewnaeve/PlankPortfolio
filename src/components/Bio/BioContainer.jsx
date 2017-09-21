@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import YouTubePlayer from './YouTubePlayer';
 import About from './About';
-import { media } from '../Utilities/style-utils';
+import { media } from '../../Utilities/style-utils';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 
 const Biography = () => (

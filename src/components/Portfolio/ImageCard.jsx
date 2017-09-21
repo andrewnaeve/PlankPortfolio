@@ -9,6 +9,7 @@ class ImageCard extends Component {
 	}
 	handleLoad = () => {
 		this.props.ready(this.props.title);
+		this.props.sayHello();
 	};
 	render() {
 		return (
