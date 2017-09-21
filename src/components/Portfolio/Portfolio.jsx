@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import ImageProperties from '../../ImageProperties';
@@ -6,28 +6,62 @@ import ImageCard from './ImageCard';
 import { media } from '../../Utilities/style-utils';
 import LazyLoad from '../../Utilities/LazyLoad';
 
-const Portfolio = () => (
-	<OuterContainer>
-		{ImageProperties.map((x, i) => (
-			<LazyLoad key={ImageProperties[i].url}>
-				<AnimatedContainer title={ImageProperties[i].title}>
-					<Column>
-						<ImageCard
-							url={ImageProperties[i].url}
-							title={ImageProperties[i].title}
-						/>
-						<TextContainer>
-							<Title>{ImageProperties[i].title}</Title>
-							<Description>
-								{ImageProperties[i].description}
-							</Description>
-						</TextContainer>
-					</Column>
-				</AnimatedContainer>
-			</LazyLoad>
-		))}
-	</OuterContainer>
-);
+class Portfolio extends Component {
+	constructor() {
+		super();
+		this.state = {
+			viewport: {
+				top: 0,
+				height: 0
+			}
+		};
+		this.updateViewport = this.updateViewport.bind(this);
+	}
+	componentDidMount() {
+		window.addEventListener('scroll', this.updateViewport, false);
+		window.addEventListener('resize', this.updateViewport, false);
+		this.updateViewport();
+	}
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.updateViewport);
+		window.removeEventListener('resize', this.updateViewport);
+	}
+	updateViewport() {
+		// TODO: debounce this call
+		this.setState({
+			viewport: {
+				top: window.pageYOffset,
+				height: window.innerHeight
+			}
+		});
+	}
+	render() {
+		return (
+			<OuterContainer>
+				{ImageProperties.map((x, i) => (
+					<AnimatedContainer
+						key={ImageProperties[i].url}
+						title={ImageProperties[i].title}
+					>
+						<Column>
+							<ImageCard
+								url={ImageProperties[i].url}
+								title={ImageProperties[i].title}
+								viewport={this.state.viewport}
+							/>
+							<TextContainer>
+								<Title>{ImageProperties[i].title}</Title>
+								<Description>
+									{ImageProperties[i].description}
+								</Description>
+							</TextContainer>
+						</Column>
+					</AnimatedContainer>
+				))}
+			</OuterContainer>
+		);
+	}
+}
 
 const OuterContainer = styled.div`
 	flex: 1;

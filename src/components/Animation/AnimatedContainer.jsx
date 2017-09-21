@@ -24,10 +24,6 @@ class AnimatedContainer extends PureComponent {
 					});
 		}
 	}
-	sayHello = () => {
-		console.log('hello');
-	};
-
 	componentWillUnmount() {
 		const { loading, title } = this.props;
 		loading(title);
@@ -51,18 +47,14 @@ class AnimatedContainer extends PureComponent {
 							WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
 							opacity: `${interpolatingStyle.opacity}`
 						}}
-						sayHello={this.sayHello}
 					>
-						{this.props.children}
+						{children}
 					</AnimatedDiv>
 				)}
 			</Motion>
 		);
 	}
 }
-
-// const Animation = (dynamicStyle, children) => (
-// );
 
 const mapStateToProps = ({ loaded }) => {
 	return { loaded };

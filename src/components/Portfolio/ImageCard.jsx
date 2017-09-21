@@ -4,12 +4,42 @@ import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 
 class ImageCard extends Component {
+	constructor(props) {
+		super();
+		this.state = {
+			show: false
+		};
+	}
 	shouldComponentUpdate() {
 		return false;
 	}
+	componentDidUpdate(prevProps) {
+		if (!this.props.showImages && prevProps.viewport) {
+			this.updatePosition();
+		}
+	}
+
+	updatePosition() {
+		var el = this.getDOMNode();
+		this.props.updateImagePosition(el.offsetTop, el.offsetHeight);
+	}
+
+	updateImagePosition(top, height) {
+		// image is already displayed, no need to check anything
+		if (this.state.showImage) {
+		  return;
+		}
+	
+		// update showImage state if component element is in the viewport
+		var min = this.props.viewport.top;
+		var max = this.props.viewport.top + this.props.viewport.height;
+	
+		if ((min <= (top + height) && top <= (max - 300))) {
+		  this.setShowImage(true);
+		}
+	  },
 	handleLoad = () => {
 		this.props.ready(this.props.title);
-		this.props.sayHello();
 	};
 	render() {
 		return (
