@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
+import ReactDOM from 'react-dom';
 
 class ImageCard extends Component {
 	constructor(props) {
@@ -10,41 +11,39 @@ class ImageCard extends Component {
 			show: false
 		};
 	}
-	shouldComponentUpdate() {
-		return false;
-	}
-	componentDidUpdate(prevProps) {
-		if (!this.props.showImages && prevProps.viewport) {
-			this.updatePosition();
+
+	componentWillReceiveProps(prevProps) {
+		if (!this.state.show) {
+			this.updateImagePosition();
 		}
 	}
 
-	updatePosition() {
-		var el = this.getDOMNode();
-		this.props.updateImagePosition(el.offsetTop, el.offsetHeight);
+	updateImagePosition() {
+		const rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
+		console.log('rtop', rect.top, 'innerheight', window.innerHeight);
+		if (
+			rect.bottom >= 0 &&
+			rect.right >= 0 &&
+			rect.top <=
+				(window.innerHeight || document.documentElement.clientHeight) &&
+			rect.left <=
+				(window.innerWidth || document.documentElement.clientWidth)
+		) {
+			this.setState({
+				show: true
+			});
+		}
 	}
 
-	updateImagePosition(top, height) {
-		// image is already displayed, no need to check anything
-		if (this.state.showImage) {
-		  return;
-		}
-	
-		// update showImage state if component element is in the viewport
-		var min = this.props.viewport.top;
-		var max = this.props.viewport.top + this.props.viewport.height;
-	
-		if ((min <= (top + height) && top <= (max - 300))) {
-		  this.setShowImage(true);
-		}
-	  },
 	handleLoad = () => {
 		this.props.ready(this.props.title);
 	};
+
 	render() {
+		const url = this.state.show ? this.props.url : null;
 		return (
 			<Wrapper>
-				<Image src={this.props.url} onLoad={this.handleLoad} />
+				<Image src={url} onLoad={this.handleLoad} />
 			</Wrapper>
 		);
 	}
@@ -69,6 +68,7 @@ const Image = styled.img`
 	width: auto;
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
+	padding-bottom: calc((height / width) * 100);
 `;
 
 const Wrapper = styled.div`

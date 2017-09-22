@@ -6,8 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { unregister } from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import store from './store';
-import ScrollToTop from './Utilities/ScrollToTop';
-import './globalStyles';
+import ScrollToTop from './utilities/ScrollToTop';
+import './utilities/global-styles';
 
 render(
 	<Provider store={store}>

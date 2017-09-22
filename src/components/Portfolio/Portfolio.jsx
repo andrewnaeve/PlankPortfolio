@@ -3,17 +3,13 @@ import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import ImageProperties from '../../ImageProperties';
 import ImageCard from './ImageCard';
-import { media } from '../../Utilities/style-utils';
-import LazyLoad from '../../Utilities/LazyLoad';
+import { media } from '../../utilities/style-utils';
 
 class Portfolio extends Component {
 	constructor() {
 		super();
 		this.state = {
-			viewport: {
-				top: 0,
-				height: 0
-			}
+			scroll: ''
 		};
 		this.updateViewport = this.updateViewport.bind(this);
 	}
@@ -26,13 +22,10 @@ class Portfolio extends Component {
 		window.removeEventListener('scroll', this.updateViewport);
 		window.removeEventListener('resize', this.updateViewport);
 	}
-	updateViewport() {
-		// TODO: debounce this call
+
+	updateViewport(e) {
 		this.setState({
-			viewport: {
-				top: window.pageYOffset,
-				height: window.innerHeight
-			}
+			scroll: e
 		});
 	}
 	render() {
@@ -47,7 +40,7 @@ class Portfolio extends Component {
 							<ImageCard
 								url={ImageProperties[i].url}
 								title={ImageProperties[i].title}
-								viewport={this.state.viewport}
+								viewport={this.state.scroll}
 							/>
 							<TextContainer>
 								<Title>{ImageProperties[i].title}</Title>

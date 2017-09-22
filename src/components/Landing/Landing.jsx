@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { media } from '../../Utilities/style-utils';
+import { media } from '../../utilities/style-utils';
 import { connect } from 'react-redux';
 import { ready } from '../../actions/ready';
 

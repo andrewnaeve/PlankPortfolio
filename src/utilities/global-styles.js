@@ -1,5 +1,5 @@
 import { injectGlobal } from 'styled-components';
-import Abel from './fonts/Abel-Regular.ttf';
+import Abel from '../fonts/Abel-Regular.ttf';
 
 injectGlobal`
 	@font-face {
