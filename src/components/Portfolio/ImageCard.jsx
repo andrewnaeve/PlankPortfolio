@@ -12,6 +12,13 @@ class ImageCard extends Component {
 		};
 	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		if (this.state.show) {
+			return false;
+		}
+		return true;
+	}
+
 	componentWillReceiveProps(prevProps) {
 		if (!this.state.show) {
 			this.updateImagePosition();
@@ -20,7 +27,8 @@ class ImageCard extends Component {
 
 	updateImagePosition() {
 		const rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
-		console.log('rtop', rect.top, 'innerheight', window.innerHeight);
+		console.log('rt', rect.top);
+		console.log('iH', window.innerHeight);
 		if (
 			rect.bottom >= 0 &&
 			rect.right >= 0 &&
@@ -40,6 +48,7 @@ class ImageCard extends Component {
 	};
 
 	render() {
+		console.log(this.state.show);
 		const url = this.state.show ? this.props.url : null;
 		return (
 			<Wrapper>
@@ -68,7 +77,6 @@ const Image = styled.img`
 	width: auto;
 	border: 1px solid #f0f0f0;
 	border-radius: 3px;
-	padding-bottom: calc((height / width) * 100);
 `;
 
 const Wrapper = styled.div`
