@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import instagramIcon from '../../svg/instagramIcon.svg';
 
-const Instagram = () => (
+const Instagram = props => (
 	<SocialLink href="https://www.instagram.com/nplank/?hl=en" target="_blank">
 		Instagram
-		<Icons src={instagramIcon} />
+		<Icons
+			src={instagramIcon}
+			onLoad={() => props.iconReady(props.title)}
+		/>
 	</SocialLink>
 );
 

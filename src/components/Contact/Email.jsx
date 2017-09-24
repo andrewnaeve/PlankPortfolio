@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import emailIcon from '../../svg/emailIcon.svg';
 
-const Email = () => (
+const Email = props => (
 	<SocialLink href="mailto:nplank@me.com">
 		NPlank@me.com
-		<Icons src={emailIcon} />
+		<Icons src={emailIcon} onLoad={() => props.iconReady(props.title)} />
 	</SocialLink>
 );
 

@@ -14,18 +14,29 @@ class Contact extends Component {
 	shouldComponentUpdate() {
 		return false;
 	}
+
+	iconReady = title => {
+		console.log('title', title);
+		this.props.ready(title);
+	};
+
 	render() {
 		return (
-			<AnimatedContainer>
-				<Container>
-					<Row>
-						<Email />
-					</Row>
-					<Row>
-						<Instagram />
-					</Row>
-				</Container>
-			</AnimatedContainer>
+			<Container>
+				<Row>
+					<AnimatedContainer title={'Email'}>
+						<Email title={'Email'} iconReady={this.iconReady} />
+					</AnimatedContainer>
+				</Row>
+				<Row>
+					<AnimatedContainer title={'Instagram'}>
+						<Instagram
+							title={'Instagram'}
+							iconReady={this.iconReady}
+						/>
+					</AnimatedContainer>
+				</Row>
+			</Container>
 		);
 	}
 }
