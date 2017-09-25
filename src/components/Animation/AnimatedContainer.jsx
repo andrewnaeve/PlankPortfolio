@@ -13,7 +13,9 @@ class AnimatedContainer extends PureComponent {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const { title, loaded } = this.props;
+		const { loaded } = this.props;
+		const { title } = this.props.children.props;
+
 		if (loaded[title] !== nextProps.loaded[title]) {
 			nextProps.loaded[title] === true
 				? this.setState({
@@ -25,7 +27,8 @@ class AnimatedContainer extends PureComponent {
 		}
 	}
 	componentWillUnmount() {
-		const { loading, title } = this.props;
+		const { loading } = this.props;
+		const { title } = this.props.children.props;
 		loading(title);
 	}
 	render() {

@@ -31,10 +31,7 @@ class Portfolio extends Component {
 		return (
 			<OuterContainer>
 				{ImageProperties.map((x, i) => (
-					<AnimatedContainer
-						key={ImageProperties[i].url}
-						title={ImageProperties[i].title}
-					>
+					<AnimatedContainer key={ImageProperties[i].url}>
 						<ImageCard
 							url={ImageProperties[i].url}
 							title={ImageProperties[i].title}

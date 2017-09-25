@@ -45,14 +45,12 @@ class ImageCard extends Component {
 	}
 
 	handleImageLoad = () => {
-		console.log('loooad');
 		this.props.ready(this.props.title);
 	};
 
 	render() {
 		const { url, title, description, width, height } = this.props;
 		const { show } = this.state;
-		console.log(show);
 		return (
 			<Wrapper>
 				<Image

@@ -6,7 +6,7 @@ import Landing from './Landing';
 
 const LandingContainer = () => (
 	<Container>
-		<AnimatedContainer title={ImageProperties[1].title}>
+		<AnimatedContainer>
 			<Landing
 				title={ImageProperties[1].title}
 				url={ImageProperties[1].url}

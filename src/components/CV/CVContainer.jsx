@@ -17,11 +17,11 @@ class CVWrapper extends Component {
 	render() {
 		return (
 			<Container>
-				<AnimatedContainer title={NancyPlank}>
+				<AnimatedContainer>
 					<ProfilePic title={NancyPlank} />
 				</AnimatedContainer>
-				<AnimatedContainer title={'CVContent'}>
-					<Row>
+				<AnimatedContainer>
+					<Row title={'CVContent'}>
 						<Column>
 							<Publications />
 							<Shows />

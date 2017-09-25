@@ -1,55 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
-import { connect } from 'react-redux';
-import { ready } from '../../actions/ready';
 import Email from './Email';
 import Instagram from './Instagram';
 
-class Contact extends Component {
-	componentDidMount() {
-		const { title, ready } = this.props;
-		ready(title);
-	}
-	shouldComponentUpdate() {
-		return false;
-	}
+const Contact = () => (
+	<Container>
+		<Row>
+			<AnimatedContainer>
+				<Email title={'Email'} />
+			</AnimatedContainer>
+		</Row>
+		<Row>
+			<AnimatedContainer>
+				<Instagram title={'Instagram'} />
+			</AnimatedContainer>
+		</Row>
+	</Container>
+);
 
-	iconReady = title => {
-		console.log('title', title);
-		this.props.ready(title);
-	};
-
-	render() {
-		return (
-			<Container>
-				<Row>
-					<AnimatedContainer title={'Email'}>
-						<Email title={'Email'} iconReady={this.iconReady} />
-					</AnimatedContainer>
-				</Row>
-				<Row>
-					<AnimatedContainer title={'Instagram'}>
-						<Instagram
-							title={'Instagram'}
-							iconReady={this.iconReady}
-						/>
-					</AnimatedContainer>
-				</Row>
-			</Container>
-		);
-	}
-}
-
-const mapDispatchToProps = dispatch => {
-	return {
-		ready(title) {
-			dispatch(ready(title));
-		}
-	};
-};
-
-export default connect(null, mapDispatchToProps)(Contact);
+export default Contact;
 
 const Container = styled.div`
 	display: flex;

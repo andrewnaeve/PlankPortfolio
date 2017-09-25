@@ -1,18 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import instagramIcon from '../../svg/instagramIcon.svg';
+import { connect } from 'react-redux';
+import { ready } from '../../actions/ready';
 
-const Instagram = props => (
-	<SocialLink href="https://www.instagram.com/nplank/?hl=en" target="_blank">
-		Instagram
-		<Icons
-			src={instagramIcon}
-			onLoad={() => props.iconReady(props.title)}
-		/>
-	</SocialLink>
-);
+class Instagram extends Component {
+	handleLoad = () => {
+		this.props.ready(this.props.title);
+	};
+	render() {
+		return (
+			<SocialLink
+				href="https://www.instagram.com/nplank/?hl=en"
+				target="_blank"
+			>
+				Instagram
+				<Icons src={instagramIcon} onLoad={this.handleLoad} />
+			</SocialLink>
+		);
+	}
+}
 
-export default Instagram;
+const mapDispatchToProps = dispatch => {
+	return {
+		ready(title) {
+			dispatch(ready(title));
+		}
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Instagram);
 
 const SocialLink = styled.a`
 	display: flex;
