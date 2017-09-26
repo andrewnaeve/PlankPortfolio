@@ -4,13 +4,15 @@ import AnimatedContainer from '../Animation/AnimatedContainer';
 import ImageProperties from '../../ImageProperties';
 import ImageCard from './ImageCard';
 
+import debounce from 'lodash/debounce';
+
 class Portfolio extends Component {
 	constructor() {
 		super();
 		this.state = {
 			scrolling: false
 		};
-		this.updateViewport = this.updateViewport.bind(this);
+		this.updateViewport = debounce(this.updateViewport).bind(this);
 	}
 	componentDidMount() {
 		window.addEventListener('scroll', this.updateViewport, false);
@@ -28,6 +30,7 @@ class Portfolio extends Component {
 		});
 	}
 	render() {
+		console.log('rendered');
 		return (
 			<OuterContainer>
 				{ImageProperties.map((x, i) => (
