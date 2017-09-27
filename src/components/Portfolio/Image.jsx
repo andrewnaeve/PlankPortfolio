@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Image = props => (
-	<ImageStyle src={props.show ? props.url : null} onLoad={props.handleLoad} />
-);
+const Image = props => <ImageStyle src={props.url} onLoad={props.handleLoad} />;
 
 const ImageStyle = styled.img`
 	display: flex;
