@@ -13,16 +13,15 @@ class ImageCard extends Component {
 			show: false
 		};
 	}
+
 	componentDidMount() {
 		this.props.onRef(this);
 	}
+
 	componentWillUnmount() {
 		this.props.onRef(undefined);
 	}
-	componentDidUpdate() {
-		const { i, stopSendingEvents } = this.props;
-		this.state.show && stopSendingEvents(i);
-	}
+
 	updateImagePosition() {
 		const rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
 		if (this.state.show) {

@@ -10,15 +10,12 @@ class Portfolio extends Component {
 	constructor() {
 		super();
 		this.state = {
-			scrolling: false
+			scrolling: false,
+			loaded: 0
 		};
-		this.updateViewport = debounce(this.updateViewport, 100).bind(this);
-		this.stopSendingEvents = this.stopSendingEvents.bind(this);
+		this.updateViewport = debounce(this.updateViewport, 50).bind(this);
 	}
-	_activeListeners = [];
-	componentWillMount() {
-		ImageProperties.map((x, i) => this._activeListeners.push(x));
-	}
+
 	componentDidMount() {
 		window.addEventListener('scroll', this.updateViewport, false);
 		window.addEventListener('resize', this.updateViewport, false);
@@ -30,25 +27,9 @@ class Portfolio extends Component {
 	}
 
 	updateViewport() {
-		if (this._activeListeners.length) {
-			this._activeListeners.map((x, i) => {
-				return this[`img${i}`].updateImagePosition();
-			});
-		}
-	}
-	stopSendingEvents(i) {
-		if (this._activeListeners.length) {
-			this._activeListeners = this._activeListeners
-				.slice(0, i)
-				.concat(
-					this._activeListeners.slice(
-						i + 1,
-						this._activeListeners.length
-					)
-				);
-		}
-		console.log(i);
-		console.log(this._activeListeners);
+		ImageProperties.map((x, i) => {
+			return this[`img${i}`].updateImagePosition();
+		});
 	}
 
 	render() {
@@ -57,12 +38,11 @@ class Portfolio extends Component {
 				{ImageProperties.map((x, i) => (
 					<AnimatedContainer key={ImageProperties[i].url}>
 						<ImageCard
-							i={i}
 							onRef={ref => (this[`img${i}`] = ref)}
-							stopSendingEvents={this.stopSendingEvents}
 							url={ImageProperties[i].url}
 							title={ImageProperties[i].title}
 							description={ImageProperties[i].description}
+							scrolling={this.state.scrolling}
 						/>
 					</AnimatedContainer>
 				))}
