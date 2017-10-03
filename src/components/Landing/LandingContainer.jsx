@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import ImageProperties from '../../ImageProperties';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import Landing from './Landing';
+import { LavendarLanding } from '../../ImageProperties';
 
 const LandingContainer = () => (
 	<Container>
 		<AnimatedContainer>
-			<Landing
-				title={ImageProperties[1].title}
-				url={ImageProperties[1].url}
-			/>
+			<Landing title={LavendarLanding.title} url={LavendarLanding.url} />
 		</AnimatedContainer>
 	</Container>
 );

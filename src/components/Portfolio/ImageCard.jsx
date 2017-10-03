@@ -22,6 +22,9 @@ class ImageCard extends Component {
 		this.props.onRef(undefined);
 	}
 
+	componentDidUpdate() {
+		this.state.show && this.props.stopSendingEvents(this.props.index);
+	}
 	updateImagePosition() {
 		const rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
 		if (this.state.show) {

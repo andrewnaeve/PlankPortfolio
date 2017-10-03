@@ -3,17 +3,19 @@ import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import ImageProperties from '../../ImageProperties';
 import ImageCard from './ImageCard';
-
 import debounce from 'lodash/debounce';
 
 class Portfolio extends Component {
 	constructor() {
 		super();
-		this.state = {
-			scrolling: false,
-			loaded: 0
-		};
-		this.updateViewport = debounce(this.updateViewport, 50).bind(this);
+		this._images = [];
+		this.updateViewport = debounce(this.updateViewport).bind(this);
+	}
+
+	componentWillMount() {
+		ImageProperties.map((x, i) => {
+			return this._images.push(x);
+		});
 	}
 
 	componentDidMount() {
@@ -21,16 +23,23 @@ class Portfolio extends Component {
 		window.addEventListener('resize', this.updateViewport, false);
 		this.updateViewport();
 	}
+
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.updateViewport);
 		window.removeEventListener('resize', this.updateViewport);
 	}
 
 	updateViewport() {
-		ImageProperties.map((x, i) => {
-			return this[`img${i}`].updateImagePosition();
+		this._images.forEach((x, i) => {
+			if (x !== null) {
+				return this[`img${i}`].updateImagePosition();
+			}
 		});
 	}
+
+	stopSendingEvents = i => {
+		this._images[i] = null;
+	};
 
 	render() {
 		return (
@@ -38,11 +47,12 @@ class Portfolio extends Component {
 				{ImageProperties.map((x, i) => (
 					<AnimatedContainer key={ImageProperties[i].url}>
 						<ImageCard
+							index={i}
 							onRef={ref => (this[`img${i}`] = ref)}
 							url={ImageProperties[i].url}
 							title={ImageProperties[i].title}
 							description={ImageProperties[i].description}
-							scrolling={this.state.scrolling}
+							stopSendingEvents={this.stopSendingEvents}
 						/>
 					</AnimatedContainer>
 				))}
