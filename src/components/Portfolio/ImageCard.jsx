@@ -56,6 +56,7 @@ class ImageCard extends Component {
 			<Wrapper>
 				<Image
 					url={url}
+					title={title}
 					handleLoad={this.handleImageLoad}
 					height={height}
 					width={width}

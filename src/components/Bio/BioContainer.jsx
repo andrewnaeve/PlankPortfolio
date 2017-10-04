@@ -7,9 +7,7 @@ import AnimatedContainer from '../Animation/AnimatedContainer';
 
 const Biography = () => (
 	<Container>
-		<AnimatedContainer>
-			<YouTubePlayer title={'YouTubeFrame'} />
-		</AnimatedContainer>
+		<YouTubePlayer title={'YouTubeFrame'} />
 		<AnimatedContainer>
 			<About title={'AboutContainer'} />
 		</AnimatedContainer>
