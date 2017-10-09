@@ -9,6 +9,9 @@ import store from './store';
 import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
 
+// import { ApolloClient, gql, graphql, ApolloProvider } from 'react-apollo';
+// const client = new ApolloClient();
+
 render(
 	<Provider store={store}>
 		<BrowserRouter>
