@@ -86,7 +86,7 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 300px;
+	min-height: 280px;
 `;
 
 const TextContainer = styled.div`
