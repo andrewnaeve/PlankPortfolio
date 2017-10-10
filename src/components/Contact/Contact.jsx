@@ -3,23 +3,33 @@ import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 import Email from './Email';
 import Instagram from './Instagram';
+import { connect } from 'react-redux';
+import { ready } from '../../actions/ready';
 
-const Contact = () => (
+const Contact = props => (
 	<Container>
 		<Row>
 			<AnimatedContainer>
-				<Email title={'Email'} />
+				<Email title={'Email'} ready={props.ready} />
 			</AnimatedContainer>
 		</Row>
 		<Row>
 			<AnimatedContainer>
-				<Instagram title={'Instagram'} />
+				<Instagram title={'Instagram'} ready={props.ready} />
 			</AnimatedContainer>
 		</Row>
 	</Container>
 );
 
-export default Contact;
+const mapDispatchToProps = dispatch => {
+	return {
+		ready(title) {
+			dispatch(ready(title));
+		}
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Contact);
 
 const Container = styled.div`
 	display: flex;

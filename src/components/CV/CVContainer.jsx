@@ -15,10 +15,11 @@ class CVWrapper extends Component {
 		ready('CVContent');
 	}
 	render() {
+		const { ready } = this.props;
 		return (
 			<Container>
 				<AnimatedContainer>
-					<ProfilePic title={NancyPlank} />
+					<ProfilePic title={NancyPlank} ready={ready} />
 				</AnimatedContainer>
 				<AnimatedContainer>
 					<Row title={'CVContent'}>

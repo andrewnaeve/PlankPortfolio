@@ -5,6 +5,7 @@
 	"dependencies": {
 		"bookshelf": "^0.10.4",
 		"hapi": "^16.6.2",
+		"inert": "^4.2.1",
 		"knex": "^0.13.0",
 		"react": "^16.0.0",
 		"react-apollo": "^1.4.16",

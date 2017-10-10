@@ -1,32 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import emailIcon from '../../svg/emailIcon.svg';
-import { connect } from 'react-redux';
-import { ready } from '../../actions/ready';
 
-class Email extends Component {
-	handleLoad = () => {
-		this.props.ready(this.props.title);
-	};
-	render() {
-		return (
-			<SocialLink href="mailto:nplank@me.com">
-				NPlank@me.com
-				<Icons src={emailIcon} onLoad={this.handleLoad} />
-			</SocialLink>
-		);
-	}
-}
+const Email = props => (
+	<SocialLink href="mailto:nplank@me.com">
+		NPlank@me.com
+		<Icons src={emailIcon} onLoad={() => props.ready(props.title)} />
+	</SocialLink>
+);
 
-const mapDispatchToProps = dispatch => {
-	return {
-		ready(title) {
-			dispatch(ready(title));
-		}
-	};
-};
-
-export default connect(null, mapDispatchToProps)(Email);
+export default Email;
 
 const SocialLink = styled.a`
 	display: flex;

@@ -7,7 +7,6 @@ injectGlobal`
 		src: url('${Abel}');
 		format('ttf');
 	}
-  
 	.iframeStyle {
 		position: absolute;
 		top: 0;
