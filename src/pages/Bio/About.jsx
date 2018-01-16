@@ -37,6 +37,6 @@ const Text = styled.div`
 		font-size: 1.35rem;
 	`};
 	${media.tablets`
-		font-size: 1.5rem;
+		font-size: 1.6rem;
 	`};
 `;

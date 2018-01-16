@@ -43,9 +43,8 @@ const Shows = () => (
 		<P>The Studio Door</P>
 		<P>San Diego, CA</P>
 		<P>
-			Jurors: Christine Knoke (Director of Exhibitions and Chief curator/
-			Mingei International Museum) and Jenna S. Jacobs (Curatorial
-			Manager, Museum of contemporary Art San Diego)
+			Jurors: Christine Knoke (Director of Exhibitions and Chief curator/ Mingei International Museum)
+			and Jenna S. Jacobs (Curatorial Manager, Museum of contemporary Art San Diego)
 		</P>
 
 		<br />
@@ -106,8 +105,10 @@ const Headline = styled.h1`
 
 const P = styled.p`
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 `;
 
-const Bold = styled.span`font-weight: 600;`;
+const Bold = styled.span`
+	font-weight: 600;
+`;
 // const Italic = styled.span`font-style: italic;`;

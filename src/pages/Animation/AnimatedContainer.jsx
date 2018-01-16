@@ -3,13 +3,11 @@ import styled from 'styled-components';
 import { Motion, spring } from 'react-motion';
 
 class AnimatedContainer extends Component {
-	constructor(props) {
-		super();
-		this.state = {
-			loaded: false
-		};
-		this._handleLoad = this._handleLoad.bind(this);
-	}
+	state = {
+		loaded: false
+	};
+
+	_handleLoad = this._handleLoad.bind(this);
 
 	render() {
 		return this.props.render({

@@ -39,7 +39,9 @@ const Headline = styled.h1`
 
 const P = styled.p`
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 `;
 
-const Bold = styled.span`font-weight: 600;`;
+const Bold = styled.span`
+	font-weight: 600;
+`;

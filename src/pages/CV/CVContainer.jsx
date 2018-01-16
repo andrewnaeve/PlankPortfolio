@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ProfilePic from './ProfilePic';
 import AnimatedContainer from '../Animation/AnimatedContainer';
@@ -28,16 +28,4 @@ const Container = styled.div`
 	height: 100%;
 	flex-direction: column;
 	margin-top: 20px;
-`;
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	font-family: 'Abel', sans-serif;
-	width: 100%;
-`;
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin-right: 10px;
-	width: calc(100% /2);
 `;

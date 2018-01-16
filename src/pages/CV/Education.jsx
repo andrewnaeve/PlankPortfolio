@@ -10,8 +10,7 @@ const Education = () => (
 		<Row>
 			<Column>
 				<P>
-					<Bold>6th Annual Plein Air Convention</Bold>, April 24-28,
-					2017
+					<Bold>6th Annual Plein Air Convention</Bold>, April 24-28, 2017
 				</P>
 				<P>San Diego, CA</P>
 				<br />
@@ -25,18 +24,15 @@ const Education = () => (
 					<Bold>Weekend with the Masters</Bold>, 2012
 				</P>
 				<P>
-					Oil painting with Sherrie McGraw, Quang Ho, Rose Frantzen,
-					Carolyn Anderson, Daniel E. Greene, and Daniel Gerhartz
+					Oil painting with Sherrie McGraw, Quang Ho, Rose Frantzen, Carolyn Anderson, Daniel E.
+					Greene, and Daniel Gerhartz
 				</P>
 				<P>Rancho Bernardo, CA</P>
 				<br />
 				<P>
 					<Bold>Weekend with the Masters</Bold>, 2011
 				</P>
-				<P>
-					Oil painting with Richard Schmid, David Leffel, Sherrie
-					McGraw, Rose Frantzen
-				</P>
+				<P>Oil painting with Richard Schmid, David Leffel, Sherrie McGraw, Rose Frantzen</P>
 				<br />
 				<P>
 					<Bold>Qiang Huang Workshops</Bold>, 2011 and 2012
@@ -55,16 +51,14 @@ const Education = () => (
 					<Bold>Athenaeum</Bold>, 1995-2011
 				</P>
 				<P>
-					Watercolor, drawing, oil portraits with Ken Goldman Oil
-					portraits with Stephanie Goldman Oil still life, landscape,
-					and color theory with Pat Kelly Oil portraits with Alida
+					Watercolor, drawing, oil portraits with Ken Goldman Oil portraits with Stephanie Goldman
+					Oil still life, landscape, and color theory with Pat Kelly Oil portraits with Alida
 					Cervantes
 				</P>
 				<P>La Jolla, CA</P>
 				<br />
 				<P>
-					<Bold>National Academy of Design School of Fine Arts</Bold>,
-					1985
+					<Bold>National Academy of Design School of Fine Arts</Bold>, 1985
 				</P>
 				<P>Watercolor with Reeve Schley</P>
 				<P>New York, NY</P>
@@ -110,8 +104,10 @@ const Column = styled.div`
 
 const P = styled.p`
 	font-weight: 500;
-	font-size: 1.2rem;
+	font-size: 1.3rem;
 `;
 
-const Bold = styled.span`font-weight: 600;`;
+const Bold = styled.span`
+	font-weight: 600;
+`;
 // const Italic = styled.span`font-style: italic;`;
