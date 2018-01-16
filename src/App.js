@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router';
 import styled from 'styled-components';
-import Title from './components/Navigation/Title';
-import Navbar from './components/Navigation/Navbar';
-import MobileNav from './components/Navigation/MobileNav';
-import Portfolio from './components/Portfolio/Portfolio';
-import Landing from './components/Landing/LandingContainer';
-import Footer from './components/Navigation/Footer';
-import Biography from './components/Bio/BioContainer';
-import CVWrapper from './components/CV/CVContainer';
-import Contact from './components/Contact/Contact';
+import Title from './pages/Navigation/Title';
+import Navbar from './pages/Navigation/Navbar';
+import MobileNav from './pages/Navigation/MobileNav';
+import Portfolio from './pages/Portfolio/Portfolio';
+import Landing from './pages/Landing/LandingContainer';
+import Footer from './pages/Navigation/Footer';
+import Biography from './pages/Bio/BioContainer';
+import CVWrapper from './pages/CV/CVContainer';
+import Contact from './pages/Contact/ContactContainer';
 
 const App = () => (
 	<Wrapper>

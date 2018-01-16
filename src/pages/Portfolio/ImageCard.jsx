@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { ready } from '../../actions/ready';
 import ReactDOM from 'react-dom';
 import { media } from '../../utilities/style-utils';
 import Image from './Image';
@@ -33,10 +31,8 @@ class ImageCard extends Component {
 		if (
 			rect.bottom >= 0 &&
 			rect.right >= 0 &&
-			rect.top <=
-				(window.innerHeight || document.documentElement.clientHeight) &&
-			rect.left <=
-				(window.innerWidth || document.documentElement.clientWidth)
+			rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+			rect.left <= (window.innerWidth || document.documentElement.clientWidth)
 		) {
 			this.setState({
 				show: true
@@ -44,12 +40,8 @@ class ImageCard extends Component {
 		}
 	}
 
-	handleImageLoad = () => {
-		this.props.ready(this.props.title);
-	};
-
 	render() {
-		const { title, description, width, height } = this.props;
+		const { title, description, width, height, handleLoad } = this.props;
 		const { show } = this.state;
 		const url = show ? this.props.url : null;
 		return (
@@ -57,7 +49,7 @@ class ImageCard extends Component {
 				<Image
 					url={url}
 					title={title}
-					handleLoad={this.handleImageLoad}
+					handleLoad={handleLoad}
 					height={height}
 					width={width}
 					show={show}
@@ -71,15 +63,7 @@ class ImageCard extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		ready(title) {
-			dispatch(ready(title));
-		}
-	};
-};
-
-export default connect(null, mapDispatchToProps)(ImageCard);
+export default ImageCard;
 
 const Wrapper = styled.div`
 	display: flex;

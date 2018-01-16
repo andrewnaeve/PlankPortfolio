@@ -1,33 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { ready } from '../../actions/ready';
-import { connect } from 'react-redux';
 import { media } from '../../utilities/style-utils';
 
-class ProfilePic extends Component {
-	handleLoad = () => {
-		const { title, ready } = this.props;
-		ready(title);
-	};
-	render() {
-		const { title } = this.props;
-		return (
-			<HeaderRow>
-				<Pic src={title} onLoad={this.handleLoad} />
-			</HeaderRow>
-		);
-	}
-}
+const ProfilePic = props => (
+	<HeaderRow>
+		<Pic src={props.title} onLoad={props.handleLoad} />
+	</HeaderRow>
+);
 
-const mapDispatchToProps = dispatch => {
-	return {
-		ready(title) {
-			dispatch(ready(title));
-		}
-	};
-};
-
-export default connect(null, mapDispatchToProps)(ProfilePic);
+export default ProfilePic;
 
 const HeaderRow = styled.div`
 	display: flex;

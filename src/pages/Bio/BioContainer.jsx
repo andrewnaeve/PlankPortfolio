@@ -7,10 +7,16 @@ import AnimatedContainer from '../Animation/AnimatedContainer';
 
 const Biography = () => (
 	<Container>
-		<YouTubePlayer title={'YouTubeFrame'} />
-		<AnimatedContainer>
-			<About title={'AboutContainer'} />
-		</AnimatedContainer>
+		<AnimatedContainer
+			render={({ handleLoad, renderAnimation }) =>
+				renderAnimation(<YouTubePlayer title={'YouTubeFrame'} handleLoad={handleLoad} />)
+			}
+		/>
+		<AnimatedContainer
+			render={({ handleLoad, renderAnimation }) =>
+				renderAnimation(<About title={'AboutContainer'} handleLoad={handleLoad} />)
+			}
+		/>
 	</Container>
 );
 

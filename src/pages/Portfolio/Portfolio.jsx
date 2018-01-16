@@ -45,16 +45,22 @@ class Portfolio extends Component {
 		return (
 			<OuterContainer>
 				{ImageProperties.map((x, i) => (
-					<AnimatedContainer key={ImageProperties[i].url}>
-						<ImageCard
-							index={i}
-							onRef={ref => (this[`img${i}`] = ref)}
-							url={ImageProperties[i].url}
-							title={ImageProperties[i].title}
-							description={ImageProperties[i].description}
-							stopSendingEvents={this.stopSendingEvents}
-						/>
-					</AnimatedContainer>
+					<AnimatedContainer
+						key={ImageProperties[i].url}
+						render={({ handleLoad, renderAnimation }) =>
+							renderAnimation(
+								<ImageCard
+									index={i}
+									onRef={ref => (this[`img${i}`] = ref)}
+									url={ImageProperties[i].url}
+									title={ImageProperties[i].title}
+									description={ImageProperties[i].description}
+									stopSendingEvents={this.stopSendingEvents}
+									handleLoad={handleLoad}
+								/>
+							)
+						}
+					/>
 				))}
 			</OuterContainer>
 		);

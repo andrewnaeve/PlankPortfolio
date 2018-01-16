@@ -4,19 +4,16 @@ import App from './App.js';
 import { BrowserRouter } from 'react-router-dom';
 // import registerServiceWorker from './registerServiceWorker';
 import { unregister } from './registerServiceWorker';
-import { Provider } from 'react-redux';
-import store from './store';
 import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
 
 render(
-	<Provider store={store}>
-		<BrowserRouter>
-			<ScrollToTop>
-				<App />
-			</ScrollToTop>
-		</BrowserRouter>
-	</Provider>,
+	<BrowserRouter>
+		<ScrollToTop>
+			<App />
+		</ScrollToTop>
+	</BrowserRouter>,
+
 	document.getElementById('root')
 );
 // registerServiceWorker();

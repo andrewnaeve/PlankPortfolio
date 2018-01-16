@@ -1,35 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { media } from '../../utilities/style-utils';
-import { connect } from 'react-redux';
-import { ready } from '../../actions/ready';
 
-class Landing extends Component {
-	shouldComponentUpdate() {
-		return false;
-	}
-	handleLoad = () => {
-		const { ready, title } = this.props;
-		ready(title);
-	};
-	render() {
-		return (
-			<Wrapper>
-				<LandingImage src={this.props.url} onLoad={this.handleLoad} />
-			</Wrapper>
-		);
-	}
-}
+const Landing = props => (
+	<Wrapper>
+		<LandingImage src={props.url} onLoad={props.handleLoad} />
+	</Wrapper>
+);
 
-const mapDispatchToProps = dispatch => {
-	return {
-		ready(title) {
-			dispatch(ready(title));
-		}
-	};
-};
-
-export default connect(null, mapDispatchToProps)(Landing);
+export default Landing;
 
 const Wrapper = styled.div`
 	display: flex;

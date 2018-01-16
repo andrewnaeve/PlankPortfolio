@@ -7,14 +7,18 @@ import Instagram from './Instagram';
 const Contact = () => (
 	<Container>
 		<Row>
-			<AnimatedContainer>
-				<Email title={'Email'} />
-			</AnimatedContainer>
+			<AnimatedContainer
+				render={({ handleLoad, renderAnimation }) =>
+					renderAnimation(<Email title={'Email'} handleLoad={handleLoad} />)
+				}
+			/>
 		</Row>
 		<Row>
-			<AnimatedContainer>
-				<Instagram title={'Instagram'} />
-			</AnimatedContainer>
+			<AnimatedContainer
+				render={({ handleLoad, renderAnimation }) =>
+					renderAnimation(<Instagram title={'Instagram'} handleLoad={handleLoad} />)
+				}
+			/>
 		</Row>
 	</Container>
 );

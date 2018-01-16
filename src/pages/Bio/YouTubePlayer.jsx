@@ -1,44 +1,25 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { ready } from '../../actions/ready';
 import YouTube from 'react-youtube';
 
 class YouTubePlayer extends Component {
-	handleLoad = event => {
-		const { ready, title } = this.props;
-		ready(title);
-	};
-
 	render() {
 		const opts = {
 			width: '560',
 			height: '315'
 		};
+		const { handleLoad } = this.props;
 		return (
 			<OuterWrapper>
 				<MediaWrapper>
-					<YouTube
-						videoId="B5nF1Mmte0M"
-						opts={opts}
-						className="iframeStyle"
-						onReady={this.handleLoad}
-					/>
+					<YouTube videoId="B5nF1Mmte0M" opts={opts} className="iframeStyle" onReady={handleLoad} />
 				</MediaWrapper>
 			</OuterWrapper>
 		);
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		ready(title) {
-			dispatch(ready(title));
-		}
-	};
-};
-
-export default connect(null, mapDispatchToProps)(YouTubePlayer);
+export default YouTubePlayer;
 
 const OuterWrapper = styled.div`
 	width: 100%;

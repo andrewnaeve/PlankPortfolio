@@ -6,9 +6,17 @@ import { LavendarLanding } from '../../ImageProperties';
 
 const LandingContainer = () => (
 	<Container>
-		<AnimatedContainer>
-			<Landing title={LavendarLanding.title} url={LavendarLanding.url} />
-		</AnimatedContainer>
+		<AnimatedContainer
+			render={({ handleLoad, renderAnimation }) =>
+				renderAnimation(
+					<Landing
+						title={LavendarLanding.title}
+						url={LavendarLanding.url}
+						handleLoad={handleLoad}
+					/>
+				)
+			}
+		/>
 	</Container>
 );
 
