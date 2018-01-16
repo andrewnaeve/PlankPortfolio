@@ -12,7 +12,6 @@ class AnimatedContainer extends Component {
 	}
 
 	render() {
-		console.log('ts', this.state.loaded);
 		return this.props.render({
 			handleLoad: this._handleLoad,
 			renderAnimation: this._renderAnimation
