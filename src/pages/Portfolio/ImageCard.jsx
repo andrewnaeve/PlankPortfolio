@@ -5,24 +5,26 @@ import { media } from '../../utilities/style-utils';
 import Image from './Image';
 
 class ImageCard extends Component {
-	constructor(props) {
-		super();
-		this.state = {
-			show: false
-		};
+	state = {
+		show: false
+	};
+
+	componentWillUpdate(nextProps) {
+		const { scrollingActivity } = this.props;
+		const nextScrollingActivity = nextProps.scrollingActivity;
+		if (scrollingActivity !== nextScrollingActivity) {
+			this.updateImagePosition();
+		}
 	}
 
-	componentDidMount() {
-		this.props.onRef(this);
+	shouldComponentUpdate() {
+		const { show } = this.state;
+		if (show) {
+			return false;
+		}
+		return true;
 	}
 
-	componentWillUnmount() {
-		this.props.onRef(undefined);
-	}
-
-	componentDidUpdate() {
-		this.state.show && this.props.stopSendingEvents(this.props.index);
-	}
 	updateImagePosition() {
 		const rect = ReactDOM.findDOMNode(this).getBoundingClientRect();
 		if (this.state.show) {

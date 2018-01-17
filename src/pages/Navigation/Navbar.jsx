@@ -7,10 +7,7 @@ const Navbar = () => (
 	<NavContainer>
 		<NavList>
 			<Item>
-				<StyledLink
-					to="/Selected-Works"
-					activeStyle={{ color: '#78D5E3' }}
-				>
+				<StyledLink to="/Selected-Works" activeStyle={{ color: '#78D5E3' }}>
 					Selected Works
 				</StyledLink>
 			</Item>
@@ -42,9 +39,13 @@ const NavContainer = styled.nav`
 	${media.tablets`
 		display: flex;`};
 `;
-const NavList = styled.ul`display: flex;`;
+const NavList = styled.ul`
+	display: flex;
+`;
 
-const Item = styled.li`display: flex;`;
+const Item = styled.li`
+	display: flex;
+`;
 
 const StyledLink = styled(NavLink)`
 	font-family: 'Abel', sans-serif;
@@ -62,7 +63,7 @@ const StyledLink = styled(NavLink)`
 	font-size: 20px;
 	`};
 	${media.tablets`
-	font-size: 25px;
+	font-size: 35px;
 	`};
 	${media.fourKay`
 	font-size: 45px;

@@ -6,42 +6,25 @@ import ImageCard from './ImageCard';
 import debounce from 'lodash/debounce';
 
 class Portfolio extends Component {
-	constructor() {
-		super();
-		this._images = [];
-		this.updateViewport = debounce(this.updateViewport).bind(this);
-	}
+	state = {
+		scrollingActivity: false
+	};
 
-	componentWillMount() {
-		ImageProperties.map((x, i) => {
-			return this._images.push(x);
-		});
-	}
+	_isScrolling = debounce(this._isScrolling, 100).bind(this);
 
 	componentDidMount() {
-		window.addEventListener('scroll', this.updateViewport, false);
-		window.addEventListener('resize', this.updateViewport, false);
-		this.updateViewport();
+		window.addEventListener('scroll', this._isScrolling, false);
+		window.addEventListener('resize', this._isScrolling, false);
+		this._isScrolling();
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.updateViewport);
-		window.removeEventListener('resize', this.updateViewport);
+		window.removeEventListener('scroll', this._isScrolling);
+		window.removeEventListener('resize', this._isScrolling);
 	}
-
-	updateViewport() {
-		this._images.forEach((x, i) => {
-			if (x !== null) {
-				return this[`img${i}`].updateImagePosition();
-			}
-		});
-	}
-
-	stopSendingEvents = i => {
-		this._images[i] = null;
-	};
 
 	render() {
+		const { scrollingActivity } = this.state;
 		return (
 			<OuterContainer>
 				{ImageProperties.map((x, i) => (
@@ -51,12 +34,11 @@ class Portfolio extends Component {
 							renderAnimation(
 								<ImageCard
 									index={i}
-									onRef={ref => (this[`img${i}`] = ref)}
 									url={ImageProperties[i].url}
 									title={ImageProperties[i].title}
 									description={ImageProperties[i].description}
-									stopSendingEvents={this.stopSendingEvents}
 									handleLoad={handleLoad}
+									scrollingActivity={scrollingActivity}
 								/>
 							)
 						}
@@ -64,6 +46,12 @@ class Portfolio extends Component {
 				))}
 			</OuterContainer>
 		);
+	}
+
+	_isScrolling() {
+		this.setState(({ scrollingActivity }) => ({
+			scrollingActivity: !scrollingActivity
+		}));
 	}
 }
 
