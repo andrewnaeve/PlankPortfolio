@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Row, Column, P, Bold, Headline } from './MarkupElements';
 
 const Education = () => (
 	<Wrapper>
@@ -86,28 +87,3 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
-
-const Headline = styled.h1`
-	font-weight: 600;
-	font-size: 2rem;
-`;
-
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-`;
-const Column = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-`;
-
-const P = styled.p`
-	font-weight: 500;
-	font-size: 1.3rem;
-`;
-
-const Bold = styled.span`
-	font-weight: 600;
-`;
-// const Italic = styled.span`font-style: italic;`;

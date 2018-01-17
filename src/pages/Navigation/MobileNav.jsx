@@ -5,7 +5,7 @@ import { media } from '../../utilities/style-utils';
 import { Motion, spring, presets } from 'react-motion';
 
 class MobileNav extends Component {
-	constructor(props) {
+	constructor() {
 		super();
 		this.state = {
 			open: false
@@ -59,40 +59,19 @@ const Menu = (dynamicStyle, handleClick) => (
 						opacity: interpolatingStyle.y
 					}}
 				>
-					<QuickLink
-						to="/"
-						exact
-						onClick={handleClick}
-						activeStyle={{ color: '#78D5E3' }}
-					>
+					<QuickLink to="/" exact onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
 						Home
 					</QuickLink>
-					<QuickLink
-						to="/Selected-Works"
-						onClick={handleClick}
-						activeStyle={{ color: '#78D5E3' }}
-					>
+					<QuickLink to="/Selected-Works" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
 						Selected Works
 					</QuickLink>
-					<QuickLink
-						to="/Biography"
-						onClick={handleClick}
-						activeStyle={{ color: '#78D5E3' }}
-					>
+					<QuickLink to="/Biography" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
 						Biography
 					</QuickLink>
-					<QuickLink
-						to="/CV"
-						onClick={handleClick}
-						activeStyle={{ color: '#78D5E3' }}
-					>
+					<QuickLink to="/CV" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
 						CV
 					</QuickLink>
-					<QuickLink
-						to="/Contact"
-						onClick={handleClick}
-						activeStyle={{ color: '#78D5E3' }}
-					>
+					<QuickLink to="/Contact" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
 						Contact
 					</QuickLink>
 				</LinkWrapper>
@@ -130,7 +109,7 @@ const Hamburger = styled.div`
 	height: 32px;
 	padding-top: 4px;
 `;
-const Patty = styled.span`
+const Patty = styled.div`
 	width: 35px;
 	height: 4px;
 	margin-bottom: 4px;

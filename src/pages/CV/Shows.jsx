@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { P, Bold, Headline } from './MarkupElements';
 
 const Shows = () => (
 	<div>
@@ -97,18 +97,3 @@ const Shows = () => (
 );
 
 export default Shows;
-
-const Headline = styled.h1`
-	font-weight: 600;
-	font-size: 2rem;
-`;
-
-const P = styled.p`
-	font-weight: 500;
-	font-size: 1.3rem;
-`;
-
-const Bold = styled.span`
-	font-weight: 600;
-`;
-// const Italic = styled.span`font-style: italic;`;

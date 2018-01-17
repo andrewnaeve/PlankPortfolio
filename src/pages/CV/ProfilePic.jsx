@@ -24,7 +24,7 @@ justify-content: start;`};
 const Pic = styled.img`
 	display: flex;
 	border-radius: 3px;
-	max-height: 250px;
+	max-height: 300px;
 	max-width: 100%;
 	width: auto;
 	align-self: center;
