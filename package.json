@@ -3,6 +3,9 @@
 	"version": "1.0.1",
 	"private": true,
 	"dependencies": {
+		"firebase": "^4.8.1",
+		"firebase-admin": "^5.8.0",
+		"firebase-functions": "^0.8.0",
 		"react": "^16.0.0",
 		"react-dom": "^16.0.0",
 		"react-motion": "^0.5.1",
