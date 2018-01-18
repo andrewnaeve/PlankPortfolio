@@ -17,7 +17,6 @@ const Image = styled.img`
 	margin: 10px;
 	width: auto;
 	height: 500px;
-
 	min-width: 400px;
 `;
 
@@ -45,7 +44,7 @@ const Container = styled.div`
 	border-radius: 5px;
 	margin-bottom: 20px;
 	height: 650px;
-	-webkit-box-shadow: 2px 4px 12px 0px rgba(184, 184, 184, 1);
-	-moz-box-shadow: 2px 4px 12px 0px rgba(184, 184, 184, 1);
-	box-shadow: 2px 4px 12px 0px rgba(184, 184, 184, 1);
+	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
+	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
+	box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 `;
