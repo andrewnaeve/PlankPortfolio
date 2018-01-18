@@ -8,7 +8,7 @@ import Portfolio from './pages/Portfolio/PortfolioContainer';
 import Landing from './pages/Landing/LandingContainer';
 import Footer from './pages/Navigation/Footer';
 import Biography from './pages/Bio/BioContainer';
-import CVWrapper from './pages/CV/CVContainer';
+import CV from './pages/CV/CVContainer';
 import Contact from './pages/Contact/ContactContainer';
 
 const App = () => (
@@ -20,7 +20,7 @@ const App = () => (
 				<Route exact path="/" component={Landing} />
 				<Route path="/Selected-Works" component={Portfolio} />
 				<Route path="/Biography" component={Biography} />
-				<Route path="/CV" component={CVWrapper} />
+				<Route path="/CV" component={CV} />
 				<Route path="/Contact" component={Contact} />
 				<Redirect from="**" to="/" />
 			</Switch>
