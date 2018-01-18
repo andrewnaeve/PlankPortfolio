@@ -26,6 +26,11 @@ const Navbar = () => (
 					Contact
 				</StyledLink>
 			</Item>
+			<Item>
+				<StyledLink to="/Store" activeStyle={{ color: '#78D5E3' }}>
+					Store
+				</StyledLink>
+			</Item>
 		</NavList>
 	</NavContainer>
 );

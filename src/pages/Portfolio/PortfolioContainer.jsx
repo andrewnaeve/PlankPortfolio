@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import AnimatedContainer from '../Animation/AnimatedContainer';
-import ImageProperties from '../../ImageProperties';
+import { ImageProperties } from '../../ImageProperties';
 import ImageCard from './ImageCard';
 import debounce from 'lodash/debounce';
 
@@ -27,16 +27,16 @@ class Portfolio extends Component {
 		const { scrollingActivity } = this.state;
 		return (
 			<OuterContainer>
-				{ImageProperties.map((x, i) => (
+				{ImageProperties.map((image, i) => (
 					<AnimatedContainer
-						key={ImageProperties[i].url}
+						key={image.url}
 						render={({ handleLoad, renderAnimation }) =>
 							renderAnimation(
 								<ImageCard
 									index={i}
-									url={ImageProperties[i].url}
-									title={ImageProperties[i].title}
-									description={ImageProperties[i].description}
+									url={image.firebaseUrl}
+									title={image.title}
+									description={image.description}
 									handleLoad={handleLoad}
 									scrollingActivity={scrollingActivity}
 								/>

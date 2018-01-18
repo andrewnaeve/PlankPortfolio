@@ -10,6 +10,7 @@ import Footer from './pages/Navigation/Footer';
 import Biography from './pages/Bio/BioContainer';
 import CV from './pages/CV/CVContainer';
 import Contact from './pages/Contact/ContactContainer';
+import Store from './pages/Store/StoreContainer';
 
 const App = () => (
 	<Wrapper>
@@ -22,6 +23,7 @@ const App = () => (
 				<Route path="/Biography" component={Biography} />
 				<Route path="/CV" component={CV} />
 				<Route path="/Contact" component={Contact} />
+				<Route path="/Store" component={Store} />
 				<Redirect from="**" to="/" />
 			</Switch>
 		</BodyContainer>
