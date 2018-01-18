@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import { media } from '../../utilities/style-utils';
 import { Motion, spring, presets } from 'react-motion';
 import { Menu } from './MobileMenu';
 
@@ -34,18 +32,3 @@ class MobileNav extends Component {
 }
 
 export default MobileNav;
-const styles = {
-	hamburger: {
-		display: 'flex',
-		position: 'absolute',
-		top: 10,
-		left: 20,
-		justifyContent: 'center',
-		alignItems: 'center',
-		width: 40,
-		height: 40,
-		flexDirection: 'column',
-		paddingTop: 4,
-		backgroundColor: 'black'
-	}
-};

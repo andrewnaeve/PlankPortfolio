@@ -10,7 +10,7 @@ class Portfolio extends Component {
 		scrollingActivity: false
 	};
 
-	_isScrolling = debounce(this._isScrolling, 100).bind(this);
+	_isScrolling = debounce(this._isScrolling, 50).bind(this);
 
 	componentDidMount() {
 		window.addEventListener('scroll', this._isScrolling, false);

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MobileMenu } from './MobileMenu';
 import { NavLink } from 'react-router-dom';
 import { media } from '../../utilities/style-utils';
 
