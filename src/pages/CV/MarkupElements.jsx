@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../utilities/style-utils';
 
 export const Row = styled.div`
 	display: flex;
@@ -13,7 +14,9 @@ export const Column = styled.div`
 
 export const Headline = styled.h1`
 	font-weight: 600;
-	font-size: 3rem;
+	font-size: 2.3rem;
+	${media.tablets`
+		font-size: 3rem;`};
 `;
 
 export const P = styled.p`

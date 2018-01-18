@@ -18,22 +18,22 @@ export const Menu = props => (
 
 		<LinkWrapper
 			style={{
-				opacity: interpolatingStyle.y
+				opacity: props.interpolatingStyle.y
 			}}
 		>
-			<QuickLink to="/" exact onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
+			<QuickLink to="/" exact onClick={props.toggleDrawer} activeStyle={{ color: '#78D5E3' }}>
 				Home
 			</QuickLink>
-			<QuickLink to="/Selected-Works" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
+			<QuickLink to="/Selected-Works" onClick={props.toggleDrawer} activeStyle={{ color: '#78D5E3' }}>
 				Selected Works
 			</QuickLink>
-			<QuickLink to="/Biography" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
+			<QuickLink to="/Biography" onClick={props.toggleDrawer} activeStyle={{ color: '#78D5E3' }}>
 				Biography
 			</QuickLink>
-			<QuickLink to="/CV" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
+			<QuickLink to="/CV" onClick={props.toggleDrawer} activeStyle={{ color: '#78D5E3' }}>
 				CV
 			</QuickLink>
-			<QuickLink to="/Contact" onClick={handleClick} activeStyle={{ color: '#78D5E3' }}>
+			<QuickLink to="/Contact" onClick={props.toggleDrawer} activeStyle={{ color: '#78D5E3' }}>
 				Contact
 			</QuickLink>
 		</LinkWrapper>
@@ -46,7 +46,7 @@ const NavWrapper = styled.div`
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 300px;
+	height: 350px;
 	background-color: white;
 	border-top: 1px solid #cdcdcd;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -81,12 +81,14 @@ const Patty = styled.div`
 
 const LinkWrapper = styled.div`
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	padding-top: 40px;
 `;
 
-const QuickLink = styled.a`
+const QuickLink = styled(NavLink)`
 	display: flex;
 	font-size: 2rem;
 	font-family: 'Abel', sans-serif;
