@@ -14,14 +14,14 @@ export const Column = styled.div`
 
 export const Headline = styled.h1`
 	font-weight: 600;
-	font-size: 2.2rem;
+	font-size: 2rem;
 	${media.tablets`
 		font-size: 3rem;`};
 `;
 
 export const P = styled.p`
 	font-weight: 500;
-	font-size: 1.6rem;
+	font-size: 1.5rem;
 `;
 
 export const Bold = styled.span`
