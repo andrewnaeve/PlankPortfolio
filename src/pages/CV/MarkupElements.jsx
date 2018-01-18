@@ -14,7 +14,7 @@ export const Column = styled.div`
 
 export const Headline = styled.h1`
 	font-weight: 600;
-	font-size: 2.3rem;
+	font-size: 2.2rem;
 	${media.tablets`
 		font-size: 3rem;`};
 `;
