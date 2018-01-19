@@ -8,7 +8,13 @@ class StoreContainer extends Component {
 		return (
 			<Container>
 				{ImageProperties.map(image => (
-					<Tile title={image.title} price={image.price} url={image.firebaseUrl} />
+					<Tile
+						title={image.title}
+						price={image.price}
+						url={image.firebaseUrl}
+						height={image.height}
+						width={image.width}
+					/>
 				))}
 			</Container>
 		);
@@ -23,7 +29,6 @@ const Container = styled.div`
 	justify-content: flex-start;
 	align-items: center;
 	margin: 0 5% 0 5%;
-	padding-left: 10px;
 `;
 
 export default StoreContainer;

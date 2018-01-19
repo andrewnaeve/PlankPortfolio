@@ -9,9 +9,9 @@ export const BuyButton = props => (
 
 const Container = styled.div`
 	display: flex;
-	flex: 1;
 	align-items: flex-end;
 	margin-bottom: 15px;
+	margin-top: 15px;
 `;
 const Buy = styled.div`
 	display: flex;
