@@ -9,11 +9,13 @@ class StoreContainer extends Component {
 			<Container>
 				{ImageProperties.map(image => (
 					<Tile
+						key={image.title}
 						title={image.title}
 						price={image.price}
 						url={image.firebaseUrl}
 						height={image.height}
 						width={image.width}
+						description={image.description}
 					/>
 				))}
 			</Container>

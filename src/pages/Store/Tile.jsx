@@ -1,27 +1,40 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BuyButton } from './BuyButton';
-import { LoadingMask } from './LoadingMask';
+import { StoreModal } from './StoreModal';
+import { StoreImage } from './StoreImage';
 
 export class Tile extends Component {
 	state = {
-		loading: true
+		loading: true,
+		show: false
 	};
 	render() {
 		const { loading } = this.state;
 		const { height, width, url, title, price } = this.props;
 		return (
 			<Container>
-				<ImageWrapper height={height} width={width}>
-					<LoadingMask loading={loading}>
-						<Image src={url} alt={title} onLoad={this._loaded} />
-					</LoadingMask>
-				</ImageWrapper>
+				<StoreImage
+					height={height}
+					width={width}
+					url={url}
+					title={title}
+					loaded={this._loaded}
+					loading={loading}
+					showModal={this._showModal}
+					heightFactor={500}
+				/>
 				<Information>
 					<Title>{title}</Title>
 					<Price>${price}</Price>
 					<BuyButton />
 				</Information>
+				<StoreModal
+					{...this.state}
+					{...this.props}
+					loaded={this._loaded}
+					closeModal={this._clodeModal}
+				/>
 			</Container>
 		);
 	}
@@ -30,26 +43,17 @@ export class Tile extends Component {
 			loading: false
 		});
 	};
+	_showModal = () => {
+		this.setState({
+			show: true
+		});
+	};
+	_clodeModal = () => {
+		this.setState({
+			show: false
+		});
+	};
 }
-
-const ImageWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 500px;
-	width: ${props => {
-		return `${500 * props.width / props.height}px`;
-	}};
-`;
-
-const Image = styled.img`
-	display: flex;
-	background: purple;
-	align-items: center;
-	margin: 10px;
-	height: 100%;
-	width: 100%;
-`;
 
 const Title = styled.p`
 	display: flex;

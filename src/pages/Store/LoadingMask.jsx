@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { BeatLoader } from 'react-spinners';
 
 export class LoadingMask extends Component {
