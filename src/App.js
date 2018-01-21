@@ -12,7 +12,7 @@ import CV from './pages/CV/CVContainer';
 import Contact from './pages/Contact/ContactContainer';
 import Store from './pages/Store/StoreContainer';
 
-const App = () => (
+const App = props => (
 	<Wrapper>
 		<Title />
 		<Navbar />

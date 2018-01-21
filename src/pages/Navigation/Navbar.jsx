@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { media } from '../../utilities/style-utils';
+import { withRouter } from 'react-router';
+import cart from '../../svg/cart.svg';
 
-const Navbar = () => (
+const Navbar = props => (
 	<NavContainer>
+		<Padding />
 		<NavList>
 			<Item>
 				<StyledLink to="/Selected-Works" activeStyle={{ color: '#78D5E3' }}>
@@ -32,13 +35,22 @@ const Navbar = () => (
 				</StyledLink>
 			</Item>
 		</NavList>
+		<Padding>
+			{props.location.pathname === '/Store' && (
+				<CartContainer>
+					<ShoppingCart src={cart} />
+				</CartContainer>
+			)}
+		</Padding>
 	</NavContainer>
 );
 
 const NavContainer = styled.nav`
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	margin-bottom: 20px;
+	margin: 0 5% 10px 5%;
 	${media.smallPhones`
 		display: none;`};
 	${media.tablets`
@@ -46,8 +58,13 @@ const NavContainer = styled.nav`
 `;
 const NavList = styled.ul`
 	display: flex;
+	flex-grow: 1;
+	justify-content: center;
 `;
-
+const Padding = styled.div`
+	display: flex;
+	flex: 1;
+`;
 const Item = styled.li`
 	display: flex;
 `;
@@ -75,4 +92,17 @@ const StyledLink = styled(NavLink)`
 	`};
 `;
 
-export default Navbar;
+const CartContainer = styled.div`
+	display: flex;
+	flex: 1;
+	justify-content: flex-end;
+	align-items: flex-end;
+`;
+const ShoppingCart = styled.img`
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	height: 40px;
+	width: 40px;
+`;
+export default withRouter(Navbar);
