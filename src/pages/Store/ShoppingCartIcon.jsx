@@ -1,26 +1,56 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import cart from '../../svg/cart.svg';
-import { ConnectedBasket } from '../Basket/ConnectedBasket';
+import { Motion, spring } from 'react-motion';
+
 export class ShoppingCartIcon extends Component {
+	state = { animate: false };
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.items.length !== this.props.items.length) {
+			this._animate();
+		}
+	}
+	componentDidUpdate(nextProps, nextState) {
+		if (nextState.animate !== this.state.animate && this.state.animate === true) {
+			console.log('hi');
+			this.setState({
+				animate: false
+			});
+		}
+	}
 	render() {
+		const { animate } = this.state;
+		const { items } = this.props;
+		const dynamicStyle = {
+			scale: spring(1, { stiffness: 130, damping: 5 })
+		};
 		return (
-			<ConnectedBasket
-				render={({ items }) => (
-					<Container>
-						<Circle>{items.length}</Circle>
-						<CartIcon src={cart} />
-					</Container>
-				)}
-			/>
+			<Container>
+				<Motion defaultStyle={{ scale: 1 }} style={animate ? { scale: 0.8 } : dynamicStyle}>
+					{interpolatingStyle => (
+						<Circle style={{ transform: `scale(${interpolatingStyle.scale})` }}>
+							{items.length}
+						</Circle>
+					)}
+				</Motion>
+				<CartIcon src={cart} />
+			</Container>
 		);
 	}
+	_animate = () => {
+		this.setState({
+			animate: true
+		});
+	};
 }
 
 const Container = styled.div`
-	position: relative;
+	position: absolute;
+	top: 20px;
+	right: 20px;
 	height: 65px;
 	width: 65px;
+	margin: 0 5%;
 `;
 const Circle = styled.div`
 	display: flex;

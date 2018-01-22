@@ -8,7 +8,6 @@ export class Basket extends Component {
 
 	render() {
 		const { items } = this.state;
-		console.log('items', items);
 		return this.props.render({
 			items: items,
 			addToBasket: this._addToBasket

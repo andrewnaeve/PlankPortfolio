@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { media } from '../../utilities/style-utils';
 import { withRouter } from 'react-router';
 import { ShoppingCartIcon } from '../Store/ShoppingCartIcon';
+import { ConnectedBasket } from '../Basket/ConnectedBasket';
 
 const Navbar = props => (
 	<NavContainer>
@@ -37,9 +38,11 @@ const Navbar = props => (
 		</NavList>
 		<Padding>
 			{props.location.pathname === '/Store' && (
-				<CartContainer>
-					<ShoppingCartIcon />
-				</CartContainer>
+				<ConnectedBasket
+					render={({ items, addToBasket }) => (
+						<ShoppingCartIcon items={items} addToBasket={addToBasket} />
+					)}
+				/>
 			)}
 		</Padding>
 	</NavContainer>
@@ -64,6 +67,7 @@ const NavList = styled.ul`
 const Padding = styled.div`
 	display: flex;
 	flex: 1;
+	justify-content: flex-end;
 `;
 const Item = styled.li`
 	display: flex;
@@ -93,10 +97,8 @@ const StyledLink = styled(NavLink)`
 `;
 
 const CartContainer = styled.div`
-	display: flex;
-	flex: 1;
-	justify-content: flex-end;
-	align-items: flex-end;
+	position: relative;
+	background: black;
 `;
 
 export default withRouter(Navbar);
