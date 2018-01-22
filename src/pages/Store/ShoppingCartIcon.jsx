@@ -12,7 +12,6 @@ export class ShoppingCartIcon extends Component {
 	}
 	componentDidUpdate(nextProps, nextState) {
 		if (nextState.animate !== this.state.animate && this.state.animate === true) {
-			console.log('hi');
 			this.setState({
 				animate: false
 			});

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Tile } from './Tile';
 import { ImageProperties } from '../../ImageProperties';
+import { Motion, spring } from 'react-motion';
 
 class StoreContainer extends Component {
 	render() {
@@ -30,7 +31,8 @@ const Container = styled.div`
 	flex: 1;
 	justify-content: flex-start;
 	align-items: center;
-	margin: 0 5% 0 5%;
+	margin: 0px 5% 0 5%;
+	padding-top: 30px;
 `;
 
 export default StoreContainer;
