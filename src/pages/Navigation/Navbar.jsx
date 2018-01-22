@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { media } from '../../utilities/style-utils';
 import { withRouter } from 'react-router';
-import cart from '../../svg/cart.svg';
+import { ShoppingCartIcon } from '../Store/ShoppingCartIcon';
 
 const Navbar = props => (
 	<NavContainer>
@@ -38,7 +38,7 @@ const Navbar = props => (
 		<Padding>
 			{props.location.pathname === '/Store' && (
 				<CartContainer>
-					<ShoppingCart src={cart} />
+					<ShoppingCartIcon />
 				</CartContainer>
 			)}
 		</Padding>
@@ -98,11 +98,5 @@ const CartContainer = styled.div`
 	justify-content: flex-end;
 	align-items: flex-end;
 `;
-const ShoppingCart = styled.img`
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end;
-	height: 40px;
-	width: 40px;
-`;
+
 export default withRouter(Navbar);

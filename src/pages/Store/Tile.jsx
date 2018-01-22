@@ -3,39 +3,45 @@ import styled from 'styled-components';
 import { BuyButton } from './BuyButton';
 import { StoreModal } from './StoreModal';
 import { StoreImage } from './StoreImage';
+import { ConnectedBasket } from '../Basket/ConnectedBasket';
 
 export class Tile extends Component {
 	state = {
 		loading: true,
 		show: false
 	};
+
 	render() {
 		const { loading } = this.state;
 		const { height, width, url, title, price } = this.props;
 		return (
-			<Container>
-				<StoreImage
-					height={height}
-					width={width}
-					url={url}
-					title={title}
-					loaded={this._loaded}
-					loading={loading}
-					showModal={this._showModal}
-					heightFactor={500}
-				/>
-				<Information>
-					<Title>{title}</Title>
-					<Price>${price}</Price>
-					<BuyButton />
-				</Information>
-				<StoreModal
-					{...this.state}
-					{...this.props}
-					loaded={this._loaded}
-					closeModal={this._clodeModal}
-				/>
-			</Container>
+			<ConnectedBasket
+				render={({ items, addToBasket }) => (
+					<Container>
+						<StoreImage
+							height={height}
+							width={width}
+							url={url}
+							title={title}
+							loaded={this._loaded}
+							loading={loading}
+							showModal={this._showModal}
+							heightFactor={500}
+						/>
+						<Information>
+							<Title>{title}</Title>
+							<Price>${price}</Price>
+							<BuyButton handleClick={() => addToBasket(title)} />
+						</Information>
+						<StoreModal
+							{...this.state}
+							{...this.props}
+							loaded={this._loaded}
+							closeModal={this._clodeModal}
+						/>
+					</Container>
+				)}
+			/>
 		);
 	}
 	_loaded = () => {

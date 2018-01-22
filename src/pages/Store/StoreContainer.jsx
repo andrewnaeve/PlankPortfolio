@@ -30,7 +30,7 @@ const Container = styled.div`
 	flex: 1;
 	justify-content: flex-start;
 	align-items: center;
-	margin: 15px 5% 0 5%;
+	margin: 0 5% 0 5%;
 `;
 
 export default StoreContainer;

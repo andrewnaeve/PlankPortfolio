@@ -5,14 +5,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { unregister } from './registerServiceWorker';
 import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
-
+import { BasketProvider } from './pages/Basket/BasketProvider';
 render(
 	<BrowserRouter>
-		<ScrollToTop>
-			<App />
-		</ScrollToTop>
+		<BasketProvider>
+			<ScrollToTop>
+				<App />
+			</ScrollToTop>
+		</BasketProvider>
 	</BrowserRouter>,
-
 	document.getElementById('root')
 );
 

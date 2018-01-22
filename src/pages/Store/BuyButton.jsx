@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 export const BuyButton = props => (
 	<Container>
-		<Buy>Add To Cart</Buy>
+		<Buy onClick={props.handleClick}>
+			<h3>Add To Cart</h3>
+		</Buy>
 	</Container>
 );
 
@@ -23,4 +25,5 @@ const Buy = styled.div`
 	align-items: center;
 	font-family: 'Abel', sans-serif;
 	font-size: 1.5rem;
+	cursor: pointer;
 `;

@@ -55,7 +55,7 @@ export default AnimatedContainer;
 
 const AnimatedDiv = styled.div`
 	display: flex;
-	border-radius: 2px;
-	width: 100%;
+	flex: 1;
+	margin-top: 10px;
 	justify-content: center;
 `;

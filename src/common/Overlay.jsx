@@ -2,9 +2,7 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 export const Overlay = props => (
-	<OverlayContainer show={props.show} onClick={props.closeModal}>
-		{props.children}
-	</OverlayContainer>
+	<OverlayContainer show={props.show}>{props.children}</OverlayContainer>
 );
 
 const fadeIn = keyframes`
@@ -18,13 +16,13 @@ const fadeIn = keyframes`
 `;
 
 const fadeOut = keyframes`
-		from {
-			background: rgba(0, 0, 0, 0.6);
-		}
-	
-		to {
-			background: rgba(0, 0, 0, 0);
-		}
+	from {
+		background: rgba(0, 0, 0, 0.6);
+	}
+
+	to {
+		background: rgba(0, 0, 0, 0);
+	}
 `;
 
 // animation-fill-mode: forwards;
@@ -41,6 +39,7 @@ const OverlayContainer = styled.div`
 	right: 0px;
 	bottom: 0px;
 	background: rgba(0, 0, 0, 0.6);
+	z-index: 2;
 `;
 
 // background-color: #000;

@@ -19,7 +19,7 @@ export class StoreModal extends Component {
 			description
 		} = this.props;
 		const dynamicStyle = {
-			position: spring(show ? 0 : 1000, { stiffness: 80, damping: 12 })
+			position: spring(show ? 0 : 1000, { stiffness: 80, damping: 14 })
 		};
 		return (
 			<Overlay show={show}>
