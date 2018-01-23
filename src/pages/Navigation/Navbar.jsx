@@ -96,9 +96,4 @@ const StyledLink = styled(NavLink)`
 	`};
 `;
 
-const CartContainer = styled.div`
-	position: relative;
-	background: black;
-`;
-
 export default withRouter(Navbar);

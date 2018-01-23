@@ -1,5 +1,5 @@
 const firebase = require('firebase');
-const { config } = require('../src/secrets');
+const { config } = require('./secrets');
 firebase.initializeApp(config);
 require('firebase/firestore');
 

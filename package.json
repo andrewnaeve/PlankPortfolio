@@ -6,6 +6,7 @@
 		"firebase": "^4.8.1",
 		"firebase-admin": "^5.8.0",
 		"firebase-functions": "^0.8.0",
+		"lodash": "^4.17.4",
 		"prop-types": "^15.6.0",
 		"react": "^16.2.0",
 		"react-dom": "^16.2.0",

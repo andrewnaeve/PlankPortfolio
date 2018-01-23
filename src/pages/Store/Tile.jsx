@@ -28,47 +28,33 @@ export class Tile extends Component {
 			position: spring(mounted ? -10 : 0, { stiffness: 75, damping: 10 })
 		};
 		return (
-			<Motion style={dynamicStyle}>
-				{interpolatingStyle => (
-					<ConnectedBasket
-						render={({ items, addToBasket }) => (
-							<Container
-								style={{
-									transform: `translate3d(0, ${
-										interpolatingStyle.position
-									}px, 0)`,
-									WebkitTransform: `translate3d(0, ${
-										interpolatingStyle.position
-									}px, 0)`,
-									opacity: `${interpolatingStyle.opacity}`
-								}}
-							>
-								<StoreImage
-									height={height}
-									width={width}
-									url={url}
-									title={title}
-									loaded={this._loaded}
-									loading={loading}
-									showModal={this._showModal}
-									heightFactor={500}
-								/>
-								<Information>
-									<Title>{title}</Title>
-									<Price>${price}</Price>
-									<BuyButton handleClick={() => addToBasket(title)} />
-								</Information>
-								<StoreModal
-									{...this.state}
-									{...this.props}
-									loaded={this._loaded}
-									closeModal={this._clodeModal}
-								/>
-							</Container>
-						)}
-					/>
+			<ConnectedBasket
+				render={({ items, addToBasket }) => (
+					<Container>
+						<StoreImage
+							height={height}
+							width={width}
+							url={url}
+							title={title}
+							loaded={this._loaded}
+							loading={loading}
+							showModal={this._showModal}
+							heightFactor={500}
+						/>
+						<Information>
+							<Title>{title}</Title>
+							<Price>${price}</Price>
+							<BuyButton handleClick={() => addToBasket(title)} />
+						</Information>
+						<StoreModal
+							{...this.state}
+							{...this.props}
+							loaded={this._loaded}
+							closeModal={this._clodeModal}
+						/>
+					</Container>
 				)}
-			</Motion>
+			/>
 		);
 	}
 	_loaded = () => {

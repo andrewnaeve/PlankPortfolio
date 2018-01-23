@@ -3,12 +3,30 @@ import styled from 'styled-components';
 import { Tile } from './Tile';
 import { ImageProperties } from '../../ImageProperties';
 import { Motion, spring } from 'react-motion';
+import { db } from '../../firebaseConfig';
 
 class StoreContainer extends Component {
+	state = {
+		inventory: []
+	};
+	componentDidMount() {
+		db
+			.collection('inventory')
+			.get()
+			.then(docs =>
+				docs.forEach(doc => {
+					const inventoryObj = doc.data();
+					this.setState(({ inventory }) => ({
+						inventory: [...inventory, inventoryObj]
+					}));
+				})
+			);
+	}
 	render() {
+		const { inventory } = this.state;
 		return (
 			<Container>
-				{ImageProperties.map(image => (
+				{inventory.map(image => (
 					<Tile
 						key={image.title}
 						title={image.title}
