@@ -4,33 +4,20 @@ import { BuyButton } from './BuyButton';
 import { StoreModal } from './StoreModal';
 import { StoreImage } from './StoreImage';
 import { ConnectedBasket } from '../Basket/ConnectedBasket';
-import { Motion, spring } from 'react-motion';
 
 export class Tile extends Component {
 	state = {
 		loading: true,
-		show: false,
-		mounted: false
+		show: false
 	};
-	componentDidMount() {
-		this.setState({
-			mounted: true
-		});
-	}
+
 	render() {
-		const { loading, mounted } = this.state;
-		const { height, width, url, title, price } = this.props;
-		const dynamicStyle = {
-			opacity: spring(mounted ? 1.0 : 0.0, {
-				stiffness: 30,
-				damping: 10
-			}),
-			position: spring(mounted ? -10 : 0, { stiffness: 75, damping: 10 })
-		};
+		const { loading } = this.state;
+		const { height, width, url, title, price, style } = this.props;
 		return (
 			<ConnectedBasket
 				render={({ items, addToBasket }) => (
-					<Container>
+					<Container style={style}>
 						<StoreImage
 							height={height}
 							width={width}

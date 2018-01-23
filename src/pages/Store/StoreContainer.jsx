@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Tile } from './Tile';
 import { ImageProperties } from '../../ImageProperties';
-import { Motion, spring } from 'react-motion';
+import { StaggeredMotion, spring, presets } from 'react-motion';
 import { db } from '../../firebaseConfig';
+import { range } from 'lodash';
 
 class StoreContainer extends Component {
 	state = {
-		inventory: []
+		inventory: [],
+		loaded: false
 	};
 	componentDidMount() {
 		db
@@ -20,24 +22,47 @@ class StoreContainer extends Component {
 						inventory: [...inventory, inventoryObj]
 					}));
 				})
-			);
+			)
+			.then(() => this.setState({ loaded: true }));
 	}
 	render() {
-		const { inventory } = this.state;
+		const { inventory, loaded } = this.state;
 		return (
-			<Container>
-				{inventory.map(image => (
-					<Tile
-						key={image.title}
-						title={image.title}
-						price={image.price}
-						url={image.firebaseUrl}
-						height={image.height}
-						width={image.width}
-						description={image.description}
-					/>
-				))}
-			</Container>
+			loaded && (
+				<StaggeredMotion
+					defaultStyles={inventory.map(x => {
+						return {
+							x: 20
+						};
+					})}
+					styles={prevInterpolatedStyles =>
+						prevInterpolatedStyles.map((_, i) => {
+							return i === 0
+								? { x: spring(0, { stiffness: 100, damping: 10 }) }
+								: { x: spring(prevInterpolatedStyles[i - 1].x) };
+						})
+					}
+				>
+					{items => (
+						<Container>
+							{items.map((style, i) => (
+								<Tile
+									key={inventory[i].title}
+									title={inventory[i].title}
+									price={inventory[i].price}
+									url={inventory[i].firebaseUrl}
+									height={inventory[i].height}
+									width={inventory[i].width}
+									description={inventory[i].description}
+									style={{
+										transform: `translate3d(0, ${style.x}px, 0)`
+									}}
+								/>
+							))}
+						</Container>
+					)}
+				</StaggeredMotion>
+			)
 		);
 	}
 }
