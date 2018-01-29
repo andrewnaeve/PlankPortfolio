@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { LoadingMask } from './LoadingMask';
+import { LoadingMask } from '../Common/LoadingMask';
 import { ConnectedModal } from '../Modal/ConnectedModal';
 
 export class StoreImage extends Component {
 	state = {
 		loading: true
 	};
-	static defaultProps = {
-		inModal: false
-	};
+
+	shouldComponentUpdate(nextProps, nextState) {
+		if (this.state.loading !== nextState.loading) {
+			return true;
+		}
+		return false;
+	}
 	render() {
-		const { height, width, url, title, heightFactor, description, inModal } = this.props;
+		const { height, width, url, title, heightFactor, description } = this.props;
 		const { loading } = this.state;
 		return (
 			<ConnectedModal
@@ -20,7 +24,6 @@ export class StoreImage extends Component {
 						heightFactor={heightFactor}
 						height={height}
 						width={width}
-						inModal={inModal}
 						onClick={() => showModal({ title, url, description, height, width })}
 					>
 						<LoadingMask loading={loading}>
@@ -42,12 +45,9 @@ const ImageWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: ${props => {
-		return `calc(100vh * ${props.inModal ? '0.75' : '0.5'})`;
-	}};
+	height: calc(100vh * 0.5);
 	width: ${props => {
-		console.log(props.inModal);
-		return `calc(100vh * ${props.inModal ? '0.75' : '0.5'} * ${props.width / props.height})`;
+		return `calc((100vh * 0.5) * ${props.width / props.height})`;
 	}};
 `;
 

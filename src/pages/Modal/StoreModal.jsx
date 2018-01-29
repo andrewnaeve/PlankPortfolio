@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Overlay } from '../../common/Overlay';
+import { Overlay } from '../Common/Overlay';
 import { Motion, spring } from 'react-motion';
-import { StoreImage } from './StoreImage';
+import { ModalImage } from './ModalImage';
 import { CloseModalButton } from './CloseModalButton';
 
 export class StoreModal extends Component {
@@ -27,15 +27,12 @@ export class StoreModal extends Component {
 							>
 								<CloseModalButton />
 								<Title>{title}</Title>
-								<StoreImage
+								<ModalImage
 									height={height}
 									width={width}
 									url={url}
 									title={title}
-									loaded={loaded}
-									loading={loading}
 									description={description}
-									inModal={true}
 								/>
 								<Description>{description}</Description>
 							</ModalBody>
@@ -47,11 +44,6 @@ export class StoreModal extends Component {
 	}
 }
 
-const Row = styled.div`
-	diplay: flex;
-	flex-direction: row;
-	flex: 1;
-`;
 const FlexContainer = styled.div`
 	display: flex;
 	height: 100%;

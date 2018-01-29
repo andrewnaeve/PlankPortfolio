@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from './Modal';
+import { RenderModal } from './RenderModal';
 
 export class ModalProvider extends Component {
 	static contextName = '__modal__';
@@ -20,7 +20,7 @@ export class ModalProvider extends Component {
 	render() {
 		const { children, ...remainingProps } = this.props;
 		return (
-			<Modal
+			<RenderModal
 				{...remainingProps}
 				render={items => <ModalProvider.Renderer items={items} children={children} />}
 			/>

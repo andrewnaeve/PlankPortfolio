@@ -11,6 +11,8 @@ import Biography from './pages/Bio/BioContainer';
 import CV from './pages/CV/CVContainer';
 import Contact from './pages/Contact/ContactContainer';
 import Store from './pages/Store/StoreContainer';
+import { ConnectedModal } from './pages/Modal/ConnectedModal';
+import { StoreModal } from './pages/Modal/StoreModal';
 
 const App = props => (
 	<Wrapper>
@@ -27,6 +29,7 @@ const App = props => (
 				<Redirect from="**" to="/" />
 			</Switch>
 		</BodyContainer>
+		<ConnectedModal render={({ item, show }) => <StoreModal item={item} show={show} />} />
 		<Footer />
 		<MobileNav />
 	</Wrapper>

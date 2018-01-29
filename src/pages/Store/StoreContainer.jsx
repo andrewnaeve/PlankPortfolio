@@ -3,14 +3,18 @@ import styled from 'styled-components';
 import { Tile } from './Tile';
 import { StaggeredMotion, spring, presets } from 'react-motion';
 import { db } from '../../firebaseConfig';
-import { ConnectedModal } from '../Modal/ConnectedModal';
-import { StoreModal } from './StoreModal';
 
 class StoreContainer extends Component {
 	state = {
 		inventory: [],
 		loaded: false
 	};
+	shouldComponentUpdate(nextProps, nextState) {
+		if (this.state.loaded !== nextState.loaded) {
+			return true;
+		}
+		return false;
+	}
 	componentDidMount() {
 		db
 			.collection('inventory')
@@ -64,9 +68,6 @@ class StoreContainer extends Component {
 						)}
 					</StaggeredMotion>
 				)}
-				<ConnectedModal
-					render={({ item, show }) => <StoreModal item={item} show={show} />}
-				/>
 			</Container>
 		);
 	}

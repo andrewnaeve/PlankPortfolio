@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-export class Modal extends Component {
+export class RenderModal extends Component {
 	state = {
 		item: {},
 		show: false
@@ -17,7 +17,6 @@ export class Modal extends Component {
 	}
 
 	_showModal = itemObj => {
-		console.log('hi');
 		this.setState(({ item }) => ({
 			item: { ...itemObj },
 			show: true
