@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Tile } from './Tile';
+import { ConnectedTile } from './Tile';
 import { StaggeredMotion, spring, presets } from 'react-motion';
 import { db } from '../../firebaseConfig';
 
@@ -9,12 +9,6 @@ class StoreContainer extends Component {
 		inventory: [],
 		loaded: false
 	};
-	shouldComponentUpdate(nextProps, nextState) {
-		if (this.state.loaded !== nextState.loaded) {
-			return true;
-		}
-		return false;
-	}
 	componentDidMount() {
 		db
 			.collection('inventory')
@@ -51,7 +45,7 @@ class StoreContainer extends Component {
 						{items => (
 							<Row>
 								{items.map((style, i) => (
-									<Tile
+									<ConnectedTile
 										key={inventory[i].title}
 										title={inventory[i].title}
 										price={inventory[i].price}

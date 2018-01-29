@@ -1,38 +1,39 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { BuyButton } from './BuyButton';
 import { StoreImage } from './StoreImage';
 import { ConnectedBasket } from '../Basket/ConnectedBasket';
+import { ConnectedBuyButton } from './BuyButton';
 
-export class Tile extends Component {
+export const ConnectedTile = props => (
+	<ConnectedBasket render={({ addToBasket }) => <Tile {...props} addToBasket={addToBasket} />} />
+);
+
+class Tile extends Component {
 	render() {
-		const { height, width, url, title, price, style, description } = this.props;
+		const { height, width, url, title, price, style, description, addToBasket } = this.props;
+
 		return (
-			<ConnectedBasket
-				render={({ items, addToBasket }) => (
-					<Container style={style}>
-						<StoreImage
-							height={height}
-							width={width}
-							url={url}
-							title={title}
-							description={description}
-							loaded={this._loaded}
-						/>
-						<Information>
-							<Title>{title}</Title>
-							<Price>${price}</Price>
-							<BuyButton
-								items={items}
-								title={title}
-								handleClick={() => addToBasket(title)}
-							/>
-						</Information>
-					</Container>
-				)}
-			/>
+			<Container style={style}>
+				<StoreImage
+					height={height}
+					width={width}
+					url={url}
+					title={title}
+					description={description}
+					loaded={this._loaded}
+				/>
+				<Information>
+					<Title>{title}</Title>
+					<Price>${price}</Price>
+					<ConnectedBuyButton title={title} handleClick={this._handleClick} />
+				</Information>
+			</Container>
 		);
 	}
+	_handleClick = () => {
+		const { addToBasket, title } = this.props;
+		addToBasket(title);
+	};
 }
 
 const fadeIn = keyframes`
@@ -71,6 +72,7 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	margin-bottom: 20px;
+	max-height: 650px;
 	opacity: 1;
 	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
