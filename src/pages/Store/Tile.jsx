@@ -18,12 +18,15 @@ export class Tile extends Component {
 							title={title}
 							description={description}
 							loaded={this._loaded}
-							heightFactor={450}
 						/>
 						<Information>
 							<Title>{title}</Title>
 							<Price>${price}</Price>
-							<BuyButton handleClick={() => addToBasket(title)} />
+							<BuyButton
+								items={items}
+								title={title}
+								handleClick={() => addToBasket(title)}
+							/>
 						</Information>
 					</Container>
 				)}
@@ -67,7 +70,7 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	margin-bottom: 20px;
-	height: 600px;
+
 	opacity: 1;
 	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);

@@ -38,11 +38,9 @@ const ImageWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: ${props => {
-		return `${props.heightFactor}px`;
-	}};
+	height: calc(100vh * 0.5);
 	width: ${props => {
-		return `${props.heightFactor * props.width / props.height}px`;
+		return `calc((100vh * 0.5) * ${props.width / props.height})`;
 	}};
 `;
 
