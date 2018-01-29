@@ -35,7 +35,7 @@ export class StoreModal extends Component {
 									loaded={loaded}
 									loading={loading}
 									description={description}
-									heightFactor={700}
+									inModal={true}
 								/>
 								<Description>{description}</Description>
 							</ModalBody>
@@ -47,32 +47,46 @@ export class StoreModal extends Component {
 	}
 }
 
+const Row = styled.div`
+	diplay: flex;
+	flex-direction: row;
+	flex: 1;
+`;
 const FlexContainer = styled.div`
 	display: flex;
 	height: 100%;
 	width: 100%;
 	justify-content: center;
 	align-items: center;
-	z-index: 4;
 `;
 
 const ModalBody = styled.div`
 	display: flex;
-	border-radius: 5px;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	min-height: calc(100vh * 0.9);
+	border-radius: 5px;
 	background-color: #f1f1f1;
 `;
 
 const Title = styled.h1`
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
 	font-family: 'Abel', sans-serif;
 	font-size: 3rem;
-	margin: 10px;
+	margin: 0 20px 0 20px;
 `;
 
 const Description = styled.h2`
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
 	font-family: 'Abel', sans-serif;
-	font-size: 2rem;
-	margin: 10px;
+	font-size: 2.5rem;
+	margin: 0 20px 0 20px;
 `;

@@ -50,6 +50,7 @@ const Title = styled.p`
 	font-family: 'Abel', sans-serif;
 	font-size: 1.5rem;
 	margin-bottom: 5px;
+	text-align: center;
 `;
 
 const Price = styled.i`
@@ -70,7 +71,6 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	margin-bottom: 20px;
-
 	opacity: 1;
 	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
@@ -80,7 +80,7 @@ const Container = styled.div`
 const Information = styled.div`
 	display: flex;
 	flex: 1;
-	justify-content: flex-end;
+	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 `;
