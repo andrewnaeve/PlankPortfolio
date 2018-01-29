@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { BuyButton } from './BuyButton';
-import { StoreModal } from './StoreModal';
 import { StoreImage } from './StoreImage';
 import { ConnectedBasket } from '../Basket/ConnectedBasket';
 
 export class Tile extends Component {
-	state = {
-		loading: true,
-		show: false
-	};
-
 	render() {
-		const { loading } = this.state;
-		const { height, width, url, title, price, style } = this.props;
+		const { height, width, url, title, price, style, description } = this.props;
 		return (
 			<ConnectedBasket
 				render={({ items, addToBasket }) => (
@@ -23,42 +16,20 @@ export class Tile extends Component {
 							width={width}
 							url={url}
 							title={title}
+							description={description}
 							loaded={this._loaded}
-							loading={loading}
-							showModal={this._showModal}
-							heightFactor={500}
+							heightFactor={450}
 						/>
 						<Information>
 							<Title>{title}</Title>
 							<Price>${price}</Price>
 							<BuyButton handleClick={() => addToBasket(title)} />
 						</Information>
-						<StoreModal
-							{...this.state}
-							{...this.props}
-							loaded={this._loaded}
-							closeModal={this._clodeModal}
-						/>
 					</Container>
 				)}
 			/>
 		);
 	}
-	_loaded = () => {
-		this.setState({
-			loading: false
-		});
-	};
-	_showModal = () => {
-		this.setState({
-			show: true
-		});
-	};
-	_clodeModal = () => {
-		this.setState({
-			show: false
-		});
-	};
 }
 
 const fadeIn = keyframes`
@@ -96,7 +67,7 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	margin-bottom: 20px;
-	height: 650px;
+	height: 600px;
 	opacity: 1;
 	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);

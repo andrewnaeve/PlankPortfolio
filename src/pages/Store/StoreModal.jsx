@@ -3,33 +3,29 @@ import styled from 'styled-components';
 import { Overlay } from '../../common/Overlay';
 import { Motion, spring } from 'react-motion';
 import { StoreImage } from './StoreImage';
+import { CloseModalButton } from './CloseModalButton';
 
 export class StoreModal extends Component {
 	render() {
 		const {
 			show,
-			closeModal,
-			height,
-			width,
-			url,
-			title,
 			loaded,
 			loading,
-			showModal,
-			description
+			item: { url, title, description, height, width }
 		} = this.props;
 		const dynamicStyle = {
 			position: spring(show ? 0 : 1000, { stiffness: 80, damping: 14 })
 		};
 		return (
 			<Overlay show={show}>
-				<FlexContainer onClick={closeModal}>
+				<FlexContainer>
 					<Motion style={dynamicStyle}>
 						{iS => (
 							<ModalBody
 								show={show}
 								style={{ transform: `translateY(${iS.position}px)` }}
 							>
+								<CloseModalButton />
 								<Title>{title}</Title>
 								<StoreImage
 									height={height}
@@ -38,7 +34,7 @@ export class StoreModal extends Component {
 									title={title}
 									loaded={loaded}
 									loading={loading}
-									showModal={showModal}
+									description={description}
 									heightFactor={700}
 								/>
 								<Description>{description}</Description>
@@ -57,6 +53,7 @@ const FlexContainer = styled.div`
 	width: 100%;
 	justify-content: center;
 	align-items: center;
+	z-index: 4;
 `;
 
 const ModalBody = styled.div`

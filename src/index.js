@@ -6,12 +6,15 @@ import { unregister } from './registerServiceWorker';
 import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
 import { BasketProvider } from './pages/Basket/BasketProvider';
+import { ModalProvider } from './pages/Modal/ModalProvider';
 render(
 	<BrowserRouter>
 		<BasketProvider>
-			<ScrollToTop>
-				<App />
-			</ScrollToTop>
+			<ModalProvider>
+				<ScrollToTop>
+					<App />
+				</ScrollToTop>
+			</ModalProvider>
 		</BasketProvider>
 	</BrowserRouter>,
 	document.getElementById('root')

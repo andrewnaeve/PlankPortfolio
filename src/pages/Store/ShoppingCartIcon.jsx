@@ -25,7 +25,7 @@ export class ShoppingCartIcon extends Component {
 		};
 		return (
 			<Container>
-				<Motion defaultStyle={{ scale: 1 }} style={animate ? { scale: 0.8 } : dynamicStyle}>
+				<Motion defaultStyle={{ scale: 1 }} style={animate ? { scale: 0.7 } : dynamicStyle}>
 					{interpolatingStyle => (
 						<Circle style={{ transform: `scale(${interpolatingStyle.scale})` }}>
 							{items.length}
@@ -47,17 +47,17 @@ const Container = styled.div`
 	position: absolute;
 	top: 20px;
 	right: 20px;
-	height: 65px;
-	width: 65px;
+	height: 85px;
+	width: 85px;
 	margin: 0 5%;
 `;
 const Circle = styled.div`
 	display: flex;
 	position: absolute;
-	top: 8px;
-	right: 0;
-	height: 30px;
-	width: 30px;
+	top: 10px;
+	right: -5px;
+	height: 40px;
+	width: 40px;
 	border-radius: 50%;
 	background: #78d5e3;
 	z-index: 1;
@@ -70,6 +70,6 @@ const CartIcon = styled.img`
 	position: absolute;
 	bottom: 0;
 	right: 5px;
-	height: 40px;
-	width: 40px;
+	height: 50px;
+	width: 50px;
 `;

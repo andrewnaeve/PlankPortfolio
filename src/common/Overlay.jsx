@@ -39,7 +39,7 @@ const OverlayContainer = styled.div`
 	right: 0px;
 	bottom: 0px;
 	background: rgba(0, 0, 0, 0.6);
-	z-index: 2;
+	z-index: 1;
 `;
 
 // background-color: #000;

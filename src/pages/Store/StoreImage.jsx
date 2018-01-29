@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LoadingMask } from './LoadingMask';
+import { ConnectedModal } from '../Modal/ConnectedModal';
 
-export const StoreImage = props => (
-	<ImageWrapper
-		heightFactor={props.heightFactor}
-		height={props.height}
-		width={props.width}
-		onClick={props.showModal}
-	>
-		<LoadingMask loading={props.loading}>
-			<Image src={props.url} alt={props.title} onLoad={props.loaded} />
-		</LoadingMask>
-	</ImageWrapper>
-);
+export class StoreImage extends Component {
+	state = {
+		loading: true
+	};
+	render() {
+		const { height, width, url, title, heightFactor, description } = this.props;
+		const { loading } = this.state;
+		return (
+			<ConnectedModal
+				render={({ showModal }) => (
+					<ImageWrapper
+						heightFactor={heightFactor}
+						height={height}
+						width={width}
+						onClick={() => showModal({ title, url, description, height, width })}
+					>
+						<LoadingMask loading={loading}>
+							<Image src={url} alt={title} onLoad={this._loaded} />
+						</LoadingMask>
+					</ImageWrapper>
+				)}
+			/>
+		);
+	}
+	_loaded = () => {
+		this.setState({
+			loading: false
+		});
+	};
+}
 
 const ImageWrapper = styled.div`
 	display: flex;
