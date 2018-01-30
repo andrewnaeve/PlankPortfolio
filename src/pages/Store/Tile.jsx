@@ -13,7 +13,7 @@ class Tile extends Component {
 		const { height, width, url, title, price, style, description, addToBasket } = this.props;
 
 		return (
-			<Container style={style}>
+			<Container>
 				<StoreImage
 					height={height}
 					width={width}
@@ -72,7 +72,6 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	margin-bottom: 20px;
-	max-height: 650px;
 	opacity: 1;
 	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
@@ -85,4 +84,5 @@ const Information = styled.div`
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	margin-top: 10px;
 `;

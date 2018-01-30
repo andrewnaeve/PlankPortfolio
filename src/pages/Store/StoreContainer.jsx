@@ -24,6 +24,7 @@ class StoreContainer extends Component {
 			.then(() => this.setState({ loaded: true }));
 	}
 	render() {
+		console.log('render');
 		const { inventory, loaded } = this.state;
 		return (
 			<Container>
@@ -45,18 +46,19 @@ class StoreContainer extends Component {
 						{items => (
 							<Row>
 								{items.map((style, i) => (
-									<ConnectedTile
+									<div
+										style={{ transform: `translate3d(0, ${style.x}px, 0)` }}
 										key={inventory[i].title}
-										title={inventory[i].title}
-										price={inventory[i].price}
-										url={inventory[i].firebaseUrl}
-										height={inventory[i].height}
-										width={inventory[i].width}
-										description={inventory[i].description}
-										style={{
-											transform: `translate3d(0, ${style.x}px, 0)`
-										}}
-									/>
+									>
+										<ConnectedTile
+											title={inventory[i].title}
+											price={inventory[i].price}
+											url={inventory[i].firebaseUrl}
+											height={inventory[i].height}
+											width={inventory[i].width}
+											description={inventory[i].description}
+										/>
+									</div>
 								))}
 							</Row>
 						)}
@@ -77,7 +79,6 @@ const Container = styled.div`
 
 const Row = styled.div`
 	display: flex;
-	flex-wrap: no-wrap;
 `;
 
 export default StoreContainer;

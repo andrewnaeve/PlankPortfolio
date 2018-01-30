@@ -65,6 +65,7 @@ const Circle = styled.div`
 	justify-content: center;
 	font-family: 'Abel', sans-serif;
 	font-size: 25px;
+	color: black;
 `;
 const CartIcon = styled.img`
 	position: absolute;

@@ -1,51 +1,58 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { media } from '../../utilities/style-utils';
 import { withRouter } from 'react-router';
 import { ShoppingCartIcon } from '../Store/ShoppingCartIcon';
 import { ConnectedBasket } from '../Basket/ConnectedBasket';
+import { BasketContainer } from '../Basket/BasketContainer';
 
 const Navbar = props => (
-	<NavContainer>
-		<Padding />
-		<NavList>
-			<Item>
-				<StyledLink to="/Selected-Works" activeStyle={{ color: '#78D5E3' }}>
-					Selected Works
-				</StyledLink>
-			</Item>
-			<Item>
-				<StyledLink to="/Biography" activeStyle={{ color: '#78D5E3' }}>
-					Biography
-				</StyledLink>
-			</Item>
-			<Item>
-				<StyledLink to="/CV" activeStyle={{ color: '#78D5E3' }}>
-					CV
-				</StyledLink>
-			</Item>
-			<Item>
-				<StyledLink to="/Contact" activeStyle={{ color: '#78D5E3' }}>
-					Contact
-				</StyledLink>
-			</Item>
-			<Item>
-				<StyledLink to="/Store" activeStyle={{ color: '#78D5E3' }}>
-					Store
-				</StyledLink>
-			</Item>
-		</NavList>
-		<Padding>
-			{props.location.pathname === '/Store' && (
-				<ConnectedBasket
-					render={({ items, addToBasket }) => (
-						<ShoppingCartIcon items={items} addToBasket={addToBasket} />
+	<div>
+		{props.location.pathname !== '/Store/Basket' && (
+			<NavContainer>
+				<Padding />
+				<NavList>
+					<Item>
+						<StyledLink to="/Selected-Works" activeStyle={{ color: '#78D5E3' }}>
+							Selected Works
+						</StyledLink>
+					</Item>
+					<Item>
+						<StyledLink to="/Biography" activeStyle={{ color: '#78D5E3' }}>
+							Biography
+						</StyledLink>
+					</Item>
+					<Item>
+						<StyledLink to="/CV" activeStyle={{ color: '#78D5E3' }}>
+							CV
+						</StyledLink>
+					</Item>
+					<Item>
+						<StyledLink to="/Contact" activeStyle={{ color: '#78D5E3' }}>
+							Contact
+						</StyledLink>
+					</Item>
+					<Item>
+						<StyledLink to="/Store" activeStyle={{ color: '#78D5E3' }}>
+							Store
+						</StyledLink>
+					</Item>
+				</NavList>
+				<Padding>
+					{props.location.pathname === '/Store' && (
+						<ConnectedBasket
+							render={({ items, addToBasket }) => (
+								<Link to="/Store/Basket">
+									<ShoppingCartIcon items={items} addToBasket={addToBasket} />
+								</Link>
+							)}
+						/>
 					)}
-				/>
-			)}
-		</Padding>
-	</NavContainer>
+				</Padding>
+			</NavContainer>
+		)}
+	</div>
 );
 
 const NavContainer = styled.nav`
