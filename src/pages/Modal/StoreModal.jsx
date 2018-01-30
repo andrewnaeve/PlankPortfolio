@@ -7,12 +7,7 @@ import { CloseModalButton } from './CloseModalButton';
 
 export class StoreModal extends Component {
 	render() {
-		const {
-			show,
-			loaded,
-			loading,
-			item: { url, title, description, height, width }
-		} = this.props;
+		const { show, item: { url, title, description, height, width } } = this.props;
 		const dynamicStyle = {
 			position: spring(show ? 0 : 1000, { stiffness: 80, damping: 14 })
 		};

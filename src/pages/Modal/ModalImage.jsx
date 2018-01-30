@@ -13,7 +13,7 @@ export class ModalImage extends Component {
 		return false;
 	}
 	render() {
-		const { height, width, url, title, description } = this.props;
+		const { height, width, url, title } = this.props;
 		const { loading } = this.state;
 		return (
 			<ImageWrapper height={height} width={width}>

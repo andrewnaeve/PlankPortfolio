@@ -5,7 +5,6 @@ import { media } from '../../utilities/style-utils';
 import { withRouter } from 'react-router';
 import { ShoppingCartIcon } from '../Store/ShoppingCartIcon';
 import { ConnectedBasket } from '../Basket/ConnectedBasket';
-import { BasketContainer } from '../Basket/BasketContainer';
 
 const Navbar = props => (
 	<div>

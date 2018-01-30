@@ -26,7 +26,7 @@ const App = props => (
 				<Route path="/Biography" component={Biography} />
 				<Route path="/CV" component={CV} />
 				<Route path="/Contact" component={Contact} />
-				<Route path="/Store" component={Store} />
+				<Route exact path="/Store" component={Store} />
 				<Route path="/Store/Basket" component={BasketContainer} />
 				<Redirect from="**" to="/" />
 			</Switch>

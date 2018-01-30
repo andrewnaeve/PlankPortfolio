@@ -10,8 +10,7 @@ export const ConnectedTile = props => (
 
 class Tile extends Component {
 	render() {
-		const { height, width, url, title, price, style, description, addToBasket } = this.props;
-
+		const { height, width, url, title, price, description } = this.props;
 		return (
 			<Container>
 				<StoreImage

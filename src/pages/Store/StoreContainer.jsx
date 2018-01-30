@@ -24,7 +24,6 @@ class StoreContainer extends Component {
 			.then(() => this.setState({ loaded: true }));
 	}
 	render() {
-		console.log('render');
 		const { inventory, loaded } = this.state;
 		return (
 			<Container>
