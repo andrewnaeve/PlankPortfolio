@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BasketTitle } from './BasketTitle';
+import { BasketItemContainer } from './BasketItemContainer';
 
 export class BasketContainer extends Component {
 	render() {
@@ -8,6 +9,7 @@ export class BasketContainer extends Component {
 			<Container>
 				<ViewArea>
 					<BasketTitle />
+					<BasketItemContainer />
 				</ViewArea>
 			</Container>
 		);
@@ -25,4 +27,5 @@ const ViewArea = styled.div`
 	justify-content: flex-start;
 	width: 80%;
 	height: 100%;
+	flex-direction: column;
 `;

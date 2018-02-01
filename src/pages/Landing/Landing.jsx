@@ -13,6 +13,7 @@ export default Landing;
 const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
+	margin-top: 40px;
 `;
 
 const LandingImage = styled.img`

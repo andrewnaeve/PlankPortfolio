@@ -31,14 +31,24 @@ class StoreContainer extends Component {
 					<StaggeredMotion
 						defaultStyles={inventory.map(x => {
 							return {
-								x: 20
+								x: 30,
+								y: 0
 							};
 						})}
 						styles={prevInterpolatedStyles =>
 							prevInterpolatedStyles.map((_, i) => {
 								return i === 0
-									? { x: spring(0, presets.wobbly) }
-									: { x: spring(prevInterpolatedStyles[i - 1].x) };
+									? { x: spring(0), y: spring(1) }
+									: {
+											x: spring(
+												prevInterpolatedStyles[i - 1].x,
+												presets.gentle
+											),
+											y: spring(
+												prevInterpolatedStyles[i - 1].y,
+												presets.gentle
+											)
+										};
 							})
 						}
 					>
@@ -46,7 +56,10 @@ class StoreContainer extends Component {
 							<Row>
 								{items.map((style, i) => (
 									<div
-										style={{ transform: `translate3d(0, ${style.x}px, 0)` }}
+										style={{
+											transform: `translate3d(0, ${style.x}px, 0)`,
+											opacity: style.y
+										}}
 										key={inventory[i].title}
 									>
 										<ConnectedTile
