@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BasketTitle } from './BasketTitle';
-import { BasketItemContainer } from './BasketItemContainer';
+import { BasketItemRow } from './BasketItemRow';
+import { SubTotal } from './SubTotal';
 
 export class BasketContainer extends Component {
 	render() {
@@ -9,7 +10,8 @@ export class BasketContainer extends Component {
 			<Container>
 				<ViewArea>
 					<BasketTitle />
-					<BasketItemContainer />
+					<BasketItemRow />
+					<SubTotal />
 				</ViewArea>
 			</Container>
 		);
@@ -28,4 +30,11 @@ const ViewArea = styled.div`
 	width: 80%;
 	height: 100%;
 	flex-direction: column;
+`;
+
+const Row = styled.div`
+	display: flex;
+	flex-direction: row;
+	margin-top: 40px;
+	min-height: 250px;
 `;

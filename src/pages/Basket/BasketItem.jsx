@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { BasketTitle } from './BasketTitle';
 import { Thumbnail } from './Thumbnail';
+import { CloseButton } from './CloseButton';
 
 export class BasketItem extends Component {
 	render() {
-		const { height, width, description, firebaseUrl, price, title } = this.props;
-		console.log('tp', this.props);
+		const { title } = this.props;
+
 		return (
 			<Container>
+				<div style={{ position: 'relative', width: '100%' }}>
+					<CloseButton title={title} />
+				</div>
 				<Thumbnail {...this.props} />
 			</Container>
 		);
@@ -17,5 +20,15 @@ export class BasketItem extends Component {
 
 const Container = styled.div`
 	display: flex;
-	flex: 1;
+	margin-right: 20px;
+	margin-left: 20px;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+	border: 2px solid #d0d0d0;
+	border-radius: 5px;
+	height: 150px;
+	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
+	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
+	box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 `;

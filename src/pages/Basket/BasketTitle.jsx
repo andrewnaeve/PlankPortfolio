@@ -12,5 +12,4 @@ const Title = styled.div`
 	font-family: 'Abel', sans-serif;
 	font-size: 5rem;
 	font-weight: 500;
-	border-bottom: 1px solid black;
 `;

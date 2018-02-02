@@ -20,10 +20,13 @@ export class Basket extends Component {
 				})
 			);
 	}
+	componentDidUpdate() {
+		console.log(this.state.items);
+	}
 
 	render() {
 		const { items, inventory } = this.state;
-		console.log(inventory);
+
 		return this.props.render({
 			items: items,
 			inventory: inventory,
@@ -37,5 +40,13 @@ export class Basket extends Component {
 			items: [...items, item]
 		}));
 	};
-	_removeFromBasket = () => {};
+
+	_removeFromBasket = title => {
+		const { items } = this.state;
+		const itemIndex = items.indexOf(title);
+		console.log('it', items, title, items.indexOf(title));
+		this.setState(({ items }) => ({
+			items: [...items.slice(0, itemIndex), ...items.slice(itemIndex + 1)]
+		}));
+	};
 }

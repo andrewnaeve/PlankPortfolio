@@ -9,13 +9,15 @@ export class Thumbnail extends Component {
 	render() {
 		const { loading } = this.state;
 		const { width, height, title, firebaseUrl } = this.props;
-		console.log(firebaseUrl);
+
 		return (
-			<ImageWrapper width={width} height={height}>
-				<LoadingMask loading={loading}>
-					<Image src={firebaseUrl} alt={title} onLoad={this._loaded} />
-				</LoadingMask>
-			</ImageWrapper>
+			<div>
+				<ImageWrapper>
+					<LoadingMask loading={loading}>
+						<Image src={firebaseUrl} alt={title} onLoad={this._loaded} />
+					</LoadingMask>
+				</ImageWrapper>
+			</div>
 		);
 	}
 	_loaded = () => {
@@ -27,16 +29,11 @@ const ImageWrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
-	height: 300px;
-	width: ${props => {
-		return `calc(300px * ${props.width / props.height})`;
-	}};
-	background: blue;
 `;
 
 const Image = styled.img`
 	display: flex;
 	align-items: center;
-	height: 100%;
-	width: 100%;
+	max-height: 150px;
+	width: auto;
 `;
