@@ -12,15 +12,25 @@ export const SubTotal = () => (
 							.map(item => inventory.filter(x => x.title === item)[0].price)
 							.reduce((total, price) => total + price);
 
-			return <Container>{subTotal}</Container>;
+			return (
+				<Container>
+					<Amount>Sub-total</Amount>
+					<Amount>${subTotal}</Amount>
+				</Container>
+			);
 		}}
 	/>
 );
 
 const Container = styled.div`
 	display: flex;
-	background: red;
 	width: 100%;
 	justify-content: flex-end;
 	align-items: flex-end;
+	flex-direction: column;
+`;
+
+const Amount = styled.div`
+	font-family: 'Abel';
+	font-size: 2rem;
 `;
