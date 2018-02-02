@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { BasketTitle } from './BasketTitle';
 import { ConnectedBasket } from './ConnectedBasket';
 import { BasketItem } from './BasketItem';
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { db } from '../../firebaseConfig';
 
 export class Basket extends Component {

@@ -43,9 +43,6 @@ const Buy = styled.div`
 	width: 175px;
 	height: 50px;
 	border: 1px solid black;
-	background-color: ${props => {
-		return props.itemIsInBasket ? '#78D5E3' : 'white';
-	}};
 	border-radius: 5px;
 	justify-content: center;
 	align-items: center;

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { BasketTitle } from './BasketTitle';
 import { BasketItemRow } from './BasketItemRow';
 import { SubTotal } from './SubTotal';
+import { ConnectedBasket } from './ConnectedBasket';
+import { ProceedToPayment } from './ProceedToPayment';
 
 export class BasketContainer extends Component {
 	render() {
@@ -10,8 +12,21 @@ export class BasketContainer extends Component {
 			<Container>
 				<ViewArea>
 					<BasketTitle />
-					<BasketItemRow />
-					<SubTotal />
+					<ConnectedBasket
+						render={({ items }) => (
+							<div>
+								{items.length > 0 ? (
+									<div>
+										<BasketItemRow />
+										<SubTotal />
+										<ProceedToPayment />
+									</div>
+								) : (
+									<EmptyBasket>Your basket is empty.</EmptyBasket>
+								)}
+							</div>
+						)}
+					/>
 				</ViewArea>
 			</Container>
 		);
@@ -32,9 +47,8 @@ const ViewArea = styled.div`
 	flex-direction: column;
 `;
 
-const Row = styled.div`
-	display: flex;
-	flex-direction: row;
-	margin-top: 40px;
-	min-height: 250px;
+const EmptyBasket = styled.div`
+	font-family: 'Abel';
+	font-size: 2rem;
+	margin-top: 25px;
 `;

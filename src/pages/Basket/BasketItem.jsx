@@ -28,5 +28,5 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	height: 150px;
-	box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 `;
+// box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);

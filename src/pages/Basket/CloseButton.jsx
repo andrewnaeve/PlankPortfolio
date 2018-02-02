@@ -33,7 +33,4 @@ const CloseButtonFiller = styled.div`
 	font-family: 'Abel';
 	font-size: 20px;
 	margin: 5px;
-	-webkit-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
-	-moz-box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
-	box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 `;

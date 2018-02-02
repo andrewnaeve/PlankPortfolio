@@ -8,7 +8,7 @@ export class Thumbnail extends Component {
 	};
 	render() {
 		const { loading } = this.state;
-		const { width, height, title, firebaseUrl } = this.props;
+		const { title, firebaseUrl } = this.props;
 
 		return (
 			<div>
@@ -29,6 +29,8 @@ const ImageWrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+	max-height: 150px;
+	width: auto;
 `;
 
 const Image = styled.img`
