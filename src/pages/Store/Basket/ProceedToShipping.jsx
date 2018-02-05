@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
-export const ProceedToPayment = () => (
-	<Container>
-		<Proceed>Proceed To Payment</Proceed>
+const ProceedToShipping = ({ history }) => (
+	<Container onClick={() => history.push('/Store/Basket/Shipping')}>
+		<Proceed>Proceed To Shipping</Proceed>
 	</Container>
 );
 
@@ -27,3 +28,5 @@ const Proceed = styled.div`
 	cursor: pointer;
 	text-align: center;
 `;
+
+export default withRouter(ProceedToShipping);

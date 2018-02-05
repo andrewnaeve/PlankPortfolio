@@ -4,7 +4,7 @@ import { BasketTitle } from './BasketTitle';
 import { BasketItemRow } from './BasketItemRow';
 import { SubTotal } from './SubTotal';
 import { ConnectedBasket } from './ConnectedBasket';
-import { ProceedToPayment } from './ProceedToPayment';
+import ProceedToShipping from './ProceedToShipping';
 
 export class BasketContainer extends Component {
 	render() {
@@ -19,7 +19,7 @@ export class BasketContainer extends Component {
 									<div>
 										<BasketItemRow />
 										<SubTotal />
-										<ProceedToPayment />
+										<ProceedToShipping />
 									</div>
 								) : (
 									<EmptyBasket>Your basket is empty.</EmptyBasket>

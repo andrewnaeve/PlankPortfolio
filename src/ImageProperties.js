@@ -1,29 +1,26 @@
-import HollyAndSebastian from './img/Holly and Sebastian.jpg';
-import ArdenInRome from './img/Arden In Rome.jpg';
-import Vase from './img/Vase.jpg';
-import OrangeFlowers from './img/Flowers.jpg';
-import Lavendar from './img/Lavendar.jpg';
-import PinkSpray from './img/Pink Spray.jpg';
-import BlackRoses from './img/Roses with Black Background.jpg';
-import Mennonites from './img/Mennonites.jpg';
-import BlueFloral from './img/Blue Floral.jpg';
-import TaupeFlowers from './img/Taupe.jpg';
-import WhatMeWorry from './img/What, Me Worry.jpg';
-import Berries from './img/Berries at the Huntington.jpg';
-import Lunia from './img/Flowers for Lunia.jpg';
-
 export const LavendarLanding = {
 	title: 'Sentinels of Carmel',
-	url: Lavendar,
 	description: '60" x 70", oil on canvas',
 	width: 2199,
-	height: 1886
+	height: 1886,
+	firebaseUrl:
+		'https://firebasestorage.googleapis.com/v0/b/nancyplank-ff678.appspot.com/o/Lavendar.jpg?alt=media&token=35a2f631-a7bd-4c5e-83d9-82464d856983',
+	price: 1000
+};
+
+export const NancyPlank = {
+	title: 'Nancy Plank',
+	description: 'Picture of Nancy Plank',
+	width: 458,
+	height: 458,
+	firebaseUrl:
+		'https://firebasestorage.googleapis.com/v0/b/nancyplank-ff678.appspot.com/o/NancyPlank.jpg?alt=media&token=c0d58285-db01-4618-88e0-6034c3622fa3',
+	price: null
 };
 
 export const ImageProperties = [
 	{
 		title: 'Flowers for Lunia',
-		url: Lunia,
 		description: '9" x 12", oil on linen',
 		width: 702,
 		height: 960,
@@ -33,7 +30,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Holly and Sebastian',
-		url: HollyAndSebastian,
 		description: '24" x 20", oil on canvas',
 		width: 2269,
 		height: 2716,
@@ -43,7 +39,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Sentinels of Carmel',
-		url: Lavendar,
 		description: '60" x 70", oil on canvas',
 		width: 2199,
 		height: 1886,
@@ -53,7 +48,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Pink Spray',
-		url: PinkSpray,
 		description: '60" x 70", oil on canvas',
 		width: 640,
 		height: 550,
@@ -63,7 +57,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'What, Me Worry?',
-		url: WhatMeWorry,
 		description: '60" x 70", oil on canvas',
 		width: 2039,
 		height: 2699,
@@ -73,7 +66,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Roses in the Spotlight',
-		url: BlackRoses,
 		description: '36" x 48", oil on canvas',
 		width: 1960,
 		height: 1440,
@@ -83,7 +75,6 @@ export const ImageProperties = [
 	},
 	{
 		title: "Mennonite Tourists at Pike's Peak",
-		url: Mennonites,
 		description: '48" x 36", oil on canvas',
 		width: 1971,
 		height: 2741,
@@ -93,7 +84,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Tasteful Opulence',
-		url: Vase,
 		description: '36" x 48", oil on canvas',
 		width: 3392,
 		height: 2598,
@@ -103,7 +93,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Arden in Rome',
-		url: ArdenInRome,
 		description: '6" x 4", oil on canvas',
 		width: 1725,
 		height: 2463,
@@ -113,7 +102,6 @@ export const ImageProperties = [
 	},
 	{
 		title: "Merrill's Bouquet",
-		url: BlueFloral,
 		description: '36" x 36", oil on canvas',
 		width: 980,
 		height: 886,
@@ -123,7 +111,6 @@ export const ImageProperties = [
 	},
 	{
 		title: 'Berries at the Huntington',
-		url: Berries,
 		description: '60" x 70", oil on canvas',
 		width: 3453,
 		height: 2704,
@@ -133,7 +120,6 @@ export const ImageProperties = [
 	},
 	{
 		title: "Zorro's Bouquet",
-		url: OrangeFlowers,
 		description: '36" x 36", oil on canvas',
 		width: 2362,
 		height: 2382,
@@ -143,7 +129,6 @@ export const ImageProperties = [
 	},
 	{
 		title: "Jo Anne's Bouquet",
-		url: TaupeFlowers,
 		description: '36" x 36", oil on canvas',
 		width: 2579,
 		height: 2560,

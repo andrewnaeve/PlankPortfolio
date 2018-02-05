@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
-import { ConnectedBasket } from '../Basket/ConnectedBasket';
+import { ConnectedBasket } from './Basket/ConnectedBasket';
 
 export const ConnectedBuyButton = props => (
 	<ConnectedBasket

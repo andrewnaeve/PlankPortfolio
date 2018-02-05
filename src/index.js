@@ -5,8 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { unregister } from './registerServiceWorker';
 import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
-import { BasketProvider } from './pages/Basket/BasketProvider';
+import { BasketProvider } from './pages/Store/Basket/BasketProvider';
 import { ModalProvider } from './pages/Modal/ModalProvider';
+
 render(
 	<BrowserRouter>
 		<BasketProvider>
@@ -19,5 +20,19 @@ render(
 	</BrowserRouter>,
 	document.getElementById('root')
 );
+
+// const preloadImages = url => {
+// 	const img = new Image();
+// 	img.onload = () => {
+// 		console.log('i am loaded');
+// 	};
+// 	img.src = url;
+// };
+
+// preloadImages(
+// 	ImageProperties.forEach(image => {
+// 		return preloadImages(image.firebaseUrl);
+// 	})
+// );
 
 unregister();

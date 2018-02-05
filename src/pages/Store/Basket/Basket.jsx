@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { db } from '../../firebaseConfig';
+import { db } from '../../../firebaseConfig';
 
 export class Basket extends Component {
 	state = {
@@ -44,7 +44,6 @@ export class Basket extends Component {
 	_removeFromBasket = title => {
 		const { items } = this.state;
 		const itemIndex = items.indexOf(title);
-		console.log('it', items, title, items.indexOf(title));
 		this.setState(({ items }) => ({
 			items: [...items.slice(0, itemIndex), ...items.slice(itemIndex + 1)]
 		}));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { LoadingMask } from '../Common/LoadingMask';
+import { LoadingMask } from '../../Common/LoadingMask';
 
 export class Thumbnail extends Component {
 	state = {
@@ -29,7 +29,7 @@ const ImageWrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
-	max-height: 150px;
+	height: 150px;
 	width: auto;
 `;
 

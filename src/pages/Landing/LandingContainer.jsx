@@ -4,17 +4,12 @@ import AnimatedContainer from '../Animation/AnimatedContainer';
 import Landing from './Landing';
 import { LavendarLanding } from '../../ImageProperties';
 
+const { firebaseUrl, title } = LavendarLanding;
 const LandingContainer = () => (
 	<Container>
 		<AnimatedContainer
 			render={({ handleLoad, renderAnimation }) =>
-				renderAnimation(
-					<Landing
-						title={LavendarLanding.title}
-						url={LavendarLanding.url}
-						handleLoad={handleLoad}
-					/>
-				)
+				renderAnimation(<Landing title={title} url={firebaseUrl} handleLoad={handleLoad} />)
 			}
 		/>
 	</Container>

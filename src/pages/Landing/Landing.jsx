@@ -30,7 +30,5 @@ const LandingImage = styled.img`
 		max-height: 600px;
 		margin-top: 30px;`};
 	${media.laptop`
-		max-height: 800px;`};
-	${media.fourKay`
-		max-height: 1500px;`};
+		max-height: 750px;`};
 `;

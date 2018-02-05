@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import ProfilePic from './ProfilePic';
 import AnimatedContainer from '../Animation/AnimatedContainer';
-import NancyPlank from '../../img/NancyPlank.jpg';
+import { NancyPlank } from '../../ImageProperties';
 import MarkupWrapper from './MarkupWrapper';
 
+const { firebaseUrl, title } = NancyPlank;
 const CVWrapper = () => (
 	<Container>
 		<AnimatedContainer
 			render={({ handleLoad, renderAnimation }) =>
-				renderAnimation(<ProfilePic title={NancyPlank} handleLoad={handleLoad} />)
+				renderAnimation(
+					<ProfilePic firebaseUrl={firebaseUrl} title={title} handleLoad={handleLoad} />
+				)
 			}
 		/>
 		<AnimatedContainer

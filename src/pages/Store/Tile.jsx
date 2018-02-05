@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { StoreImage } from './StoreImage';
-import { ConnectedBasket } from '../Basket/ConnectedBasket';
+import { ConnectedBasket } from './Basket/ConnectedBasket';
 import { ConnectedBuyButton } from './BuyButton';
 
 export const ConnectedTile = props => (
@@ -35,16 +35,6 @@ class Tile extends Component {
 	};
 }
 
-const fadeIn = keyframes`
-	from {
-		opacity: 0;
-	}
-
-	to {
-		opacity: 1;
-	}
-`;
-
 const Title = styled.p`
 	display: flex;
 	font-family: 'Abel', sans-serif;
@@ -61,7 +51,6 @@ const Price = styled.i`
 `;
 
 const Container = styled.div`
-	animation: ${fadeIn} 0.4s linear 1;
 	display: flex;
 	margin-right: 15px;
 	margin-left: 15px;
@@ -71,7 +60,6 @@ const Container = styled.div`
 	border: 2px solid #d0d0d0;
 	border-radius: 5px;
 	margin-bottom: 20px;
-	opacity: 1;
 	box-shadow: 5px 4px 12px 0px rgba(184, 184, 184, 1);
 `;
 

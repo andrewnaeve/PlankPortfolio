@@ -46,7 +46,7 @@ class StoreContainer extends Component {
 											),
 											y: spring(
 												prevInterpolatedStyles[i - 1].y,
-												presets.gentle
+												presets.noWobble
 											)
 										};
 							})

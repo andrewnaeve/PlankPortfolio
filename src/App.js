@@ -13,7 +13,8 @@ import Contact from './pages/Contact/ContactContainer';
 import Store from './pages/Store/StoreContainer';
 import { ConnectedModal } from './pages/Modal/ConnectedModal';
 import { StoreModal } from './pages/Modal/StoreModal';
-import { BasketContainer } from './pages/Basket/BasketContainer';
+import { BasketContainer } from './pages/Store/Basket/BasketContainer';
+import { ShippingContainer } from './pages/Store/Shipping/ShippingContainer';
 
 const App = props => (
 	<Wrapper>
@@ -27,7 +28,8 @@ const App = props => (
 				<Route path="/CV" component={CV} />
 				<Route path="/Contact" component={Contact} />
 				<Route exact path="/Store" component={Store} />
-				<Route path="/Store/Basket" component={BasketContainer} />
+				<Route exact path="/Store/Basket" component={BasketContainer} />
+				<Route exact path="/Store/Basket/Shipping" component={ShippingContainer} />
 				<Redirect from="**" to="/" />
 			</Switch>
 		</BodyContainer>

@@ -29,7 +29,7 @@ class Portfolio extends Component {
 			<OuterContainer>
 				{ImageProperties.map((image, i) => (
 					<AnimatedContainer
-						key={image.url}
+						key={image.title}
 						render={({ handleLoad, renderAnimation }) =>
 							renderAnimation(
 								<ImageCard

@@ -4,7 +4,7 @@ import { media } from '../../utilities/style-utils';
 
 const ProfilePic = props => (
 	<HeaderRow>
-		<Pic src={props.title} onLoad={props.handleLoad} />
+		<Pic src={props.firebaseUrl} alt={props.title} onLoad={props.handleLoad} />
 	</HeaderRow>
 );
 
@@ -16,7 +16,7 @@ const HeaderRow = styled.div`
 	justify-content: center;
 	margin-top: 20px;
 	margin-bottom: 40px;
-	min-height: 250px;
+	min-height: 300px;
 	${media.tablets`
 justify-content: start;`};
 	width: 100%;

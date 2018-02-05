@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { media } from '../../utilities/style-utils';
 import { withRouter } from 'react-router';
 import { ShoppingCartIcon } from '../Store/ShoppingCartIcon';
-import { ConnectedBasket } from '../Basket/ConnectedBasket';
+import { ConnectedBasket } from '../Store/Basket/ConnectedBasket';
 
 const showShoppingCartIcon = pathname => {
 	if (pathname === '/Store' || pathname === '/Store/Basket') {
