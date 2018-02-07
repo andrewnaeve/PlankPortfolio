@@ -20,9 +20,6 @@ export class Basket extends Component {
 				})
 			);
 	}
-	componentDidUpdate() {
-		console.log(this.state.items);
-	}
 
 	render() {
 		const { items, inventory } = this.state;

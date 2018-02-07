@@ -7,14 +7,16 @@ import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
 import { BasketProvider } from './pages/Store/Basket/BasketProvider';
 import { ModalProvider } from './pages/Modal/ModalProvider';
-
+import { ShippingFormProvider } from './pages/Store/Shipping/Form/ShippingFormProvider';
 render(
 	<BrowserRouter>
 		<BasketProvider>
 			<ModalProvider>
-				<ScrollToTop>
-					<App />
-				</ScrollToTop>
+				<ShippingFormProvider>
+					<ScrollToTop>
+						<App />
+					</ScrollToTop>
+				</ShippingFormProvider>
 			</ModalProvider>
 		</BasketProvider>
 	</BrowserRouter>,
