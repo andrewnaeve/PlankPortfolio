@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const ShippingTitle = () => <Title>Shipping</Title>;
+export const Header = props => <Title>{props.children}</Title>;
 
 const Title = styled.div`
 	display: flex;

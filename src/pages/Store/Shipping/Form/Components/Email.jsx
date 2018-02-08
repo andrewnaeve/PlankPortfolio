@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from './Field';
-import { ShippingFormConnector } from './ShippingFormConnector';
+import { ShippingFormConnector } from '../ShippingFormConnector';
 import { FieldName } from './FieldName';
 import { FieldWrapper } from './FieldWrapper';
 
@@ -9,7 +9,7 @@ export const Email = props => (
 		<FieldName>Email</FieldName>
 		<ShippingFormConnector
 			render={({ email, handleEmailChange }) => (
-				<Field value={email} handleChange={handleEmailChange} />
+				<Field value={email} field="email" handleChange={handleEmailChange} />
 			)}
 		/>
 	</FieldWrapper>

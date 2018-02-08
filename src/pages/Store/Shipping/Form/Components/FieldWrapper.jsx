@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { media } from '../../../../utilities/style-utils';
+import { media } from '../../../../../utilities/style-utils';
 export const FieldWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -8,6 +8,6 @@ export const FieldWrapper = styled.div`
 	width: 100%;
 `};
 	${media.laptop`
-	width: 75%;
+	width: 65%;
 `};
 `;

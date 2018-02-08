@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { ShippingTitle } from './ShippingTitle';
-import { FirstName } from './Form/FirstName';
-import { LastName } from './Form/LastName';
-import { Email } from './Form/Email';
-import { Address } from './Form/Address';
+import { Header } from './Header';
+import { FirstName } from './Form/Components/FirstName';
+import { LastName } from './Form/Components/LastName';
+import { Email } from './Form/Components/Email';
+import { Address } from './Form/Components/Address';
+import { Address2 } from './Form/Components/Address2';
+import { City } from './Form/Components/City';
+import { State } from './Form/Components/State';
+import { ZipCode } from './Form/Components/ZipCode';
+
 export class ShippingContainer extends Component {
 	render() {
 		return (
 			<Container>
 				<ViewArea>
-					<ShippingTitle />
 					<FormArea>
+						<Header>Contact</Header>
 						<Email />
+						<Header>Shipping</Header>
 						<FirstName />
 						<LastName />
 						<Address />
+						<Address2 />
+						<City />
+						<State />
+						<ZipCode />
+						<Header>Billing</Header>
 					</FormArea>
 				</ViewArea>
 			</Container>
@@ -41,4 +52,5 @@ const FormArea = styled.div`
 	flex: 1;
 	flex-direction: column;
 	margin-top: 20px;
+	margin-bottom: 20px;
 `;

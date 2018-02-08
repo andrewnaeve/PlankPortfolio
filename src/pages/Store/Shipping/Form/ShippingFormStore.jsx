@@ -2,69 +2,63 @@ import { Component } from 'react';
 
 export class ShippingFormStore extends Component {
 	state = {
-		firstName: '',
-		lastName: '',
 		email: '',
-		address: '',
-		address2: '',
-		city: '',
-		state: '',
-		zipCode: '',
+		shipping: {
+			firstName: '',
+			lastName: '',
+			address: '',
+			address2: '',
+			city: '',
+			state: '',
+			zipCode: ''
+		},
+		billing: {
+			firstName: '',
+			lastName: '',
+			address: '',
+			address2: '',
+			city: '',
+			state: '',
+			zipCode: ''
+		},
 		error: ''
 	};
 
 	render() {
+		console.log(this.state.email, this.state.shipping);
 		return this.props.render({
 			...this.state,
-			handleFirstNameChange: this._handleFirstNameChange,
-			handleLastNameChange: this._handleLastNameChange,
-			handleEmailChange: this._handleEmailChange,
-			handleAddressChange: this._handleAddressChange,
-			handleAddress2Change: this._handleAddress2Change,
-			handleCityChange: this._handleCityChange,
-			handleStateChange: this._handleStateChange,
-			handleZipCodeChange: this._handleZipCodeChange,
-			handleErrorChange: this._handleErrorChange
+			handleShippingFieldChange: this._handleShippingFieldChange,
+			handleEmailChange: this._handleEmailChange
 		});
 	}
-	_handleFirstNameChange = letter => {
+
+	_handleShippingFieldChange = (e, field) => {
 		this.setState({
-			firstName: letter
+			shipping: {
+				...this.state.shipping,
+				[field]: e.target.value
+			}
 		});
 	};
-	_handleLastNameChange = letter => {
+
+	_handleBillingFieldChange = (e, field) => {
 		this.setState({
-			lastName: letter
+			billing: {
+				[field]: e.target.value
+			}
 		});
 	};
-	_handleEmailChange = letter => {
+
+	_handleEmailChange = e => {
 		this.setState({
-			lastName: letter
+			email: e.target.value
 		});
 	};
-	_handleAddressChange = letter => {
+
+	_handleErrorChange = error => {
 		this.setState({
-			address: letter
-		});
-	};
-	_handleAddress2Change = letter => {
-		this.setState({
-			address2: letter
-		});
-	};
-	_handleCityChange = letter => {
-		this.setState({
-			city: letter
-		});
-	};
-	_handleStateChange = state => {
-		this.setState({
-			state: state
-		});
-	};
-	_handleZipCodeChange = number => {
-		this.setState({
-			zipCode: number
+			error: error
 		});
 	};
 }
