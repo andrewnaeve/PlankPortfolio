@@ -1,13 +1,13 @@
 import React from 'react';
 import { Field } from './Field';
-import { ShippingFormConnector } from '../ShippingFormConnector';
+import { OrderFormConnector } from '../OrderFormConnector';
 import { FieldName } from './FieldName';
 import { FieldWrapper } from './FieldWrapper';
 
 export const Email = props => (
 	<FieldWrapper>
 		<FieldName>Email</FieldName>
-		<ShippingFormConnector
+		<OrderFormConnector
 			render={({ email, handleEmailChange }) => (
 				<Field value={email} field="email" handleChange={handleEmailChange} />
 			)}

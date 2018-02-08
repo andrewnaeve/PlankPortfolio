@@ -1,8 +1,9 @@
 import { Component } from 'react';
 
-export class ShippingFormStore extends Component {
+export class OrderFormStore extends Component {
 	state = {
 		email: '',
+		error: '',
 		shipping: {
 			firstName: '',
 			lastName: '',
@@ -20,14 +21,17 @@ export class ShippingFormStore extends Component {
 			city: '',
 			state: '',
 			zipCode: ''
-		},
-		error: ''
+		}
 	};
 
 	render() {
-		console.log(this.state.email, this.state.shipping);
+		const { email, error, shipping, billing } = this.state;
+		console.log(this.state);
 		return this.props.render({
-			...this.state,
+			email,
+			shipping,
+			billing,
+			error,
 			handleShippingFieldChange: this._handleShippingFieldChange,
 			handleEmailChange: this._handleEmailChange
 		});
@@ -45,6 +49,7 @@ export class ShippingFormStore extends Component {
 	_handleBillingFieldChange = (e, field) => {
 		this.setState({
 			billing: {
+				...this.state.billing,
 				[field]: e.target.value
 			}
 		});

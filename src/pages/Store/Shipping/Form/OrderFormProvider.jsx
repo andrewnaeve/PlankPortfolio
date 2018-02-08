@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ShippingFormStore } from './ShippingFormStore';
+import { OrderFormStore } from './OrderFormStore';
 
-export class ShippingFormProvider extends Component {
+export class OrderFormProvider extends Component {
 	static contextName = '__shipping__';
 	static Renderer = class extends Component {
 		static childContextTypes = {
-			[ShippingFormProvider.contextName]: PropTypes.object.isRequired
+			[OrderFormProvider.contextName]: PropTypes.object.isRequired
 		};
 		getChildContext() {
 			return {
-				[ShippingFormProvider.contextName]: this.props.items
+				[OrderFormProvider.contextName]: this.props.items
 			};
 		}
 		render() {
@@ -20,11 +20,9 @@ export class ShippingFormProvider extends Component {
 	render() {
 		const { children, ...remainingProps } = this.props;
 		return (
-			<ShippingFormStore
+			<OrderFormStore
 				{...remainingProps}
-				render={items => (
-					<ShippingFormProvider.Renderer items={items} children={children} />
-				)}
+				render={items => <OrderFormProvider.Renderer items={items} children={children} />}
 			/>
 		);
 	}

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Header } from './Header';
-import { FirstName } from './Form/Components/FirstName';
-import { LastName } from './Form/Components/LastName';
-import { Email } from './Form/Components/Email';
-import { Address } from './Form/Components/Address';
-import { Address2 } from './Form/Components/Address2';
-import { City } from './Form/Components/City';
-import { State } from './Form/Components/State';
-import { ZipCode } from './Form/Components/ZipCode';
+import { FirstName } from './Form/ShippingComponents/FirstName';
+import { LastName } from './Form/ShippingComponents/LastName';
+import { Email } from './Form/ShippingComponents/Email';
+import { Address } from './Form/ShippingComponents/Address';
+import { Address2 } from './Form/ShippingComponents/Address2';
+import { City } from './Form/ShippingComponents/City';
+import { State } from './Form/ShippingComponents/State';
+import { ZipCode } from './Form/ShippingComponents/ZipCode';
 
 export class ShippingContainer extends Component {
 	render() {

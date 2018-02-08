@@ -1,14 +1,14 @@
 import React from 'react';
 import { Field } from './Field';
-import { ShippingFormConnector } from '../ShippingFormConnector';
+import { OrderFormConnector } from '../OrderFormConnector';
 import { FieldName } from './FieldName';
 import { FieldWrapper } from './FieldWrapper';
 
 export const Address = props => (
 	<FieldWrapper>
 		<FieldName>Address</FieldName>
-		<ShippingFormConnector
-			render={({ address, handleShippingFieldChange }) => (
+		<OrderFormConnector
+			render={({ shipping: { address }, handleShippingFieldChange }) => (
 				<Field value={address} field="address" handleChange={handleShippingFieldChange} />
 			)}
 		/>
