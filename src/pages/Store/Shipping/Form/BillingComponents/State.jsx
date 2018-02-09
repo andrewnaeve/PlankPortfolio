@@ -1,4 +1,5 @@
 import React from 'react';
+import { Field } from '../Field';
 import { OrderFormConnector } from '../OrderFormConnector';
 import { FieldName } from '../FieldName';
 import { FieldWrapper } from '../FieldWrapper';
@@ -9,8 +10,8 @@ export const State = props => (
 	<FieldWrapper>
 		<FieldName>State</FieldName>
 		<OrderFormConnector
-			render={({ shipping: { state }, handleShippingFieldChange }) => (
-				<SelectField value={state} field="state" handleChange={handleShippingFieldChange}>
+			render={({ billing: { state }, handleBillingFieldChange }) => (
+				<SelectField value={state} field="state" handleChange={handleBillingFieldChange}>
 					<SelectStates key={''} />
 				</SelectField>
 			)}

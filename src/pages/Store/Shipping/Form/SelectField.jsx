@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { media } from '../../../../../utilities/style-utils';
 
 export const SelectField = props => (
 	<Select onChange={e => props.handleChange(e, props.field)}>{props.children}</Select>

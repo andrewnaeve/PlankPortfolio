@@ -1,9 +1,14 @@
 import { Component } from 'react';
 
 export class OrderFormStore extends Component {
+	static defaultProps = {
+		billingSameAsShipping: false
+	};
+
 	state = {
 		email: '',
 		error: '',
+		billingSameAsShipping: false,
 		shipping: {
 			firstName: '',
 			lastName: '',
@@ -25,13 +30,15 @@ export class OrderFormStore extends Component {
 	};
 
 	render() {
-		const { email, error, shipping, billing } = this.state;
+		const { email, error, shipping, billing, billingSameAsShipping } = this.state;
 		console.log(this.state);
 		return this.props.render({
 			email,
 			shipping,
 			billing,
 			error,
+			billingSameAsShipping,
+			handleBillingSameAsShippingChange: this._handleBillingSameAsShippingChange,
 			handleShippingFieldChange: this._handleShippingFieldChange,
 			handleEmailChange: this._handleEmailChange
 		});
@@ -59,6 +66,12 @@ export class OrderFormStore extends Component {
 		this.setState({
 			email: e.target.value
 		});
+	};
+
+	_handleBillingSameAsShippingChange = e => {
+		this.setState(({ billingSameAsShipping }) => ({
+			billingSameAsShipping: !billingSameAsShipping
+		}));
 	};
 
 	_handleErrorChange = error => {

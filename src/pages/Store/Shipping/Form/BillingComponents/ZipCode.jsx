@@ -4,12 +4,12 @@ import { OrderFormConnector } from '../OrderFormConnector';
 import { FieldName } from '../FieldName';
 import { FieldWrapper } from '../FieldWrapper';
 
-export const Address2 = props => (
+export const ZipCode = props => (
 	<FieldWrapper>
-		<FieldName>Address Line 2</FieldName>
+		<FieldName>Zip Code</FieldName>
 		<OrderFormConnector
-			render={({ shipping: { address2 }, handleShippingFieldChange }) => (
-				<Field value={address2} field="address2" handleChange={handleShippingFieldChange} />
+			render={({ billing: { zipCode }, handleBillingFieldChange }) => (
+				<Field value={zipCode} field="zipCode" handleChange={handleBillingFieldChange} />
 			)}
 		/>
 	</FieldWrapper>

@@ -8,8 +8,8 @@ export const Address2 = props => (
 	<FieldWrapper>
 		<FieldName>Address Line 2</FieldName>
 		<OrderFormConnector
-			render={({ shipping: { address2 }, handleShippingFieldChange }) => (
-				<Field value={address2} field="address2" handleChange={handleShippingFieldChange} />
+			render={({ billing: { address2 }, handleBillingFieldChange }) => (
+				<Field value={address2} field="address2" handleChange={handleBillingFieldChange} />
 			)}
 		/>
 	</FieldWrapper>

@@ -1,35 +1,63 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Header } from './Header';
-import { FirstName } from './Form/ShippingComponents/FirstName';
-import { LastName } from './Form/ShippingComponents/LastName';
-import { Email } from './Form/ShippingComponents/Email';
-import { Address } from './Form/ShippingComponents/Address';
-import { Address2 } from './Form/ShippingComponents/Address2';
-import { City } from './Form/ShippingComponents/City';
-import { State } from './Form/ShippingComponents/State';
-import { ZipCode } from './Form/ShippingComponents/ZipCode';
+import { Email } from './Form/Email';
+import { FirstName as ShippingFirstName } from './Form/ShippingComponents/FirstName';
+import { LastName as ShippingLastName } from './Form/ShippingComponents/LastName';
+import { Address as ShippingAddress } from './Form/ShippingComponents/Address';
+import { Address2 as ShippingAddress2 } from './Form/ShippingComponents/Address2';
+import { City as ShippingCity } from './Form/ShippingComponents/City';
+import { State as ShippingState } from './Form/ShippingComponents/State';
+import { ZipCode as ShippingZipCode } from './Form/ShippingComponents/ZipCode';
+import { FirstName as BillingFirstName } from './Form/ShippingComponents/FirstName';
+import { LastName as BillingLastName } from './Form/ShippingComponents/LastName';
+import { Address as BillingAddress } from './Form/ShippingComponents/Address';
+import { Address2 as BillingAddress2 } from './Form/ShippingComponents/Address2';
+import { City as BillingCity } from './Form/ShippingComponents/City';
+import { State as BillingState } from './Form/ShippingComponents/State';
+import { ZipCode as BillingZipCode } from './Form/ShippingComponents/ZipCode';
+import { BillingSameAsShipping } from './Form/BillingSameAsShipping';
+import { OrderFormConnector } from './Form/OrderFormConnector';
 
 export class ShippingContainer extends Component {
 	render() {
 		return (
-			<Container>
-				<ViewArea>
-					<FormArea>
-						<Header>Contact</Header>
-						<Email />
-						<Header>Shipping</Header>
-						<FirstName />
-						<LastName />
-						<Address />
-						<Address2 />
-						<City />
-						<State />
-						<ZipCode />
-						<Header>Billing</Header>
-					</FormArea>
-				</ViewArea>
-			</Container>
+			<OrderFormConnector
+				render={({ billingSameAsShipping }) => (
+					<Container>
+						<ViewArea>
+							<FormArea>
+								<Header>Contact</Header>
+								<Email />
+								<Header>Shipping</Header>
+								<ShippingFirstName />
+								<ShippingLastName />
+								<ShippingAddress />
+								<ShippingAddress2 />
+								<ShippingCity />
+								<ShippingState />
+								<ShippingZipCode />
+								<Row>
+									<Header>Billing</Header>
+									<Filler />
+									<BillingSameAsShipping />
+								</Row>
+								{!billingSameAsShipping && (
+									<div>
+										<BillingFirstName />
+										<BillingLastName />
+										<BillingAddress />
+										<BillingAddress2 />
+										<BillingCity />
+										<BillingState />
+										<BillingZipCode />
+									</div>
+								)}
+							</FormArea>
+						</ViewArea>
+					</Container>
+				)}
+			/>
 		);
 	}
 }
@@ -53,4 +81,15 @@ const FormArea = styled.div`
 	flex-direction: column;
 	margin-top: 20px;
 	margin-bottom: 20px;
+`;
+
+const Row = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 50%;
+`;
+
+const Filler = styled.div`
+	display: flex;
+	flex: 1;
 `;

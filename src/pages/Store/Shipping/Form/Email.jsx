@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field } from './Field';
-import { OrderFormConnector } from '../OrderFormConnector';
+import { OrderFormConnector } from './OrderFormConnector';
 import { FieldName } from './FieldName';
 import { FieldWrapper } from './FieldWrapper';
 
