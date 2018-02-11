@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Field = props => (
-	<Input onChange={e => props.handleChange(e, props.field)} type={props.type || 'text'} />
+	<Input
+		{...props}
+		onChange={e => props.handleChange(e, props.field)}
+		type={props.type || 'text'}
+	/>
 );
 
 const Input = styled.input`
@@ -11,4 +15,5 @@ const Input = styled.input`
 	height: 40px;
 	font-family: 'Abel';
 	font-size: 1.3rem;
+	width: 100%;
 `;

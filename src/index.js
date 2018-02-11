@@ -7,7 +7,7 @@ import ScrollToTop from './utilities/ScrollToTop';
 import './utilities/global-styles';
 import { BasketProvider } from './pages/Store/Basket/BasketProvider';
 import { ModalProvider } from './pages/Modal/ModalProvider';
-import { OrderFormProvider } from './pages/Store/Shipping/Form/OrderFormProvider';
+import { OrderFormProvider } from './pages/Store/Order/Form/OrderFormProvider';
 render(
 	<BrowserRouter>
 		<BasketProvider>

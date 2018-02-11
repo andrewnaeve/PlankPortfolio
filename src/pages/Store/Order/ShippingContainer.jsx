@@ -43,7 +43,7 @@ export class ShippingContainer extends Component {
 									<BillingSameAsShipping />
 								</Row>
 								{!billingSameAsShipping && (
-									<div>
+									<BillingArea>
 										<BillingFirstName />
 										<BillingLastName />
 										<BillingAddress />
@@ -51,7 +51,7 @@ export class ShippingContainer extends Component {
 										<BillingCity />
 										<BillingState />
 										<BillingZipCode />
-									</div>
+									</BillingArea>
 								)}
 							</FormArea>
 						</ViewArea>
@@ -92,4 +92,8 @@ const Row = styled.div`
 const Filler = styled.div`
 	display: flex;
 	flex: 1;
+`;
+
+const BillingArea = styled.div`
+	margin-bottom: 20px;
 `;

@@ -14,7 +14,7 @@ import Store from './pages/Store/StoreContainer';
 import { ConnectedModal } from './pages/Modal/ConnectedModal';
 import { StoreModal } from './pages/Modal/StoreModal';
 import { BasketContainer } from './pages/Store/Basket/BasketContainer';
-import { ShippingContainer } from './pages/Store/Shipping/ShippingContainer';
+import { ShippingContainer } from './pages/Store/Order/ShippingContainer';
 
 const App = props => (
 	<Wrapper>
