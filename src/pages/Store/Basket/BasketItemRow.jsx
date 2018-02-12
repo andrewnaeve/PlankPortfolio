@@ -14,9 +14,9 @@ export class BasketItemRow extends Component {
 								.filter(x => x.title === item)
 								.reduce((flatList, list) => flatList.concat(list));
 							return (
-								<Row>
+								<Row key={item}>
 									<Column>
-										<BasketItem {...itemProps} key={item} />
+										<BasketItem {...itemProps} />
 									</Column>
 									<Column>
 										<Descriptor>{itemProps.title}</Descriptor>

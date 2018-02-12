@@ -61,6 +61,7 @@ export class OrderFormStore extends Component {
 			formIsValid,
 			submitted,
 			checkingValidation,
+			resetFormConditions: this._resetFormConditions,
 			validateForm: this._validateForm,
 			handleEmailBlur: this._handleEmailBlur,
 			handleBillingSameAsShippingChange: this._handleBillingSameAsShippingChange,
@@ -160,5 +161,12 @@ export class OrderFormStore extends Component {
 				checkingValidation: false
 			});
 		}
+	};
+
+	_resetFormConditions = () => {
+		this.setState({
+			formIsValid: false,
+			submitted: false
+		});
 	};
 }

@@ -6,17 +6,31 @@ import { OrderFormConnector } from './OrderFormConnector';
 
 const ProceedToOptions = props => (
 	<OrderFormConnector
-		render={renderProps => (
-			<ProceedToOptionsWithProps history={props.history} {...renderProps} />
-		)}
+		render={({
+			formIsValid,
+			resetFormConditions,
+			checkingValidation,
+			validateForm,
+			submitted
+		}) => {
+			const neededProps = {
+				formIsValid: formIsValid,
+				resetFormConditions: resetFormConditions,
+				checkingValidation: checkingValidation,
+				validateForm: validateForm,
+				submitted: submitted
+			};
+			return <ProceedToOptionsWithProps history={props.history} {...neededProps} />;
+		}}
 	/>
 );
 
 class ProceedToOptionsWithProps extends Component {
 	componentWillReceiveProps(nextProps) {
-		const { history, formIsValid } = this.props;
+		const { history, formIsValid, resetFormConditions } = this.props;
 		if (nextProps.formIsValid && formIsValid !== nextProps.formIsValid) {
 			history.push('/Store/Basket/Shipping/Options');
+			resetFormConditions();
 		}
 	}
 
