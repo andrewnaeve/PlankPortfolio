@@ -9,10 +9,12 @@ import styled from 'styled-components';
 export const Email = props => (
 	<FieldWrapper>
 		<OrderFormConnector
-			render={({ email, emailIsValid, handleEmailChange, handleEmailBlur }) => (
+			render={({ email, emailIsValid, handleEmailChange, handleEmailBlur, submitted }) => (
 				<div>
 					<Row>
-						<FieldName>Email</FieldName>
+						<FieldName submitted={submitted} value={email}>
+							Email
+						</FieldName>
 						<Separator />
 						{!emailIsValid && <ValidationError error={'Please enter a valid email.'} />}
 					</Row>

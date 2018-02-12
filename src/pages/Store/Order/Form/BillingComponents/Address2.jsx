@@ -3,14 +3,27 @@ import { Field } from '../Field';
 import { OrderFormConnector } from '../OrderFormConnector';
 import { FieldName } from '../FieldName';
 import { FieldWrapper } from '../FieldWrapper';
-
+import styled from 'styled-components';
 export const Address2 = props => (
 	<FieldWrapper>
-		<FieldName>Address Line 2</FieldName>
 		<OrderFormConnector
-			render={({ billing: { address2 }, handleBillingFieldChange }) => (
-				<Field value={address2} field="address2" handleChange={handleBillingFieldChange} />
+			render={({ billing: { billingAddress2 }, handleBillingFieldChange }) => (
+				<div>
+					<Row>
+						<FieldName>Address Line 2</FieldName>
+					</Row>
+					<Field
+						value={billingAddress2}
+						field="billingAddress2"
+						handleChange={handleBillingFieldChange}
+					/>
+				</div>
 			)}
 		/>
 	</FieldWrapper>
 );
+
+const Row = styled.div`
+	display: flex;
+	flex-direction: row;
+`;

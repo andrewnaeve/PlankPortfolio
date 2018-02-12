@@ -1,20 +1,34 @@
 import React from 'react';
-import { Field } from '../Field';
 import { OrderFormConnector } from '../OrderFormConnector';
 import { FieldName } from '../FieldName';
 import { FieldWrapper } from '../FieldWrapper';
 import { SelectField } from '../SelectField';
 import { SelectStates } from '../SelectStates';
-
+import styled from 'styled-components';
 export const State = props => (
 	<FieldWrapper>
-		<FieldName>State</FieldName>
 		<OrderFormConnector
-			render={({ billing: { state }, handleBillingFieldChange }) => (
-				<SelectField value={state} field="state" handleChange={handleBillingFieldChange}>
-					<SelectStates key={''} />
-				</SelectField>
+			render={({ billing: { billingState }, handleBillingFieldChange, submitted }) => (
+				<div>
+					<Row>
+						<FieldName submitted={submitted} value={billingState}>
+							State
+						</FieldName>
+					</Row>
+					<SelectField
+						value={billingState}
+						field="billingState"
+						handleChange={handleBillingFieldChange}
+					>
+						<SelectStates key={''} />
+					</SelectField>
+				</div>
 			)}
 		/>
 	</FieldWrapper>
 );
+
+const Row = styled.div`
+	display: flex;
+	flex-direction: row;
+`;

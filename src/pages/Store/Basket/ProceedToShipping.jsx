@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 const ProceedToShipping = ({ history }) => (
 	<Container onClick={() => history.push('/Store/Basket/Shipping')}>
-		<Proceed>Proceed To Shipping</Proceed>
+		<Proceed>Proceed</Proceed>
 	</Container>
 );
 

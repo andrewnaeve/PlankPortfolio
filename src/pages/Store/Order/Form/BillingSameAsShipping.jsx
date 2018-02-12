@@ -7,7 +7,11 @@ export const BillingSameAsShipping = props => (
 		render={({ billingSameAsShipping, handleBillingSameAsShippingChange }) => (
 			<Row>
 				<Text>Billing same as shipping?</Text>
-				<Input onChange={handleBillingSameAsShippingChange} type="checkbox" />
+				<Input
+					onChange={handleBillingSameAsShippingChange}
+					type="checkbox"
+					checked={billingSameAsShipping}
+				/>
 			</Row>
 		)}
 	/>

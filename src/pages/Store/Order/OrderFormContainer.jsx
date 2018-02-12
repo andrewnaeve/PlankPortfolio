@@ -9,17 +9,20 @@ import { Address2 as ShippingAddress2 } from './Form/ShippingComponents/Address2
 import { City as ShippingCity } from './Form/ShippingComponents/City';
 import { State as ShippingState } from './Form/ShippingComponents/State';
 import { ZipCode as ShippingZipCode } from './Form/ShippingComponents/ZipCode';
-import { FirstName as BillingFirstName } from './Form/ShippingComponents/FirstName';
-import { LastName as BillingLastName } from './Form/ShippingComponents/LastName';
-import { Address as BillingAddress } from './Form/ShippingComponents/Address';
-import { Address2 as BillingAddress2 } from './Form/ShippingComponents/Address2';
-import { City as BillingCity } from './Form/ShippingComponents/City';
-import { State as BillingState } from './Form/ShippingComponents/State';
-import { ZipCode as BillingZipCode } from './Form/ShippingComponents/ZipCode';
+
+import { FirstName as BillingFirstName } from './Form/BillingComponents/FirstName';
+import { LastName as BillingLastName } from './Form/BillingComponents/LastName';
+import { Address as BillingAddress } from './Form/BillingComponents/Address';
+import { Address2 as BillingAddress2 } from './Form/BillingComponents/Address2';
+import { City as BillingCity } from './Form/BillingComponents/City';
+import { State as BillingState } from './Form/BillingComponents/State';
+import { ZipCode as BillingZipCode } from './Form/BillingComponents/ZipCode';
+
 import { BillingSameAsShipping } from './Form/BillingSameAsShipping';
 import { OrderFormConnector } from './Form/OrderFormConnector';
+import ProceedToOptions from './Form/ProceedToOptions';
 
-export class ShippingContainer extends Component {
+export class OrderFormContainer extends Component {
 	render() {
 		return (
 			<OrderFormConnector
@@ -53,6 +56,7 @@ export class ShippingContainer extends Component {
 										<BillingZipCode />
 									</BillingArea>
 								)}
+								<ProceedToOptions />
 							</FormArea>
 						</ViewArea>
 					</Container>
