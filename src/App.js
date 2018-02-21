@@ -15,7 +15,7 @@ import { ConnectedModal } from './pages/Modal/ConnectedModal';
 import { StoreModal } from './pages/Modal/StoreModal';
 import { BasketContainer } from './pages/Store/Basket/BasketContainer';
 import { OrderFormContainer } from './pages/Store/Order/OrderFormContainer';
-import { OptionsContainer } from './pages/Store/Options/OptionsContainer';
+import { BillingContainer } from './pages/Store/Billing/BillingContainer';
 
 const App = props => (
 	<Wrapper>
@@ -31,7 +31,7 @@ const App = props => (
 				<Route exact path="/Store" component={Store} />
 				<Route exact path="/Store/Basket" component={BasketContainer} />
 				<Route exact path="/Store/Basket/Shipping" component={OrderFormContainer} />
-				<Route exact path="/Store/Basket/Shipping/Options" component={OptionsContainer} />
+				<Route exact path="/Store/Basket/Shipping/Options" component={BillingContainer} />
 				<Redirect from="**" to="/" />
 			</Switch>
 		</BodyContainer>

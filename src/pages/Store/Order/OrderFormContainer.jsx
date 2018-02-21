@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Header } from './Header';
 import { Email } from './Form/Email';
+// Shipping
 import { FirstName as ShippingFirstName } from './Form/ShippingComponents/FirstName';
 import { LastName as ShippingLastName } from './Form/ShippingComponents/LastName';
 import { Address as ShippingAddress } from './Form/ShippingComponents/Address';
@@ -9,7 +10,7 @@ import { Address2 as ShippingAddress2 } from './Form/ShippingComponents/Address2
 import { City as ShippingCity } from './Form/ShippingComponents/City';
 import { State as ShippingState } from './Form/ShippingComponents/State';
 import { ZipCode as ShippingZipCode } from './Form/ShippingComponents/ZipCode';
-
+// Billing
 import { FirstName as BillingFirstName } from './Form/BillingComponents/FirstName';
 import { LastName as BillingLastName } from './Form/BillingComponents/LastName';
 import { Address as BillingAddress } from './Form/BillingComponents/Address';

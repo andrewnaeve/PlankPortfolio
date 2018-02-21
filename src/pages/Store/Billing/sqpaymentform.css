@@ -1,0 +1,92 @@
+/* Define how SqPaymentForm iframes should look */
+.sq-input {
+	border: 2px solid #f0f0f0;
+	padding-left: 10px;
+	border-radius: 1px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: 'Abel';
+	height: 40px;
+}
+
+/* Define how SqPaymentForm iframes should look when they have focus */
+.sq-input--focus {
+	outline: 5px auto rgb(59, 153, 252);
+}
+
+/* Define how SqPaymentForm iframes should look when they contain invalid values */
+.sq-input--error {
+	outline: 5px auto rgb(255, 97, 97);
+}
+
+/* Customize the "Pay with Credit Card" button */
+.button-credit-card {
+	display: flex;
+	width: 200px;
+	height: 50px;
+	border: 1px solid black;
+	border-radius: 5px;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Abel', sans-serif;
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+/* Customize the "{{Wallet}} not enabled" message */
+.wallet-not-enabled {
+	min-width: 200px;
+	min-height: 40px;
+	max-height: 64px;
+	padding: 0;
+	margin: 10px;
+	line-height: 40px;
+	background: #eee;
+	border-radius: 5px;
+	font-weight: lighter;
+	font-style: italic;
+	font-family: inherit;
+	display: block;
+}
+
+/* Customize the Apple Pay on the Web button */
+.button-apple-pay {
+	min-width: 200px;
+	min-height: 40px;
+	max-height: 64px;
+	padding: 0;
+	margin: 10px;
+	background-image: -webkit-named-image(apple-pay-logo-white);
+	background-color: black;
+	background-size: 100% 60%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	border-radius: 5px;
+	cursor: pointer;
+	display: none;
+}
+
+#sq-walletbox {
+	float: left;
+	margin: 5px;
+	padding: 10px;
+	text-align: center;
+	vertical-align: top;
+	font-weight: bold;
+}
+
+#sq-ccbox {
+	display: flex;
+	flex: 1;
+	font-family: 'Abel';
+	justify-content: flex-start;
+	vertical-align: top;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#sq-card-number {
+	color: 'red';
+}
