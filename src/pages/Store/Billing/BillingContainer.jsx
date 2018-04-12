@@ -1,31 +1,84 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import swal from 'sweetalert2';
 import { Helmet } from 'react-helmet';
 import './sqpaymentform.css';
 import { applicationId, locationId } from './secrets';
-import { BillingTitle } from './BillingTitle';
-export class BillingContainer extends Component {
-	componentDidMount() {
+import { Header } from '../Header';
+import { LoadingMask } from '../../Common/LoadingMask';
+import { OrderFormConnector } from '../Order/Form/OrderFormConnector';
+import { paymentRequest } from './billingHelpers';
+
+export const BillingContainer = () => (
+	<OrderFormConnector
+		render={({ billing, shipping, email }) => (
+			<BillingContainerWithProps billing={billing} shipping={shipping} email={email} />
+		)}
+	/>
+);
+
+export class BillingContainerWithProps extends Component {
+	constructor() {
+		super();
+		this.state = {
+			scriptLoaded: false,
+			paymentFormLoaded: false
+		};
+	}
+
+	componentWillMount() {
+		this.newScript().then(() => this.scriptLoaded());
+	}
+	componentWillUnmount() {
+		this.paymentForm.destroy();
+	}
+	scriptLoaded() {
+		this.setState({ scriptLoaded: true });
+	}
+	paymentFormLoaded = () => {
+		this.setState({ paymentFormLoaded: true });
+	};
+
+	newScript() {
+		return new Promise(function(resolve, reject) {
+			var script = document.createElement('script');
+			script.src = 'https://js.squareup.com/v2/paymentform';
+			script.addEventListener('load', function() {
+				resolve();
+			});
+			script.addEventListener('error', function(e) {
+				reject(e);
+			});
+			document.body.appendChild(script);
+		});
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		const { scriptLoaded } = this.state;
+		if (scriptLoaded && scriptLoaded !== prevState.scriptLoaded) {
+			this.initForm();
+		}
+	}
+
+	initForm = () => {
+		const that = this;
+		const { zipCode } = this.props;
+
 		this.paymentForm = new window.SqPaymentForm({
 			applicationId: applicationId,
 			locationId: locationId,
 			inputClass: 'sq-input',
 			inputStyles: [
 				{
-					fontSize: '20px',
+					fontSize: '25px',
 					lineHeight: '40px'
 				}
 			],
-
-			applePay: {
-				elementId: 'sq-apple-pay'
-			},
-
+			applePay: false,
 			masterpass: false,
-
 			cardNumber: {
 				elementId: 'sq-card-number',
-				placeholder: '•••• •••• •••• ••••'
+				placeholder: '**** **** **** ****'
 			},
 			cvv: {
 				elementId: 'sq-cvv',
@@ -53,17 +106,6 @@ export class BillingContainer extends Component {
 						applePayLabel.style.display = 'none';
 					}
 				},
-
-				/*
-			 * callback function: createPaymentRequest
-			 * Triggered when: a digital wallet payment button is clicked.
-			 */
-				createPaymentRequest: function() {
-					var paymentRequestJson;
-					/* ADD CODE TO SET/CREATE paymentRequestJson */
-					return paymentRequestJson;
-				},
-
 				/*
 			 * callback function: validateShippingContact
 			 * Triggered when: a shipping address is selected/changed in a digital
@@ -74,40 +116,34 @@ export class BillingContainer extends Component {
 					/* ADD CODE TO SET validationErrorObj IF ERRORS ARE FOUND */
 					return validationErrorObj;
 				},
-
-				/*
-			 * callback function: cardNonceResponseReceived
-			 * Triggered when: SqPaymentForm completes a card nonce request
-			 */
 				cardNonceResponseReceived: function(errors, nonce, cardData) {
+					const { billing, shipping, email } = that.props;
+					const customerInfo = {
+						billing,
+						shipping,
+						email: email
+					};
 					if (errors) {
-						console.log('Encountered errors:');
+						let message = '';
 						errors.forEach(function(error) {
-							console.log('  ' + error.message);
+							message = message + error.message + '\n';
 						});
-
+						swal({
+							type: 'error',
+							title: 'Something went wrong...',
+							html: message.replace(/\n/g, '<br/>')
+						});
 						return;
 					}
-
-					alert('Nonce received: ' + nonce); /* FOR TESTING ONLY */
-
+					console.log(nonce, customerInfo);
+					paymentRequest(nonce, customerInfo);
 					document.getElementById('card-nonce').value = nonce;
-
-					document.getElementById('nonce-form').submit();
+					// document.getElementById('nonce-form').submit();
 				},
-
-				/*
-			 * callback function: unsupportedBrowserDetected
-			 * Triggered when: the page loads and an unsupported browser is detected
-			 */
 				unsupportedBrowserDetected: function() {
 					/* PROVIDE FEEDBACK TO SITE VISITORS */
+					alert('Browser not compatible');
 				},
-
-				/*
-			 * callback function: inputEventReceived
-			 * Triggered when: visitors interact with SqPaymentForm iframe elements.
-			 */
 				inputEventReceived: function(inputEvent) {
 					switch (inputEvent.eventType) {
 						case 'focusClassAdded':
@@ -131,68 +167,70 @@ export class BillingContainer extends Component {
 					}
 				},
 				paymentFormLoaded: function() {
-					/* HANDLE AS DESIRED */
+					const { billing: { billingZipCode } } = that.props;
+					that.paymentForm.setPostalCode(billingZipCode);
+					that.paymentFormLoaded();
 				}
 			}
 		});
 		this.paymentForm.build();
-	}
+	};
+	requestCardNonce = event => {
+		event.preventDefault();
+		this.paymentForm.requestCardNonce();
+	};
 	render() {
+		const { paymentFormLoaded } = this.state;
+		// action="path/to/payment/processing/page"
 		return (
 			<Container>
 				<Helmet>
 					<title>Payment</title>
-					<script type="text/javascript" src="https://js.squareup.com/v2/paymentform" />
 				</Helmet>
 				<ViewArea>
-					<BillingTitle />
-					<div id="sq-ccbox">
-						<form
-							id="nonce-form"
-							noValidate
-							action="path/to/payment/processing/page"
-							method="post"
-							style={{ display: 'flex', flex: '1', flexDirection: 'column' }}
-						>
-							<Row>
-								<Title>Card Number:</Title>
-								<Field id="sq-card-number" />
-							</Row>
-							<Row>
-								<Title>CVV:</Title>
-								<Field id="sq-cvv" />
-							</Row>
-							<Row>
-								<Title>Expiration Date: </Title>
-								<Field id="sq-expiration-date" />
-							</Row>
-							<Row>
-								<Title>Postal Code:</Title>
-								<Field id="sq-postal-code" />
-							</Row>
-							<ButtonRow>
-								<Filler />
-								<ButtonWrap>
-									<button
-										id="sq-creditcard"
-										className="button-credit-card"
-										onClick={() => console.log('reqeustnone')}
-									>
-										Pay with card
-									</button>
-								</ButtonWrap>
-							</ButtonRow>
-							<input type="hidden" id="card-nonce" name="nonce" />
-						</form>
-					</div>
-
-					<div id="sq-walletbox">
-						Pay with a Digital Wallet
-						<div id="sq-apple-pay-label" className="wallet-not-enabled">
-							Apple Pay for Web not enabled
+					<Header>Payment</Header>
+					<LoadingMask loading={!paymentFormLoaded}>
+						<div id="sq-ccbox">
+							<form
+								id="nonce-form"
+								noValidate
+								// method="post"
+								onSubmit={this.requestCardNonce}
+								style={{
+									marginTop: '20px',
+									display: 'flex',
+									flex: '1',
+									flexDirection: 'column'
+								}}
+							>
+								<Row>
+									<Title>Card Number:</Title>
+									<Field id="sq-card-number" />
+								</Row>
+								<Row>
+									<Title>CVV:</Title>
+									<Field id="sq-cvv" />
+								</Row>
+								<Row>
+									<Title>Expiration Date: </Title>
+									<Field id="sq-expiration-date" />
+								</Row>
+								<Row>
+									<Title>Postal Code:</Title>
+									<Field id="sq-postal-code" />
+								</Row>
+								<ButtonRow>
+									<Filler />
+									<ButtonWrap>
+										<button id="sq-creditcard" className="button-credit-card">
+											Process Payment
+										</button>
+									</ButtonWrap>
+								</ButtonRow>
+								<input type="hidden" id="card-nonce" name="nonce" />
+							</form>
 						</div>
-						<button id="sq-apple-pay" className="button-apple-pay" />
-					</div>
+					</LoadingMask>
 				</ViewArea>
 			</Container>
 		);
@@ -210,11 +248,9 @@ const ViewArea = styled.div`
 	width: 80%;
 	height: 100%;
 	flex-direction: column;
+	margin-top: 20px;
 `;
-const Header = styled.div`
-	display: flex;
-	justify-content: flex-start;
-`;
+
 const Row = styled.div`
 	display: flex;
 	flex-direction: row;

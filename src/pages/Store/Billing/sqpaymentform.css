@@ -1,14 +1,14 @@
 /* Define how SqPaymentForm iframes should look */
 .sq-input {
-	border: 2px solid #f0f0f0;
+	border: 1px solid black;
 	padding-left: 10px;
-	border-radius: 1px;
+	border-radius: 2px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	font-family: 'Abel';
 	height: 40px;
+	line-height: 40px;
 }
 
 /* Define how SqPaymentForm iframes should look when they have focus */
@@ -88,5 +88,4 @@
 }
 
 #sq-card-number {
-	color: 'red';
 }

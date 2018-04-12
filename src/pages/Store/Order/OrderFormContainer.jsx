@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Header } from './Header';
+import { Header } from '../Header';
 import { Email } from './Form/Email';
 // Shipping
 import { FirstName as ShippingFirstName } from './Form/ShippingComponents/FirstName';

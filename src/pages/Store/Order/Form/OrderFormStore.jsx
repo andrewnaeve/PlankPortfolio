@@ -51,7 +51,6 @@ export class OrderFormStore extends Component {
 			submitted,
 			checkingValidation
 		} = this.state;
-
 		return this.props.render({
 			email,
 			shipping,
@@ -110,9 +109,25 @@ export class OrderFormStore extends Component {
 	};
 
 	_handleBillingSameAsShippingChange = e => {
-		this.setState(({ billingSameAsShipping }) => ({
-			billingSameAsShipping: !billingSameAsShipping
-		}));
+		this.setState(({ billingSameAsShipping, shipping, billing }) => {
+			if (!billingSameAsShipping) {
+				return {
+					billingSameAsShipping: !billingSameAsShipping,
+					billing: {
+						billingFirstName: shipping.firstName,
+						billingLastName: shipping.lastName,
+						billingAddress: shipping.address,
+						billingAddress2: shipping.address2,
+						billingCity: shipping.city,
+						billingState: shipping.state,
+						billingZipCode: shipping.zipCode
+					}
+				};
+			}
+			return {
+				billingSameAsShipping: !billingSameAsShipping
+			};
+		});
 	};
 
 	_validateForm = () => {

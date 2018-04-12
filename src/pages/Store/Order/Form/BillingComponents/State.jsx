@@ -20,7 +20,7 @@ export const State = props => (
 						field="billingState"
 						handleChange={handleBillingFieldChange}
 					>
-						<SelectStates key={''} />
+						<SelectStates />
 					</SelectField>
 				</div>
 			)}
