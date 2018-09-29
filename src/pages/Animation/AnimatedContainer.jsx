@@ -1,61 +1,62 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Motion, spring } from 'react-motion';
+import { Spring } from 'react-spring';
+import { Easing } from 'react-spring/dist/addons';
 
 class AnimatedContainer extends Component {
-	state = {
-		loaded: false
-	};
+  state = {
+    loaded: false
+  };
 
-	_handleLoad = this._handleLoad.bind(this);
+  _handleLoad = this._handleLoad.bind(this);
 
-	render() {
-		return this.props.render({
-			handleLoad: this._handleLoad,
-			renderAnimation: this._renderAnimation
-		});
-	}
+  render() {
+    return this.props.render({
+      handleLoad: this._handleLoad,
+      renderAnimation: this._renderAnimation
+    });
+  }
 
-	_renderAnimation = component => {
-		const { loaded } = this.state;
+  _renderAnimation = component => {
+    const { loaded } = this.state;
 
-		const dynamicStyle = {
-			opacity: spring(loaded ? 1.0 : 0.0, {
-				stiffness: 30,
-				damping: 10
-			}),
-			position: spring(loaded ? -10 : 0, { stiffness: 75, damping: 10 })
-		};
+    const dynamicStyle = {
+      opacity: loaded ? 1.0 : 0.0,
+      position: loaded ? -10 : 0
+    };
 
-		return (
-			<Motion style={dynamicStyle}>
-				{interpolatingStyle => (
-					<AnimatedDiv
-						style={{
-							transform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
-							WebkitTransform: `translate3d(0, ${interpolatingStyle.position}px, 0)`,
-							opacity: `${interpolatingStyle.opacity}`
-						}}
-					>
-						{component}
-					</AnimatedDiv>
-				)}
-			</Motion>
-		);
-	};
+    const animationConfig = key => {
+      return key === 'opacity' ? Easing.linear : Easing.elastic;
+    };
 
-	_handleLoad() {
-		this.setState({
-			loaded: true
-		});
-	}
+    return (
+      <Spring to={dynamicStyle} config={animationConfig}>
+        {({ position, opacity }) => (
+          <AnimatedDiv
+            style={{
+              transform: `translate3d(0, ${position}px, 0)`,
+              WebkitTransform: `translate3d(0, ${position}px, 0)`,
+              opacity: `${opacity}`
+            }}
+          >
+            {component}
+          </AnimatedDiv>
+        )}
+      </Spring>
+    );
+  };
+
+  _handleLoad() {
+    this.setState({
+      loaded: true
+    });
+  }
 }
 
 export default AnimatedContainer;
 
 const AnimatedDiv = styled.div`
-	display: flex;
-	flex: 1;
-	margin-top: 10px;
-	justify-content: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
 `;
