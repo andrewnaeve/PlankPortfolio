@@ -31,7 +31,7 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   max-width: 90%;
-  margin-top: 90px;
+  margin-top: 30px;
   ${media.tablets`
 		max-width: 70%;
 		margin-top: 20px;
