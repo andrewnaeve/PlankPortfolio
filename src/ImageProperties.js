@@ -20,21 +20,21 @@ export const NancyPlank = {
 
 export const ImageProperties = [
   {
-    title: 'The Last Bouquet',
-    description: '36" x 36", oil on linen',
-    width: 2657,
-    height: 3011,
-    firebaseUrl:
-      'https://firebasestorage.googleapis.com/v0/b/nancyplank-ff678.appspot.com/o/Boquet.jpg?alt=media&token=702b6b18-0781-4a2a-94f1-ac6556fba4b9',
-    price: 1000
-  },
-  {
     title: 'Street Lights at LACMA',
     description: '9" x 12", oil on linen',
     width: 3622,
     height: 2662,
     firebaseUrl:
       'https://firebasestorage.googleapis.com/v0/b/nancyplank-ff678.appspot.com/o/Lanterns.jpg?alt=media&token=b598f166-38e1-48f9-8771-a9cde8cb0afc',
+    price: 1000
+  },
+  {
+    title: 'The Last Bouquet',
+    description: '36" x 36", oil on linen',
+    width: 2657,
+    height: 3011,
+    firebaseUrl:
+      'https://firebasestorage.googleapis.com/v0/b/nancyplank-ff678.appspot.com/o/Boquet.jpg?alt=media&token=702b6b18-0781-4a2a-94f1-ac6556fba4b9',
     price: 1000
   },
   {
