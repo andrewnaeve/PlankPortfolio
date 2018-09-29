@@ -18,39 +18,39 @@ import { OrderFormContainer } from './pages/Store/Order/OrderFormContainer';
 import { BillingContainer } from './pages/Store/Billing/BillingContainer';
 
 const App = props => (
-	<Wrapper>
-		<Title />
-		<Navbar />
-		<BodyContainer>
-			<Switch>
-				<Route exact path="/" component={Landing} />
-				<Route path="/Selected-Works" component={Portfolio} />
-				<Route path="/Biography" component={Biography} />
-				<Route path="/CV" component={CV} />
-				<Route path="/Contact" component={Contact} />
-				<Route exact path="/Store" component={Store} />
+  <Wrapper>
+    <Title />
+    <Navbar />
+    <BodyContainer>
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/Selected-Works" component={Portfolio} />
+        <Route path="/Biography" component={Biography} />
+        <Route path="/CV" component={CV} />
+        <Route path="/Contact" component={Contact} />
+        {/* <Route exact path="/Store" component={Store} />
 				<Route exact path="/Store/Basket" component={BasketContainer} />
 				<Route exact path="/Store/Basket/Shipping" component={OrderFormContainer} />
-				<Route exact path="/Store/Basket/Shipping/Options" component={BillingContainer} />
-				<Redirect from="**" to="/" />
-			</Switch>
-		</BodyContainer>
-		<ConnectedModal render={({ item, show }) => <StoreModal item={item} show={show} />} />
-		<Footer />
-		<MobileNav />
-	</Wrapper>
+				<Route exact path="/Store/Basket/Shipping/Options" component={BillingContainer} /> */}
+        <Redirect from="**" to="/" />
+      </Switch>
+    </BodyContainer>
+    <ConnectedModal render={({ item, show }) => <StoreModal item={item} show={show} />} />
+    <Footer />
+    <MobileNav />
+  </Wrapper>
 );
 
 export default App;
 
 const Wrapper = styled.div`
-	display: flex;
-	min-height: 100vh;
-	flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 `;
 
 const BodyContainer = styled.div`
-	display: flex;
-	flex: 1;
-	justify-content: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
 `;
