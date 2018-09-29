@@ -6,35 +6,33 @@ import { media } from '../../utilities/style-utils';
 import AnimatedContainer from '../Animation/AnimatedContainer';
 
 const Biography = () => (
-	<Container>
-		<div>
-			<AnimatedContainer
-				render={({ handleLoad, renderAnimation }) =>
-					renderAnimation(
-						<YouTubePlayer title={'YouTubeFrame'} handleLoad={handleLoad} />
-					)
-				}
-			/>
-		</div>
-		<div>
-			<AnimatedContainer
-				render={({ handleLoad, renderAnimation }) =>
-					renderAnimation(<About title={'AboutContainer'} handleLoad={handleLoad} />)
-				}
-			/>
-		</div>
-	</Container>
+  <Container>
+    <div>
+      <AnimatedContainer
+        render={({ handleLoad, renderAnimation }) =>
+          renderAnimation(<YouTubePlayer title={'YouTubeFrame'} handleLoad={handleLoad} />)
+        }
+      />
+    </div>
+    <div>
+      <AnimatedContainer
+        render={({ handleLoad, renderAnimation }) =>
+          renderAnimation(<About title={'AboutContainer'} handleLoad={handleLoad} />)
+        }
+      />
+    </div>
+  </Container>
 );
 
 export default Biography;
 
 const Container = styled.div`
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	max-width: 90%;
-	margin-top: 30px;
-	${media.tablets`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 90%;
+  margin-top: 90px;
+  ${media.tablets`
 		max-width: 70%;
 		margin-top: 20px;
 	`};

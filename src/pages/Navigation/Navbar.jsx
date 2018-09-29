@@ -6,21 +6,21 @@ import { withRouter } from 'react-router';
 import { ShoppingCartIcon } from '../Store/ShoppingCartIcon';
 import { ConnectedBasket } from '../Store/Basket/ConnectedBasket';
 
-const showShoppingCartIcon = pathname => {
-  if (pathname === '/Store' || pathname === '/Store/Basket') {
-    return (
-      <ConnectedBasket
-        render={({ items, addToBasket }) => (
-          <Link to="/Store/Basket">
-            <ShoppingCartIcon items={items} addToBasket={addToBasket} />
-          </Link>
-        )}
-      />
-    );
-  } else {
-    return null;
-  }
-};
+// const showShoppingCartIcon = pathname => {
+//   if (pathname === '/Store' || pathname === '/Store/Basket') {
+//     return (
+//       <ConnectedBasket
+//         render={({ items, addToBasket }) => (
+//           <Link to="/Store/Basket">
+//             <ShoppingCartIcon items={items} addToBasket={addToBasket} />
+//           </Link>
+//         )}
+//       />
+//     );
+//   } else {
+//     return null;
+//   }
+// };
 
 const Navbar = props => (
   <NavContainer>
@@ -52,7 +52,7 @@ const Navbar = props => (
 					</StyledLink>
 				</Item> */}
     </NavList>
-    <Padding>{showShoppingCartIcon(props.location.pathname)}</Padding>
+    <Padding>{/*showShoppingCartIcon(props.location.pathname)*/}</Padding>
   </NavContainer>
 );
 
